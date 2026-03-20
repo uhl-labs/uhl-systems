@@ -2,7 +2,6 @@
 title: 'Agentic AI Is Here — And It Will Expose Your Revenue Leaks'
 description: 'Agentic AI is reshaping how businesses operate. Learn how AI agents impact revenue systems and where most companies lose money in the transition.'
 pubDate: '2026-03-20'
-tags: ['revenue-systems', 'agentic-ai', 'ai-strategy', 'automation']
 ---
 
 # Agentic AI Is Here — And It Will Expose Your Revenue Leaks
