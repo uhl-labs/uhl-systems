@@ -1,0 +1,341 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="de">
+	<head>
+		<BaseHead title="UHL Systems — Unlock Hidden Leverage | Revenue Systeme" description="Wir finden die Revenue Leaks in deinem Business und beheben sie. Revenue Leak Audit ab €1k." isHomepage={false} />
+		<link rel="canonical" href="https://www.uhl-systems.com/de/" />
+		<style>
+			.hero-headline {
+				font-size: clamp(48px, 8vw, 96px);
+				line-height: 1.05;
+				letter-spacing: -0.03em;
+			}
+			.section-heading {
+				font-size: clamp(32px, 5vw, 56px);
+				line-height: 1.1;
+				letter-spacing: -0.02em;
+			}
+			.cta-primary {
+				background-color: var(--color-accent);
+				color: var(--color-bg);
+				border-radius: 999px;
+				padding: 14px 36px;
+				font-weight: 600;
+				transition: all 0.2s;
+			}
+			.cta-primary:hover {
+				box-shadow: 0 0 32px rgba(0, 255, 136, 0.35);
+				color: var(--color-bg);
+			}
+			.cta-ghost {
+				border: 1px solid var(--color-border);
+				border-radius: 999px;
+				padding: 14px 36px;
+				color: var(--color-muted);
+				transition: all 0.2s;
+			}
+			.cta-ghost:hover {
+				border-color: var(--color-accent);
+				color: var(--color-text);
+			}
+			.uhl-card {
+				border: 1px solid var(--color-border);
+				background: var(--color-bg2);
+				border-radius: 16px;
+				padding: 40px 32px;
+				transition: all 0.3s;
+			}
+			.uhl-card:hover {
+				border-color: rgba(0, 255, 136, 0.25);
+				background: var(--color-bg3);
+			}
+			.uhl-letter {
+				font-size: 48px;
+				font-weight: 800;
+				line-height: 1;
+				color: var(--color-accent);
+			}
+			.leak-stage {
+				border: 1px solid var(--color-border);
+				background: var(--color-bg2);
+				border-radius: 12px;
+				padding: 24px 16px;
+				transition: all 0.3s;
+				position: relative;
+			}
+			.leak-stage:hover {
+				border-color: rgba(0, 255, 136, 0.3);
+				background: var(--color-bg3);
+			}
+			.leak-stage:hover .leak-desc {
+				opacity: 1;
+				transform: translateY(0);
+			}
+			.leak-desc {
+				opacity: 0;
+				transform: translateY(4px);
+				transition: all 0.3s;
+			}
+			.content-width {
+				max-width: 1100px;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+
+		<!-- Hero -->
+		<section class="relative overflow-hidden px-6 py-28 md:py-40">
+			<div class="content-width text-center">
+				<p class="fade-in mb-8 font-mono text-sm tracking-widest text-accent uppercase">Revenue Systems Architecture</p>
+				<h1 class="hero-headline fade-in fade-in-delay-1 font-display font-bold text-text">
+					Unlock Hidden Leverage.
+				</h1>
+				<p class="fade-in fade-in-delay-2 mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted">
+					Die meisten Unternehmen optimieren Fragmente. Wir bauen das vollständige Revenue-System — vom ersten Klick bis zum Lifetime Value.
+				</p>
+				<div class="fade-in fade-in-delay-3 mt-14 flex flex-col items-center justify-center gap-4 sm:flex-row">
+					<a href="#contact" class="cta-primary inline-flex items-center gap-2">
+						Revenue Leaks finden
+						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+					</a>
+					<a href="#method" class="cta-ghost inline-flex items-center gap-2">
+						Methode entdecken
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+					</a>
+				</div>
+			</div>
+			<!-- Background grid effect -->
+			<div class="pointer-events-none absolute inset-0 -z-10" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px;"></div>
+			<div class="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full" style="background: radial-gradient(circle, rgba(0,255,136,0.05) 0%, transparent 70%);"></div>
+		</section>
+
+		<!-- Revenue Leak Map -->
+		<section class="border-t border-border px-6 py-28">
+			<div class="content-width">
+				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">Die Revenue Leak Map</p>
+				<h2 class="section-heading mb-6 text-center font-display font-bold text-text">
+					Wo verliert dein Business Geld?
+				</h2>
+				<p class="mx-auto mb-20 max-w-2xl text-center text-muted">
+					Jedes Business hat eine Revenue Pipeline. Die meisten haben Lücken, die sie nicht sehen. Wir mappen den gesamten Flow und finden die Leaks.
+				</p>
+
+				<!-- Flow visualization — horizontal on desktop -->
+				<div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-7">
+					{[
+						{ icon: '<circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/>', label: 'Traffic', desc: 'Falsche Zielgruppe, verbranntes Budget' },
+						{ icon: '<path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/>', label: 'Offer', desc: 'Schwache Positionierung, keine Dringlichkeit' },
+						{ icon: '<path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/>', label: 'Funnel', desc: 'Friction killt Conversions' },
+						{ icon: '<path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/>', label: 'Conversion', desc: 'Kein Vertrauen, kein Beweis, kein Abschluss' },
+						{ icon: '<line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>', label: 'Monetization', desc: 'Unterbewertet, keine Upsells' },
+						{ icon: '<path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"/><rect width="18" height="18" x="3" y="4" rx="2"/><circle cx="12" cy="10" r="2"/><line x1="8" x2="8" y1="2" y2="4"/><line x1="16" x2="16" y1="2" y2="4"/>', label: 'Retention', desc: 'Churn zerstört alles' },
+						{ icon: '<path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/>', label: 'LTV', desc: 'Kein Compounding, kein Wachstum' },
+					].map((step, i) => (
+						<div class="leak-stage group flex flex-col items-center text-center">
+							<div class="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-bg3 text-accent transition-colors group-hover:bg-accent/10">
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" set:html={step.icon} />
+							</div>
+							<span class="font-mono text-[10px] tracking-wider text-muted-dark uppercase">{String(i + 1).padStart(2, '0')}</span>
+							<span class="mt-1 text-sm font-semibold text-text">{step.label}</span>
+							<span class="leak-desc mt-2 text-xs leading-snug text-muted-dark">{step.desc}</span>
+						</div>
+					))}
+				</div>
+
+				<!-- Connector arrows (visible on md+) -->
+				<div class="mt-4 hidden items-center justify-center gap-1 md:flex">
+					{Array.from({ length: 6 }).map(() => (
+						<div class="flex items-center">
+							<div class="h-px w-16 bg-gradient-to-r from-accent/30 to-accent/10"></div>
+							<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-accent/30"><path d="m9 18 6-6-6-6"/></svg>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- The UHL Method -->
+		<section id="method" class="border-t border-border px-6 py-28">
+			<div class="content-width">
+				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">Die Methode</p>
+				<h2 class="section-heading mb-6 text-center font-display font-bold text-text">
+					U &ndash; H &ndash; L
+				</h2>
+				<p class="mx-auto mb-20 max-w-xl text-center text-muted">
+					Unlock Hidden Leverage. Drei Phasen. Ein System. Compounding Results.
+				</p>
+
+				<div class="grid gap-8 md:grid-cols-3">
+					<!-- U -->
+					<div class="uhl-card">
+						<div class="uhl-letter mb-6 font-display">U</div>
+						<h3 class="mb-3 text-xl font-semibold text-text">Revenue Leaks aufdecken</h3>
+						<p class="text-[15px] leading-relaxed text-muted">
+							Deep Audit deines aktuellen Systems. Wir mappen jeden Touchpoint, identifizieren jeden Leak und quantifizieren den Revenue, der auf dem Tisch liegen bleibt.
+						</p>
+					</div>
+
+					<!-- H -->
+					<div class="uhl-card">
+						<div class="uhl-letter mb-6 font-display">H</div>
+						<h3 class="mb-3 text-xl font-semibold text-text">Conversion-Systeme hacken</h3>
+						<p class="text-[15px] leading-relaxed text-muted">
+							Datengetriebenes Strategy-Design. Wir bauen deine Revenue-Architektur mit klaren Prioritäten, Timelines und erwartetem Impact pro Hebel.
+						</p>
+					</div>
+
+					<!-- L -->
+					<div class="uhl-card">
+						<div class="uhl-letter mb-6 font-display">L</div>
+						<h3 class="mb-3 text-xl font-semibold text-text">Bestehenden Traffic hebeln</h3>
+						<p class="text-[15px] leading-relaxed text-muted">
+							Systematische Execution. Wir bauen, testen und optimieren jede Komponente deines Revenue-Systems, bis es compounded.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Offer Tiers -->
+		<section class="border-t border-border px-6 py-28">
+			<div class="content-width">
+				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">Zusammenarbeit</p>
+				<h2 class="section-heading mb-20 text-center font-display font-bold text-text">
+					Wähle dein Level
+				</h2>
+
+				<div class="grid gap-6 md:grid-cols-3">
+					<!-- Audit -->
+					<div class="uhl-card group">
+						<div class="mb-6">
+							<div class="mb-1 flex items-center gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+								<h3 class="text-lg font-semibold text-text">Das Audit</h3>
+							</div>
+							<p class="font-mono text-xs tracking-wider text-muted-dark uppercase">Revenue Leak Analyse</p>
+						</div>
+						<p class="mb-6 text-[15px] leading-relaxed text-muted">
+							Komplettdiagnose deines Revenue-Systems. Du bekommst eine priorisierte Map aller Leaks, Quick Wins und eine Roadmap zur Behebung.
+						</p>
+						<div class="mb-6 border-t border-border pt-6">
+							<span class="font-display text-3xl font-bold text-text">&euro;1&ndash;3k</span>
+						</div>
+						<ul class="space-y-3 text-[15px] text-muted">
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								Volle Funnel-Analyse
+							</li>
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								Revenue Leak Map
+							</li>
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								Priorisierter Action Plan
+							</li>
+						</ul>
+					</div>
+
+					<!-- Method -->
+					<div class="group relative rounded-2xl border border-accent/40 bg-bg2 p-10 shadow-[0_0_48px_rgba(0,255,136,0.06)] transition-all duration-300 hover:border-accent/60">
+						<div class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent px-5 py-1 font-mono text-xs font-semibold text-bg">BELIEBTESTE WAHL</div>
+						<div class="mb-6">
+							<div class="mb-1 flex items-center gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg>
+								<h3 class="text-lg font-semibold text-text">Die Methode</h3>
+							</div>
+							<p class="font-mono text-xs tracking-wider text-muted-dark uppercase">Strategie + Architektur</p>
+						</div>
+						<p class="mb-6 text-[15px] leading-relaxed text-muted">
+							Alles aus dem Audit, plus wir designen deine komplette Revenue-Architektur und bauen das strategische Playbook.
+						</p>
+						<div class="mb-6 border-t border-border pt-6">
+							<span class="font-display text-3xl font-bold text-text">&euro;3&ndash;10k</span>
+						</div>
+						<ul class="space-y-3 text-[15px] text-muted">
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								Alles aus dem Audit
+							</li>
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								Revenue-System-Architektur
+							</li>
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								90-Tage Execution Playbook
+							</li>
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								KPI-Framework + Dashboards
+							</li>
+						</ul>
+					</div>
+
+					<!-- System -->
+					<div class="uhl-card group">
+						<div class="mb-6">
+							<div class="mb-1 flex items-center gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+								<h3 class="text-lg font-semibold text-text">Das System</h3>
+							</div>
+							<p class="font-mono text-xs tracking-wider text-muted-dark uppercase">Full Build + Optimierung</p>
+						</div>
+						<p class="mb-6 text-[15px] leading-relaxed text-muted">
+							Wir planen nicht nur — wir bauen. Volle Implementierung deines Revenue-Systems mit laufender Optimierung und Support.
+						</p>
+						<div class="mb-6 border-t border-border pt-6">
+							<span class="font-display text-3xl font-bold text-text">&euro;5&ndash;20k+</span>
+						</div>
+						<ul class="space-y-3 text-[15px] text-muted">
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								Alles aus der Methode
+							</li>
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								Volle System-Implementierung
+							</li>
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								A/B Testing + Optimierung
+							</li>
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								Laufende Performance Reviews
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact CTA -->
+		<section id="contact" class="border-t border-border px-6 py-28">
+			<div class="content-width text-center">
+				<p class="mb-4 font-mono text-sm tracking-widest text-accent uppercase">Loslegen</p>
+				<h2 class="section-heading mb-6 font-display font-bold text-text">
+					Bereit, das System zu fixen?
+				</h2>
+				<p class="mx-auto mb-14 max-w-xl text-muted">
+					Buche einen kostenlosen 30-Minuten Discovery Call. Wir gehen gemeinsam deine Revenue Pipeline durch und identifizieren die größten Chancen.
+				</p>
+				<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+					<a href="mailto:luke@uhl-systems.com?subject=Revenue Leak Audit" class="cta-primary inline-flex items-center gap-2">
+						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+						luke@uhl-systems.com
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<Footer />
+	</body>
+</html>
