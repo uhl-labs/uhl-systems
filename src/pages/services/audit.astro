@@ -331,34 +331,40 @@ import Header from '../../components/Header.astro';
 		<!-- Pricing -->
 		<section class="border-t border-border px-6 py-24">
 			<div class="content-width">
-				<div class="mx-auto max-w-lg">
-					<div class="group relative rounded-2xl border border-accent/40 bg-bg2 p-10 shadow-[0_0_48px_rgba(0,255,136,0.06)] transition-all duration-300 hover:border-accent/60">
+				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">Investment</p>
+				<h2 class="section-heading mb-6 text-center font-display font-bold text-text">
+					Choose Your Level
+				</h2>
+				<p class="mx-auto mb-16 max-w-2xl text-center text-muted">
+					Start with a diagnostic, or go deeper with strategy and full implementation.
+				</p>
+
+				<div class="grid gap-6 md:grid-cols-3">
+					<!-- Audit -->
+					<div class="group relative flex flex-col rounded-2xl border border-accent/40 bg-bg2 p-10 shadow-[0_0_48px_rgba(0,255,136,0.06)] transition-all duration-300 hover:border-accent/60">
 						<div class="mb-6">
 							<div class="mb-1 flex items-center gap-2">
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-								<h3 class="text-xl font-semibold text-text">Revenue Leak Audit</h3>
+								<h3 class="text-lg font-semibold text-text">The Audit</h3>
 							</div>
-							<p class="font-mono text-xs tracking-wider text-muted-dark uppercase">Complete Revenue System Diagnostic</p>
+							<p class="font-mono text-xs tracking-wider text-muted-dark uppercase">Revenue Leak Analysis</p>
 						</div>
 						<p class="mb-6 text-[15px] leading-relaxed text-muted">
-							Everything you need to see exactly where your business is leaking revenue — and what to fix first.
+							Complete diagnostic of your revenue system. You get a prioritized map of leaks, quick wins, and a roadmap for fixing them.
 						</p>
 						<div class="mb-6 border-t border-border pt-6">
-							<span class="font-display text-4xl font-bold text-text">&euro;1&ndash;3k</span>
-							<p class="mt-1 text-sm text-muted-dark">Based on business complexity</p>
+							<span class="font-display text-3xl font-bold text-text">&euro;1.000 &ndash; &euro;2.000</span>
+							<p class="mt-1 text-sm text-muted-dark">One-time investment</p>
+							<p class="mt-2 text-xs text-muted-dark">+ ab &euro;300/mo optional Dashboard</p>
 						</div>
 						<ul class="mb-8 space-y-3 text-[15px] text-muted">
 							<li class="flex items-start gap-2">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
-								30-min discovery call
+								Full Revenue Leak Analysis (90 min)
 							</li>
 							<li class="flex items-start gap-2">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
-								90-min deep-dive audit session
-							</li>
-							<li class="flex items-start gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
-								Revenue Leak Map
+								Revenue Leak Map (all 7 stages)
 							</li>
 							<li class="flex items-start gap-2">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
@@ -370,10 +376,103 @@ import Header from '../../components/Header.astro';
 							</li>
 							<li class="flex items-start gap-2">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
-								30-min follow-up call
+								Written Report + Roadmap
 							</li>
 						</ul>
-						<a href="mailto:luke@uhl-systems.com?subject=Revenue Leak Audit — Discovery Call" class="cta-primary block w-full text-center">
+						<a href="mailto:luke@uhl-systems.com?subject=The Audit — Discovery Call" class="cta-primary mt-auto block w-full text-center">
+							Book Free Discovery Call
+						</a>
+					</div>
+
+					<!-- Method — highlighted -->
+					<div class="group relative flex flex-col rounded-2xl border border-accent/40 bg-bg2 p-10 shadow-[0_0_48px_rgba(0,255,136,0.06)] transition-all duration-300 hover:border-accent/60">
+						<div class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent px-5 py-1 font-mono text-xs font-semibold text-bg">MOST POPULAR</div>
+						<div class="mb-6">
+							<div class="mb-1 flex items-center gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg>
+								<h3 class="text-lg font-semibold text-text">The Method</h3>
+							</div>
+							<p class="font-mono text-xs tracking-wider text-muted-dark uppercase">Strategy + Architecture</p>
+						</div>
+						<p class="mb-6 text-[15px] leading-relaxed text-muted">
+							Everything in the Audit, plus we design your complete revenue architecture and build the strategic playbook.
+						</p>
+						<div class="mb-6 border-t border-border pt-6">
+							<span class="font-display text-3xl font-bold text-text">&euro;3.000 &ndash; &euro;6.000</span>
+							<p class="mt-1 text-sm text-muted-dark">One-time investment</p>
+							<p class="mt-2 text-xs text-muted-dark">+ ab &euro;500/mo optional Dashboard + Strategy Call</p>
+						</div>
+						<ul class="mb-8 space-y-3 text-[15px] text-muted">
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								Everything in The Audit
+							</li>
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								Complete Revenue System Architecture
+							</li>
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								90-Day Execution Playbook
+							</li>
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								KPI Framework Design
+							</li>
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								2x Strategy Sessions (60 min each)
+							</li>
+						</ul>
+						<a href="mailto:luke@uhl-systems.com?subject=The Method — Discovery Call" class="cta-primary mt-auto block w-full text-center">
+							Book Free Discovery Call
+						</a>
+					</div>
+
+					<!-- System -->
+					<div class="uhl-card group flex flex-col">
+						<div class="mb-6">
+							<div class="mb-1 flex items-center gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+								<h3 class="text-lg font-semibold text-text">The System</h3>
+							</div>
+							<p class="font-mono text-xs tracking-wider text-muted-dark uppercase">Full Build + Optimization</p>
+						</div>
+						<p class="mb-6 text-[15px] leading-relaxed text-muted">
+							We don't just plan — we build. Full implementation of your revenue system with ongoing optimization and support.
+						</p>
+						<div class="mb-6 border-t border-border pt-6">
+							<span class="font-display text-3xl font-bold text-text">&euro;7.000 &ndash; &euro;20.000+</span>
+							<p class="mt-1 text-sm text-muted-dark">One-time investment</p>
+							<p class="mt-2 text-xs text-muted-dark">+ ab &euro;1.000&ndash;&euro;2.000/mo optional Managed Service</p>
+						</div>
+						<ul class="mb-8 space-y-3 text-[15px] text-muted">
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								Everything in The Method
+							</li>
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								Full System Implementation
+							</li>
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								Custom Dashboards & Interfaces
+							</li>
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								A/B Testing + Optimization
+							</li>
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								Ongoing Performance Reviews
+							</li>
+							<li class="flex items-start gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+								Priority Support
+							</li>
+						</ul>
+						<a href="mailto:luke@uhl-systems.com?subject=The System — Discovery Call" class="cta-primary mt-auto block w-full text-center">
 							Book Free Discovery Call
 						</a>
 					</div>
