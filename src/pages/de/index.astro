@@ -347,6 +347,48 @@ import Header from '../../components/Header.astro';
 			</div>
 		</section>
 
+		<!-- Newsletter Opt-In -->
+		<section class="border-t border-border bg-[#0a0a0a] px-6 py-20">
+			<div class="mx-auto max-w-xl text-center">
+				<h2 class="mb-3 font-display text-2xl font-bold text-text md:text-3xl">
+					Hol dir die Revenue Leak Map - Kostenlos
+				</h2>
+				<p class="mb-8 text-muted">
+					W&ouml;chentliche Insights zu Revenue-Systemen. Kein Spam. Jederzeit abmelden.
+				</p>
+				<form id="newsletter-form" class="flex flex-col gap-3 sm:flex-row">
+					<input
+						type="email"
+						required
+						placeholder="email@example.com"
+						class="flex-1 rounded-full border border-border bg-bg2 px-5 py-3 text-text placeholder-muted-dark outline-none transition-colors focus:border-accent"
+					/>
+					<button type="submit" class="cta-primary whitespace-nowrap">
+						Anmelden →
+					</button>
+				</form>
+				<p id="newsletter-thanks" class="mt-4 hidden text-sm font-medium text-accent">
+					Danke! Schau in dein Postfach.
+				</p>
+				<p class="mt-4 text-xs text-muted-dark">
+					Schlie&szlig; dich 0+ Operators an, die bessere Systeme bauen. Kostenloser Guide bei jeder Anmeldung.
+				</p>
+			</div>
+		</section>
+
 		<Footer />
+
+		<script>
+			// === Newsletter Form ===
+			(function() {
+				var form = document.getElementById('newsletter-form');
+				if (!form) return;
+				form.addEventListener('submit', function(e) {
+					e.preventDefault();
+					form.style.display = 'none';
+					document.getElementById('newsletter-thanks').classList.remove('hidden');
+				});
+			})();
+		</script>
 	</body>
 </html>
