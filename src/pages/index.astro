@@ -54,36 +54,229 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 				border-color: rgba(0, 255, 136, 0.25);
 				background: var(--color-bg3);
 			}
-			.uhl-letter {
-				font-size: 48px;
-				font-weight: 800;
-				line-height: 1;
-				color: var(--color-accent);
+			.content-width {
+				max-width: 1100px;
+				margin: 0 auto;
 			}
-			.leak-stage {
-				border: 1px solid var(--color-border);
-				background: var(--color-bg2);
-				border-radius: 12px;
-				padding: 24px 16px;
-				transition: all 0.3s;
+
+			/* === Stats Bar === */
+			.stats-bar {
+				border-top: 1px solid var(--color-border);
+				border-bottom: 1px solid var(--color-border);
+				background: #111;
+			}
+			.stats-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 2rem;
+				text-align: center;
+				padding: 3.5rem 1.5rem;
+				max-width: 900px;
+				margin: 0 auto;
+			}
+			.stat-number {
+				font-size: clamp(48px, 6vw, 72px);
+				font-weight: 800;
+				color: var(--color-accent);
+				line-height: 1;
+				font-family: var(--font-display);
+			}
+			.stat-label {
+				margin-top: 0.75rem;
+				font-size: 14px;
+				color: var(--color-muted);
+				line-height: 1.4;
+			}
+			@media (max-width: 640px) {
+				.stats-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+			}
+
+			/* === Revenue Leak Map === */
+			.leak-flow {
+				display: flex;
+				align-items: flex-start;
+				gap: 0;
+				overflow-x: auto;
+				padding-bottom: 1rem;
+			}
+			.leak-station {
+				flex: 1;
+				min-width: 120px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
 				position: relative;
 			}
-			.leak-stage:hover {
-				border-color: rgba(0, 255, 136, 0.3);
+			.leak-card {
+				border: 1px solid #1a1a1a;
+				background: var(--color-bg2);
+				border-radius: 14px;
+				padding: 20px 12px 16px;
+				transition: all 0.35s ease;
+				width: 100%;
+				cursor: default;
+			}
+			.leak-card:hover {
+				border-color: #00ff88;
+				box-shadow: 0 0 24px rgba(0, 255, 136, 0.15), 0 0 48px rgba(0, 255, 136, 0.05);
 				background: var(--color-bg3);
 			}
-			.leak-stage:hover .leak-desc {
+			.leak-card:hover .leak-icon-wrap {
+				background: rgba(0, 255, 136, 0.12);
+			}
+			.leak-card:hover .leak-hover-desc {
 				opacity: 1;
 				transform: translateY(0);
 			}
-			.leak-desc {
+			.leak-icon-wrap {
+				width: 44px;
+				height: 44px;
+				border-radius: 10px;
+				background: var(--color-bg3);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin: 0 auto 10px;
+				transition: background 0.3s;
+			}
+			.leak-number {
+				font-family: var(--font-mono);
+				font-size: 10px;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				color: var(--color-muted-dark);
+			}
+			.leak-title {
+				font-size: 13px;
+				font-weight: 600;
+				color: var(--color-text);
+				margin-top: 4px;
+				line-height: 1.3;
+			}
+			.leak-hover-desc {
+				font-size: 11px;
+				color: var(--color-muted-dark);
+				margin-top: 8px;
+				line-height: 1.4;
 				opacity: 0;
 				transform: translateY(4px);
 				transition: all 0.3s;
 			}
-			.content-width {
-				max-width: 1100px;
-				margin: 0 auto;
+			.leak-arrow {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				padding: 0 2px;
+				flex-shrink: 0;
+				margin-top: 30px;
+			}
+			.leak-arrow-line {
+				width: 24px;
+				height: 1px;
+				background: linear-gradient(90deg, rgba(0, 255, 136, 0.3), rgba(0, 255, 136, 0.1));
+			}
+			.leak-warning {
+				display: flex;
+				align-items: center;
+				gap: 2px;
+				margin-top: 4px;
+				font-size: 9px;
+				font-family: var(--font-mono);
+				color: #ff6b35;
+				letter-spacing: 0.05em;
+				white-space: nowrap;
+			}
+			.leak-warning-icon {
+				width: 10px;
+				height: 10px;
+				flex-shrink: 0;
+			}
+			@media (max-width: 768px) {
+				.leak-flow {
+					flex-direction: column;
+					align-items: center;
+					gap: 0;
+				}
+				.leak-station {
+					width: 100%;
+					max-width: 280px;
+				}
+				.leak-arrow {
+					margin-top: 0;
+					padding: 6px 0;
+					flex-direction: row;
+					gap: 6px;
+				}
+				.leak-arrow-line {
+					width: 1px;
+					height: 20px;
+					background: linear-gradient(180deg, rgba(0, 255, 136, 0.3), rgba(0, 255, 136, 0.1));
+				}
+			}
+
+			/* === UHL Method Cards === */
+			.uhl-method-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 2rem;
+			}
+			@media (max-width: 768px) {
+				.uhl-method-grid { grid-template-columns: 1fr; }
+			}
+			.uhl-method-card {
+				position: relative;
+				overflow: hidden;
+				border: 1px solid var(--color-border);
+				background: var(--color-bg2);
+				border-radius: 16px;
+				padding: 48px 32px 40px;
+				transition: all 0.4s ease;
+				opacity: 0;
+				transform: translateY(40px);
+			}
+			.uhl-method-card.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+			.uhl-method-card:hover {
+				border-color: rgba(0, 255, 136, 0.35);
+				box-shadow: 0 0 32px rgba(0, 255, 136, 0.08);
+				background: var(--color-bg3);
+			}
+			.uhl-watermark {
+				position: absolute;
+				top: -20px;
+				right: -10px;
+				font-size: 180px;
+				font-weight: 900;
+				font-family: var(--font-display);
+				color: rgba(0, 255, 136, 0.04);
+				line-height: 1;
+				pointer-events: none;
+				user-select: none;
+			}
+			.uhl-method-letter {
+				font-size: 28px;
+				font-weight: 700;
+				color: var(--color-accent);
+				font-family: var(--font-display);
+				position: relative;
+			}
+			.uhl-method-title {
+				font-size: 20px;
+				font-weight: 600;
+				color: var(--color-text);
+				margin-top: 12px;
+				position: relative;
+			}
+			.uhl-method-desc {
+				font-size: 15px;
+				color: var(--color-muted);
+				line-height: 1.7;
+				margin-top: 12px;
+				position: relative;
 			}
 		</style>
 	</head>
@@ -116,6 +309,24 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 			<div class="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full" style="background: radial-gradient(circle, rgba(0,255,136,0.05) 0%, transparent 70%);"></div>
 		</section>
 
+		<!-- Stats Bar -->
+		<section class="stats-bar" data-stats>
+			<div class="stats-grid">
+				<div>
+					<div class="stat-number" data-count="7">0</div>
+					<div class="stat-label">Revenue Leak Types We Fix</div>
+				</div>
+				<div>
+					<div class="stat-number" data-count="90">0</div>
+					<div class="stat-label">Days to Transform Your System</div>
+				</div>
+				<div>
+					<div class="stat-number" data-count="0" data-prefix="€">€0</div>
+					<div class="stat-label">Extra Ad Spend Required</div>
+				</div>
+			</div>
+		</section>
+
 		<!-- Revenue Leak Map -->
 		<section class="border-t border-border px-6 py-28">
 			<div class="content-width">
@@ -127,36 +338,152 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 					Every business has a revenue pipeline. Most have gaps they can't see. We map the full flow and find the leaks.
 				</p>
 
-				<!-- Flow visualization - horizontal on desktop -->
-				<div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-7">
-					{[
-						{ icon: '<circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/>', label: 'Traffic', desc: 'Wrong audience, wasted spend' },
-						{ icon: '<path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/>', label: 'Offer', desc: 'Weak positioning, no urgency' },
-						{ icon: '<path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/>', label: 'Funnel', desc: 'Friction kills conversions' },
-						{ icon: '<path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/>', label: 'Conversion', desc: 'No trust, no proof, no sale' },
-						{ icon: '<line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>', label: 'Monetization', desc: 'Underpriced, no upsells' },
-						{ icon: '<path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"/><rect width="18" height="18" x="3" y="4" rx="2"/><circle cx="12" cy="10" r="2"/><line x1="8" x2="8" y1="2" y2="4"/><line x1="16" x2="16" y1="2" y2="4"/>', label: 'Retention', desc: 'Churn erodes everything' },
-						{ icon: '<path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/>', label: 'LTV', desc: 'No compounding, no growth' },
-					].map((step, i) => (
-						<div class="leak-stage group flex flex-col items-center text-center">
-							<div class="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-bg3 text-accent transition-colors group-hover:bg-accent/10">
-								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" set:html={step.icon} />
+				<div class="leak-flow">
+					<!-- 01 Traffic Acquisition -->
+					<div class="leak-station">
+						<div class="leak-card">
+							<div class="leak-icon-wrap">
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M12 19V5"/><path d="m5 12 7-7 7 7"/>
+								</svg>
 							</div>
-							<span class="font-mono text-[10px] tracking-wider text-muted-dark uppercase">{String(i + 1).padStart(2, '0')}</span>
-							<span class="mt-1 text-sm font-semibold text-text">{step.label}</span>
-							<span class="leak-desc mt-2 text-xs leading-snug text-muted-dark">{step.desc}</span>
+							<div class="leak-number">01</div>
+							<div class="leak-title">Traffic Acquisition</div>
+							<div class="leak-hover-desc">Wrong audience, wasted spend</div>
 						</div>
-					))}
-				</div>
+					</div>
 
-				<!-- Connector arrows (visible on md+) -->
-				<div class="mt-4 hidden items-center justify-center gap-1 md:flex">
-					{Array.from({ length: 6 }).map(() => (
-						<div class="flex items-center">
-							<div class="h-px w-16 bg-gradient-to-r from-accent/30 to-accent/10"></div>
-							<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-accent/30"><path d="m9 18 6-6-6-6"/></svg>
+					<div class="leak-arrow">
+						<div class="leak-arrow-line"></div>
+						<div class="leak-warning">
+							<svg class="leak-warning-icon" viewBox="0 0 24 24" fill="none" stroke="#ff6b35" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/><path d="M12 10v4"/><circle cx="12" cy="18" r="0.5" fill="#ff6b35"/></svg>
+							Leak?
 						</div>
-					))}
+					</div>
+
+					<!-- 02 Offer Positioning -->
+					<div class="leak-station">
+						<div class="leak-card">
+							<div class="leak-icon-wrap">
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+									<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+								</svg>
+							</div>
+							<div class="leak-number">02</div>
+							<div class="leak-title">Offer Positioning</div>
+							<div class="leak-hover-desc">Weak positioning, no urgency</div>
+						</div>
+					</div>
+
+					<div class="leak-arrow">
+						<div class="leak-arrow-line"></div>
+						<div class="leak-warning">
+							<svg class="leak-warning-icon" viewBox="0 0 24 24" fill="none" stroke="#ff6b35" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/><path d="M12 10v4"/><circle cx="12" cy="18" r="0.5" fill="#ff6b35"/></svg>
+							Leak?
+						</div>
+					</div>
+
+					<!-- 03 Funnel Journey -->
+					<div class="leak-station">
+						<div class="leak-card">
+							<div class="leak-icon-wrap">
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/>
+								</svg>
+							</div>
+							<div class="leak-number">03</div>
+							<div class="leak-title">Funnel Journey</div>
+							<div class="leak-hover-desc">Friction kills conversions</div>
+						</div>
+					</div>
+
+					<div class="leak-arrow">
+						<div class="leak-arrow-line"></div>
+						<div class="leak-warning">
+							<svg class="leak-warning-icon" viewBox="0 0 24 24" fill="none" stroke="#ff6b35" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/><path d="M12 10v4"/><circle cx="12" cy="18" r="0.5" fill="#ff6b35"/></svg>
+							Leak?
+						</div>
+					</div>
+
+					<!-- 04 Conversion Action -->
+					<div class="leak-station">
+						<div class="leak-card">
+							<div class="leak-icon-wrap">
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M9 3h6l3 7-7.5 11L3 10z"/><path d="m14 8-3 5"/>
+								</svg>
+							</div>
+							<div class="leak-number">04</div>
+							<div class="leak-title">Conversion Action</div>
+							<div class="leak-hover-desc">No trust, no proof, no sale</div>
+						</div>
+					</div>
+
+					<div class="leak-arrow">
+						<div class="leak-arrow-line"></div>
+						<div class="leak-warning">
+							<svg class="leak-warning-icon" viewBox="0 0 24 24" fill="none" stroke="#ff6b35" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/><path d="M12 10v4"/><circle cx="12" cy="18" r="0.5" fill="#ff6b35"/></svg>
+							Leak?
+						</div>
+					</div>
+
+					<!-- 05 Monetization -->
+					<div class="leak-station">
+						<div class="leak-card">
+							<div class="leak-icon-wrap">
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+								</svg>
+							</div>
+							<div class="leak-number">05</div>
+							<div class="leak-title">Monetization</div>
+							<div class="leak-hover-desc">Underpriced, no upsells</div>
+						</div>
+					</div>
+
+					<div class="leak-arrow">
+						<div class="leak-arrow-line"></div>
+						<div class="leak-warning">
+							<svg class="leak-warning-icon" viewBox="0 0 24 24" fill="none" stroke="#ff6b35" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/><path d="M12 10v4"/><circle cx="12" cy="18" r="0.5" fill="#ff6b35"/></svg>
+							Leak?
+						</div>
+					</div>
+
+					<!-- 06 Retention -->
+					<div class="leak-station">
+						<div class="leak-card">
+							<div class="leak-icon-wrap">
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v9h-9"/>
+								</svg>
+							</div>
+							<div class="leak-number">06</div>
+							<div class="leak-title">Retention</div>
+							<div class="leak-hover-desc">Churn erodes everything</div>
+						</div>
+					</div>
+
+					<div class="leak-arrow">
+						<div class="leak-arrow-line"></div>
+						<div class="leak-warning">
+							<svg class="leak-warning-icon" viewBox="0 0 24 24" fill="none" stroke="#ff6b35" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/><path d="M12 10v4"/><circle cx="12" cy="18" r="0.5" fill="#ff6b35"/></svg>
+							Leak?
+						</div>
+					</div>
+
+					<!-- 07 LTV Growth -->
+					<div class="leak-station">
+						<div class="leak-card">
+							<div class="leak-icon-wrap">
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/>
+								</svg>
+							</div>
+							<div class="leak-number">07</div>
+							<div class="leak-title">LTV Growth</div>
+							<div class="leak-hover-desc">No compounding, no growth</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -172,32 +499,32 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 					Unlock Hidden Leverage. Three phases. One system. Compounding results.
 				</p>
 
-				<div class="grid gap-8 md:grid-cols-3">
-					<!-- U -->
-					<div class="uhl-card">
-						<div class="uhl-letter mb-6 font-display">U</div>
-						<h3 class="mb-3 text-xl font-semibold text-text">Uncover Revenue Leaks</h3>
-						<p class="text-[15px] leading-relaxed text-muted">
+				<div class="uhl-method-grid">
+					<div class="uhl-method-card" data-uhl-card>
+						<div class="uhl-watermark">U</div>
+						<div class="uhl-method-letter">U</div>
+						<div class="uhl-method-title">Uncover Revenue Leaks</div>
+						<div class="uhl-method-desc">
 							Deep audit of your current system. We map every touchpoint, identify every leak, and quantify the revenue left on the table.
-						</p>
+						</div>
 					</div>
 
-					<!-- H -->
-					<div class="uhl-card">
-						<div class="uhl-letter mb-6 font-display">H</div>
-						<h3 class="mb-3 text-xl font-semibold text-text">Hack Conversion Systems</h3>
-						<p class="text-[15px] leading-relaxed text-muted">
+					<div class="uhl-method-card" data-uhl-card style="transition-delay: 0.12s;">
+						<div class="uhl-watermark">H</div>
+						<div class="uhl-method-letter">H</div>
+						<div class="uhl-method-title">Hack Conversion Systems</div>
+						<div class="uhl-method-desc">
 							Data-driven strategy design. We build your revenue architecture with clear priorities, timelines, and expected impact per lever.
-						</p>
+						</div>
 					</div>
 
-					<!-- L -->
-					<div class="uhl-card">
-						<div class="uhl-letter mb-6 font-display">L</div>
-						<h3 class="mb-3 text-xl font-semibold text-text">Leverage Existing Traffic</h3>
-						<p class="text-[15px] leading-relaxed text-muted">
+					<div class="uhl-method-card" data-uhl-card style="transition-delay: 0.24s;">
+						<div class="uhl-watermark">L</div>
+						<div class="uhl-method-letter">L</div>
+						<div class="uhl-method-title">Leverage Existing Traffic</div>
+						<div class="uhl-method-desc">
 							Systematic execution. We build, test, and optimize each component of your revenue system until it compounds.
-						</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -361,5 +688,58 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		</section>
 
 		<Footer />
+
+		<script>
+			// === Stats Bar: Count-up Animation ===
+			(function() {
+				var statsObserved = false;
+				var statsSection = document.querySelector('[data-stats]');
+				if (!statsSection) return;
+
+				function animateCount(el) {
+					var target = parseInt(el.getAttribute('data-count'), 10);
+					var prefix = el.getAttribute('data-prefix') || '';
+					if (target === 0) { el.textContent = prefix + '0'; return; }
+					var duration = 1200;
+					var start = performance.now();
+					function step(now) {
+						var progress = Math.min((now - start) / duration, 1);
+						var eased = 1 - Math.pow(1 - progress, 3);
+						var current = Math.round(eased * target);
+						el.textContent = prefix + current;
+						if (progress < 1) requestAnimationFrame(step);
+					}
+					requestAnimationFrame(step);
+				}
+
+				var observer = new IntersectionObserver(function(entries) {
+					if (statsObserved) return;
+					entries.forEach(function(entry) {
+						if (entry.isIntersecting) {
+							statsObserved = true;
+							var numbers = statsSection.querySelectorAll('[data-count]');
+							numbers.forEach(function(el) { animateCount(el); });
+							observer.disconnect();
+						}
+					});
+				}, { threshold: 0.3 });
+				observer.observe(statsSection);
+			})();
+
+			// === UHL Method Cards: Scroll-in Animation ===
+			(function() {
+				var cards = document.querySelectorAll('[data-uhl-card]');
+				if (!cards.length) return;
+				var observer = new IntersectionObserver(function(entries) {
+					entries.forEach(function(entry) {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('visible');
+							observer.unobserve(entry.target);
+						}
+					});
+				}, { threshold: 0.15 });
+				cards.forEach(function(card) { observer.observe(card); });
+			})();
+		</script>
 	</body>
 </html>
