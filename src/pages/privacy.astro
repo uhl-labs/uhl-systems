@@ -1,0 +1,55 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="de">
+	<head>
+		<BaseHead title="Datenschutz | UHL Systems" description="Datenschutzerklärung – UHL Systems" />
+	</head>
+	<body>
+		<Header />
+		<main class="mx-auto max-w-3xl px-6 py-24">
+			<h1 class="mb-12 font-display text-3xl font-bold tracking-tight text-text">Datenschutzerklärung</h1>
+
+			<div class="space-y-10 text-muted leading-relaxed">
+				<section>
+					<h2 class="mb-3 text-lg font-semibold text-text">1. Verantwortlicher</h2>
+					<p>Lukas Uhl<br />Enthofstraße 1<br />85276 Pfaffenhofen</p>
+					<p class="mt-2">E-Mail: <a href="mailto:luke@uhl-systems.com" class="text-accent transition-colors hover:text-accent2">luke@uhl-systems.com</a></p>
+				</section>
+
+				<section>
+					<h2 class="mb-3 text-lg font-semibold text-text">2. Erhebung und Speicherung personenbezogener Daten</h2>
+					<p>Beim Besuch dieser Website werden durch den Browser automatisch Informationen an den Server übermittelt (sog. Server-Logfiles). Diese Daten werden nicht mit anderen Datenquellen zusammengeführt.</p>
+				</section>
+
+				<section>
+					<h2 class="mb-3 text-lg font-semibold text-text">3. Webanalyse mit Google Analytics</h2>
+					<p>Diese Website nutzt Google Analytics 4 (Mess-ID: G-BSX1YMRMPY), einen Webanalysedienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.</p>
+					<p class="mt-2">Google Analytics verwendet Cookies, die eine Analyse der Nutzung der Website ermöglichen. Die IP-Anonymisierung ist aktiviert, sodass Ihre IP-Adresse innerhalb der EU/EWR gekürzt wird.</p>
+					<p class="mt-2">Die Nutzung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Analyse des Nutzerverhaltens zur Optimierung des Webauftritts).</p>
+				</section>
+
+				<section>
+					<h2 class="mb-3 text-lg font-semibold text-text">4. Weitergabe an Dritte</h2>
+					<p>Personenbezogene Daten werden nicht an Dritte weitergegeben, es sei denn, dies ist zur Vertragserfüllung erforderlich oder es besteht eine gesetzliche Verpflichtung.</p>
+				</section>
+
+				<section>
+					<h2 class="mb-3 text-lg font-semibold text-text">5. Ihre Rechte</h2>
+					<p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Zur Ausübung dieser Rechte wenden Sie sich an:</p>
+					<p class="mt-2"><a href="mailto:luke@uhl-systems.com" class="text-accent transition-colors hover:text-accent2">luke@uhl-systems.com</a></p>
+				</section>
+
+				<section>
+					<h2 class="mb-3 text-lg font-semibold text-text">6. Beschwerderecht</h2>
+					<p>Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.</p>
+				</section>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
