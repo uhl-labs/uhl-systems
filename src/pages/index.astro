@@ -8,67 +8,143 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`${SITE_TITLE} — Revenue Systems Architecture`} description={SITE_DESCRIPTION} isHomepage={true} />
+		<BaseHead title={`${SITE_TITLE} — Unlock Hidden Leverage`} description={SITE_DESCRIPTION} isHomepage={true} />
+		<style>
+			.hero-headline {
+				font-size: clamp(48px, 8vw, 96px);
+				line-height: 1.05;
+				letter-spacing: -0.03em;
+			}
+			.section-heading {
+				font-size: clamp(32px, 5vw, 56px);
+				line-height: 1.1;
+				letter-spacing: -0.02em;
+			}
+			.cta-primary {
+				background-color: var(--color-accent);
+				color: var(--color-bg);
+				border-radius: 999px;
+				padding: 14px 36px;
+				font-weight: 600;
+				transition: all 0.2s;
+			}
+			.cta-primary:hover {
+				box-shadow: 0 0 32px rgba(0, 255, 136, 0.35);
+				color: var(--color-bg);
+			}
+			.cta-ghost {
+				border: 1px solid var(--color-border);
+				border-radius: 999px;
+				padding: 14px 36px;
+				color: var(--color-muted);
+				transition: all 0.2s;
+			}
+			.cta-ghost:hover {
+				border-color: var(--color-accent);
+				color: var(--color-text);
+			}
+			.uhl-card {
+				border: 1px solid var(--color-border);
+				background: var(--color-bg2);
+				border-radius: 16px;
+				padding: 40px 32px;
+				transition: all 0.3s;
+			}
+			.uhl-card:hover {
+				border-color: rgba(0, 255, 136, 0.25);
+				background: var(--color-bg3);
+			}
+			.uhl-letter {
+				font-size: 48px;
+				font-weight: 800;
+				line-height: 1;
+				color: var(--color-accent);
+			}
+			.leak-stage {
+				border: 1px solid var(--color-border);
+				background: var(--color-bg2);
+				border-radius: 12px;
+				padding: 24px 16px;
+				transition: all 0.3s;
+				position: relative;
+			}
+			.leak-stage:hover {
+				border-color: rgba(0, 255, 136, 0.3);
+				background: var(--color-bg3);
+			}
+			.leak-stage:hover .leak-desc {
+				opacity: 1;
+				transform: translateY(0);
+			}
+			.leak-desc {
+				opacity: 0;
+				transform: translateY(4px);
+				transition: all 0.3s;
+			}
+			.content-width {
+				max-width: 1100px;
+				margin: 0 auto;
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
 
 		<!-- Hero -->
-		<section class="relative overflow-hidden px-6 py-24 md:py-36">
-			<div class="mx-auto max-w-4xl text-center">
-				<p class="mb-6 font-mono text-sm tracking-widest text-accent uppercase">Revenue Systems Architecture</p>
-				<h1 class="font-display text-4xl font-bold leading-tight tracking-tight text-text md:text-6xl lg:text-7xl">
-					You don't have a traffic problem.<br />
-					<span class="text-accent">You have a systems problem.</span>
+		<section class="relative overflow-hidden px-6 py-28 md:py-40">
+			<div class="content-width text-center">
+				<p class="fade-in mb-8 font-mono text-sm tracking-widest text-accent uppercase">Revenue Systems Architecture</p>
+				<h1 class="hero-headline fade-in fade-in-delay-1 font-display font-bold text-text">
+					Unlock Hidden Leverage.
 				</h1>
-				<p class="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted">
+				<p class="fade-in fade-in-delay-2 mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted">
 					Most businesses optimize fragments. We architect the complete revenue system — from first click to lifetime value.
 				</p>
-				<div class="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-					<a href="#contact" class="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-3 font-medium text-bg transition-all duration-200 hover:shadow-[0_0_24px_rgba(0,255,136,0.3)]">
-						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"/></svg>
-						Book a Call
+				<div class="fade-in fade-in-delay-3 mt-14 flex flex-col items-center justify-center gap-4 sm:flex-row">
+					<a href="#contact" class="cta-primary inline-flex items-center gap-2">
+						Find Your Revenue Leaks
+						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
 					</a>
-					<a href="#method" class="inline-flex items-center gap-2 rounded-lg border border-border px-8 py-3 text-sm text-muted transition-all duration-200 hover:border-accent hover:text-text">
-						Learn the Method
+					<a href="#method" class="cta-ghost inline-flex items-center gap-2">
+						See the Method
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
 					</a>
 				</div>
 			</div>
 			<!-- Background grid effect -->
-			<div class="pointer-events-none absolute inset-0 -z-10" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 32px 32px;"></div>
-			<div class="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full" style="background: radial-gradient(circle, rgba(0,255,136,0.06) 0%, transparent 70%);"></div>
+			<div class="pointer-events-none absolute inset-0 -z-10" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px;"></div>
+			<div class="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full" style="background: radial-gradient(circle, rgba(0,255,136,0.05) 0%, transparent 70%);"></div>
 		</section>
 
 		<!-- Revenue Leak Map -->
-		<section class="border-t border-border px-6 py-24">
-			<div class="mx-auto max-w-5xl">
+		<section class="border-t border-border px-6 py-28">
+			<div class="content-width">
 				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">The Revenue Leak Map</p>
-				<h2 class="mb-6 text-center font-display text-3xl font-bold text-text md:text-4xl">
+				<h2 class="section-heading mb-6 text-center font-display font-bold text-text">
 					Where is your revenue leaking?
 				</h2>
-				<p class="mx-auto mb-16 max-w-2xl text-center text-muted">
+				<p class="mx-auto mb-20 max-w-2xl text-center text-muted">
 					Every business has a revenue pipeline. Most have gaps they can't see. We map the full flow and find the leaks.
 				</p>
 
-				<!-- Flow visualization -->
-				<div class="grid grid-cols-1 gap-3 md:grid-cols-7">
+				<!-- Flow visualization — horizontal on desktop -->
+				<div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-7">
 					{[
-						{ icon: '<circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/>', label: 'Traffic', desc: 'Acquisition' },
-						{ icon: '<path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/>', label: 'Offer', desc: 'Positioning' },
-						{ icon: '<path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/>', label: 'Funnel', desc: 'Journey' },
-						{ icon: '<path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/>', label: 'Conversion', desc: 'Action' },
-						{ icon: '<line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>', label: 'Monetization', desc: 'Revenue' },
-						{ icon: '<path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"/><rect width="18" height="18" x="3" y="4" rx="2"/><circle cx="12" cy="10" r="2"/><line x1="8" x2="8" y1="2" y2="4"/><line x1="16" x2="16" y1="2" y2="4"/>', label: 'Retention', desc: 'Loyalty' },
-						{ icon: '<path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/>', label: 'LTV', desc: 'Growth' },
+						{ icon: '<circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/>', label: 'Traffic', desc: 'Wrong audience, wasted spend' },
+						{ icon: '<path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/>', label: 'Offer', desc: 'Weak positioning, no urgency' },
+						{ icon: '<path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/>', label: 'Funnel', desc: 'Friction kills conversions' },
+						{ icon: '<path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/>', label: 'Conversion', desc: 'No trust, no proof, no sale' },
+						{ icon: '<line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>', label: 'Monetization', desc: 'Underpriced, no upsells' },
+						{ icon: '<path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"/><rect width="18" height="18" x="3" y="4" rx="2"/><circle cx="12" cy="10" r="2"/><line x1="8" x2="8" y1="2" y2="4"/><line x1="16" x2="16" y1="2" y2="4"/>', label: 'Retention', desc: 'Churn erodes everything' },
+						{ icon: '<path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/>', label: 'LTV', desc: 'No compounding, no growth' },
 					].map((step, i) => (
-						<div class="group relative flex flex-col items-center rounded-xl border border-border bg-bg2 p-6 transition-all duration-300 hover:border-accent/30 hover:bg-bg3">
+						<div class="leak-stage group flex flex-col items-center text-center">
 							<div class="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-bg3 text-accent transition-colors group-hover:bg-accent/10">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" set:html={step.icon} />
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" set:html={step.icon} />
 							</div>
-							<span class="font-mono text-xs tracking-wider text-muted-dark uppercase">{String(i + 1).padStart(2, '0')}</span>
+							<span class="font-mono text-[10px] tracking-wider text-muted-dark uppercase">{String(i + 1).padStart(2, '0')}</span>
 							<span class="mt-1 text-sm font-semibold text-text">{step.label}</span>
-							<span class="mt-0.5 text-xs text-muted-dark">{step.desc}</span>
+							<span class="leak-desc mt-2 text-xs leading-snug text-muted-dark">{step.desc}</span>
 						</div>
 					))}
 				</div>
@@ -77,8 +153,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 				<div class="mt-4 hidden items-center justify-center gap-1 md:flex">
 					{Array.from({ length: 6 }).map(() => (
 						<div class="flex items-center">
-							<div class="h-px w-16 bg-gradient-to-r from-accent/40 to-accent2/40"></div>
-							<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-accent/40"><path d="m9 18 6-6-6-6"/></svg>
+							<div class="h-px w-16 bg-gradient-to-r from-accent/30 to-accent/10"></div>
+							<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-accent/30"><path d="m9 18 6-6-6-6"/></svg>
 						</div>
 					))}
 				</div>
@@ -86,34 +162,40 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		</section>
 
 		<!-- The UHL Method -->
-		<section id="method" class="border-t border-border px-6 py-24">
-			<div class="mx-auto max-w-5xl">
+		<section id="method" class="border-t border-border px-6 py-28">
+			<div class="content-width">
 				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">The Method</p>
-				<h2 class="mb-16 text-center font-display text-3xl font-bold text-text md:text-4xl">
-					U&ndash;H&ndash;L
+				<h2 class="section-heading mb-6 text-center font-display font-bold text-text">
+					U &ndash; H &ndash; L
 				</h2>
+				<p class="mx-auto mb-20 max-w-xl text-center text-muted">
+					Unlock Hidden Leverage. Three phases. One system. Compounding results.
+				</p>
 
 				<div class="grid gap-8 md:grid-cols-3">
-					<div class="rounded-xl border border-border bg-bg2 p-8 transition-all duration-300 hover:border-accent/30">
-						<div class="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-accent/10 font-display text-2xl font-bold text-accent">U</div>
-						<h3 class="mb-2 text-xl font-semibold text-text">Understand</h3>
-						<p class="text-sm leading-relaxed text-muted">
+					<!-- U -->
+					<div class="uhl-card">
+						<div class="uhl-letter mb-6 font-display">U</div>
+						<h3 class="mb-3 text-xl font-semibold text-text">Uncover Revenue Leaks</h3>
+						<p class="text-[15px] leading-relaxed text-muted">
 							Deep audit of your current system. We map every touchpoint, identify every leak, and quantify the revenue left on the table.
 						</p>
 					</div>
 
-					<div class="rounded-xl border border-border bg-bg2 p-8 transition-all duration-300 hover:border-accent2/30">
-						<div class="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-accent2/10 font-display text-2xl font-bold text-accent2">H</div>
-						<h3 class="mb-2 text-xl font-semibold text-text">Hypothesize</h3>
-						<p class="text-sm leading-relaxed text-muted">
+					<!-- H -->
+					<div class="uhl-card">
+						<div class="uhl-letter mb-6 font-display">H</div>
+						<h3 class="mb-3 text-xl font-semibold text-text">Hack Conversion Systems</h3>
+						<p class="text-[15px] leading-relaxed text-muted">
 							Data-driven strategy design. We build your revenue architecture with clear priorities, timelines, and expected impact per lever.
 						</p>
 					</div>
 
-					<div class="rounded-xl border border-border bg-bg2 p-8 transition-all duration-300 hover:border-purple/30">
-						<div class="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-purple/10 font-display text-2xl font-bold text-purple">L</div>
-						<h3 class="mb-2 text-xl font-semibold text-text">Leverage</h3>
-						<p class="text-sm leading-relaxed text-muted">
+					<!-- L -->
+					<div class="uhl-card">
+						<div class="uhl-letter mb-6 font-display">L</div>
+						<h3 class="mb-3 text-xl font-semibold text-text">Leverage Existing Traffic</h3>
+						<p class="text-[15px] leading-relaxed text-muted">
 							Systematic execution. We build, test, and optimize each component of your revenue system until it compounds.
 						</p>
 					</div>
@@ -122,16 +204,16 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		</section>
 
 		<!-- Offer Tiers -->
-		<section class="border-t border-border px-6 py-24">
-			<div class="mx-auto max-w-5xl">
+		<section class="border-t border-border px-6 py-28">
+			<div class="content-width">
 				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">Work With Us</p>
-				<h2 class="mb-16 text-center font-display text-3xl font-bold text-text md:text-4xl">
+				<h2 class="section-heading mb-20 text-center font-display font-bold text-text">
 					Choose your level
 				</h2>
 
 				<div class="grid gap-6 md:grid-cols-3">
 					<!-- Audit -->
-					<div class="group rounded-xl border border-border bg-bg2 p-8 transition-all duration-300 hover:border-accent/30">
+					<div class="uhl-card group">
 						<div class="mb-6">
 							<div class="mb-1 flex items-center gap-2">
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -139,13 +221,13 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 							</div>
 							<p class="font-mono text-xs tracking-wider text-muted-dark uppercase">Revenue Leak Analysis</p>
 						</div>
-						<p class="mb-6 text-sm leading-relaxed text-muted">
+						<p class="mb-6 text-[15px] leading-relaxed text-muted">
 							Complete diagnostic of your revenue system. You get a prioritized map of leaks, quick wins, and a roadmap for fixing them.
 						</p>
 						<div class="mb-6 border-t border-border pt-6">
-							<span class="font-display text-2xl font-bold text-text">&euro;1&ndash;3k</span>
+							<span class="font-display text-3xl font-bold text-text">&euro;1&ndash;3k</span>
 						</div>
-						<ul class="space-y-2 text-sm text-muted">
+						<ul class="space-y-3 text-[15px] text-muted">
 							<li class="flex items-start gap-2">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
 								Full funnel analysis
@@ -162,8 +244,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 					</div>
 
 					<!-- Method -->
-					<div class="group relative rounded-xl border border-accent/40 bg-bg2 p-8 shadow-[0_0_32px_rgba(0,255,136,0.08)] transition-all duration-300 hover:border-accent/60">
-						<div class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent px-4 py-1 font-mono text-xs font-medium text-bg">MOST POPULAR</div>
+					<div class="group relative rounded-2xl border border-accent/40 bg-bg2 p-10 shadow-[0_0_48px_rgba(0,255,136,0.06)] transition-all duration-300 hover:border-accent/60">
+						<div class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent px-5 py-1 font-mono text-xs font-semibold text-bg">MOST POPULAR</div>
 						<div class="mb-6">
 							<div class="mb-1 flex items-center gap-2">
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg>
@@ -171,13 +253,13 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 							</div>
 							<p class="font-mono text-xs tracking-wider text-muted-dark uppercase">Strategy + Architecture</p>
 						</div>
-						<p class="mb-6 text-sm leading-relaxed text-muted">
+						<p class="mb-6 text-[15px] leading-relaxed text-muted">
 							Everything in the Audit, plus we design your complete revenue architecture and build the strategic playbook.
 						</p>
 						<div class="mb-6 border-t border-border pt-6">
-							<span class="font-display text-2xl font-bold text-text">&euro;3&ndash;10k</span>
+							<span class="font-display text-3xl font-bold text-text">&euro;3&ndash;10k</span>
 						</div>
-						<ul class="space-y-2 text-sm text-muted">
+						<ul class="space-y-3 text-[15px] text-muted">
 							<li class="flex items-start gap-2">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
 								Everything in Audit
@@ -198,35 +280,35 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 					</div>
 
 					<!-- System -->
-					<div class="group rounded-xl border border-border bg-bg2 p-8 transition-all duration-300 hover:border-purple/30">
+					<div class="uhl-card group">
 						<div class="mb-6">
 							<div class="mb-1 flex items-center gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-purple"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
 								<h3 class="text-lg font-semibold text-text">The System</h3>
 							</div>
 							<p class="font-mono text-xs tracking-wider text-muted-dark uppercase">Full Build + Optimization</p>
 						</div>
-						<p class="mb-6 text-sm leading-relaxed text-muted">
+						<p class="mb-6 text-[15px] leading-relaxed text-muted">
 							We don't just plan — we build. Full implementation of your revenue system with ongoing optimization and support.
 						</p>
 						<div class="mb-6 border-t border-border pt-6">
-							<span class="font-display text-2xl font-bold text-text">&euro;5&ndash;20k+</span>
+							<span class="font-display text-3xl font-bold text-text">&euro;5&ndash;20k+</span>
 						</div>
-						<ul class="space-y-2 text-sm text-muted">
+						<ul class="space-y-3 text-[15px] text-muted">
 							<li class="flex items-start gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-purple"><polyline points="20 6 9 17 4 12"/></svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
 								Everything in Method
 							</li>
 							<li class="flex items-start gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-purple"><polyline points="20 6 9 17 4 12"/></svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
 								Full system implementation
 							</li>
 							<li class="flex items-start gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-purple"><polyline points="20 6 9 17 4 12"/></svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
 								A/B testing + optimization
 							</li>
 							<li class="flex items-start gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-purple"><polyline points="20 6 9 17 4 12"/></svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
 								Ongoing performance reviews
 							</li>
 						</ul>
@@ -236,17 +318,17 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		</section>
 
 		<!-- Contact CTA -->
-		<section id="contact" class="border-t border-border px-6 py-24">
-			<div class="mx-auto max-w-3xl text-center">
+		<section id="contact" class="border-t border-border px-6 py-28">
+			<div class="content-width text-center">
 				<p class="mb-4 font-mono text-sm tracking-widest text-accent uppercase">Get Started</p>
-				<h2 class="mb-6 font-display text-3xl font-bold text-text md:text-4xl">
+				<h2 class="section-heading mb-6 font-display font-bold text-text">
 					Ready to fix the system?
 				</h2>
-				<p class="mx-auto mb-12 max-w-xl text-muted">
+				<p class="mx-auto mb-14 max-w-xl text-muted">
 					Book a free 30-minute discovery call. We'll walk through your revenue pipeline together and identify the biggest opportunities.
 				</p>
 				<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-					<a href="mailto:luke@uhl-systems.com?subject=Revenue Leak Audit" class="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-3 font-medium text-bg transition-all duration-200 hover:shadow-[0_0_24px_rgba(0,255,136,0.3)]">
+					<a href="mailto:luke@uhl-systems.com?subject=Revenue Leak Audit" class="cta-primary inline-flex items-center gap-2">
 						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
 						luke@uhl-systems.com
 					</a>

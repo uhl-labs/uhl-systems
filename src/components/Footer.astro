@@ -2,14 +2,27 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-border bg-bg py-12">
-	<div class="mx-auto max-w-6xl px-6 text-center">
-		<div class="mb-4 flex items-center justify-center gap-2">
-			<span class="font-display text-lg font-bold tracking-tight text-text">UHL</span>
-			<span class="text-sm font-light tracking-widest text-muted-dark uppercase">Systems</span>
+<footer class="border-t border-border bg-bg py-16">
+	<div class="mx-auto max-w-6xl px-6">
+		<div class="flex flex-col items-center gap-8 md:flex-row md:justify-between">
+			<div class="text-center md:text-left">
+				<div class="mb-2 flex items-center justify-center gap-2 md:justify-start">
+					<span class="font-display text-lg font-bold tracking-tight text-text">UHL</span>
+					<span class="text-sm font-light tracking-widest text-muted-dark uppercase">Systems</span>
+				</div>
+				<p class="text-sm text-muted-dark">Unlock Hidden Leverage.</p>
+			</div>
+
+			<div class="flex items-center gap-6">
+				<a href="https://www.instagram.com/uhl.labs" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-muted transition-colors hover:text-accent">
+					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+					@uhl.labs
+				</a>
+			</div>
 		</div>
-		<p class="text-sm text-muted-dark">
-			&copy; {year} UHL Systems. All rights reserved.
-		</p>
+
+		<div class="mt-10 border-t border-border pt-6 text-center text-sm text-muted-dark">
+			&copy; {year} UHL Labs &middot; uhl-systems.com
+		</div>
 	</div>
 </footer>

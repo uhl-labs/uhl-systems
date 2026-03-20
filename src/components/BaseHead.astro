@@ -37,8 +37,8 @@ const { title, description, image = '/og-default.png', isHomepage = false } = As
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
+<title>{isHomepage ? 'UHL Systems — Unlock Hidden Leverage' : title}</title>
+<meta name="title" content={isHomepage ? 'UHL Systems — Unlock Hidden Leverage' : title} />
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
@@ -64,6 +64,6 @@ const { title, description, image = '/og-default.png', isHomepage = false } = As
 		"url": "https://uhl-systems.com",
 		"description": "Revenue systems architecture and optimization for digital businesses.",
 		"foundingDate": "2026",
-		"sameAs": []
+		"sameAs": ["https://www.instagram.com/uhl.labs"]
 	})} />
 )}

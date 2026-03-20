@@ -1,2 +1,2 @@
 export const SITE_TITLE = 'UHL Systems';
-export const SITE_DESCRIPTION = 'You don\'t have a traffic problem. You have a systems problem. UHL Systems builds revenue infrastructure that scales.';
+export const SITE_DESCRIPTION = 'We find the revenue leaks in your business and fix them. Revenue Leak Audit starting at €1k.';
