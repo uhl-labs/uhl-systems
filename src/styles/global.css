@@ -167,3 +167,16 @@ a:hover {
   border-top: 1px solid var(--color-border);
   margin: 2em 0;
 }
+
+/* Hero "Hidden" word blink effect */
+@keyframes hero-hidden-blink {
+  0%, 60% { opacity: 1; }
+  70% { opacity: 0; }
+  80% { opacity: 1; }
+  90% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.hero-hidden-word {
+  animation: hero-hidden-blink 4s ease-in-out 2.5s infinite;
+}
