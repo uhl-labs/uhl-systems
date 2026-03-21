@@ -1,5 +1,7 @@
 ---
 const year = new Date().getFullYear();
+const currentPath = Astro.url.pathname;
+const isDE = currentPath.startsWith("/de");
 ---
 
 <footer class="border-t border-border bg-bg py-16">
@@ -23,11 +25,11 @@ const year = new Date().getFullYear();
 
 		<div class="mt-10 flex flex-col items-center gap-3 border-t border-border pt-6 text-center text-sm text-muted-dark">
 			<div class="flex flex-wrap justify-center gap-4">
-				<a href="/services" class="transition-colors hover:text-text">Services</a>
-				<a href="/services/audit" class="transition-colors hover:text-text">Revenue Leak Audit</a>
-				<a href="/services/consulting" class="transition-colors hover:text-text">Consulting</a>
-				<a href="/shop" class="transition-colors hover:text-text">Shop</a>
-				<a href="/blog" class="transition-colors hover:text-text">Blog</a>
+				<a href={isDE ? "/de/services" : "/services"} class="transition-colors hover:text-text">Services</a>
+				<a href={isDE ? "/de/services/audit" : "/services/audit"} class="transition-colors hover:text-text">Revenue Leak Audit</a>
+				<a href={isDE ? "/de/shop" : "/shop"} class="transition-colors hover:text-text">Shop</a>
+				<a href={isDE ? "/de/blog" : "/blog"} class="transition-colors hover:text-text">Blog</a>
+				<a href={isDE ? "/de/about" : "/about"} class="transition-colors hover:text-text">About</a>
 			</div>
 			<div class="flex flex-wrap justify-center gap-4">
 				<a href="/impressum" class="transition-colors hover:text-text">Impressum</a>
