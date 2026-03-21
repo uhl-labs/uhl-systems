@@ -22,7 +22,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			<article>
 				{heroImage && (
 					<div class="mb-8 overflow-hidden rounded-xl">
-						<Image width={1020} height={510} src={heroImage} alt="" class="w-full" />
+						<img src={heroImage} alt={title} class="w-full h-auto object-cover" loading="lazy" />
 					</div>
 				)}
 				<div class="mb-8">

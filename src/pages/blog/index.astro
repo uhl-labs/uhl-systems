@@ -37,12 +37,11 @@ const posts = (await getCollection('blog'))
 						>
 							{post.data.heroImage && (
 								<div class="overflow-hidden">
-									<Image
-										width={i === 0 ? 960 : 480}
-										height={i === 0 ? 480 : 240}
+									<img
 										src={post.data.heroImage}
-										alt=""
+										alt={post.data.title}
 										class="w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+										loading="lazy"
 									/>
 								</div>
 							)}
