@@ -89,7 +89,7 @@ The practical starting point is an audit. Not of your tools, but of your data fl
 
 This is the revenue leak audit applied to your marketing and data infrastructure. It surfaces the specific gaps that are costing you money -not in theory, but with enough specificity that you can prioritize and fix them.
 
-**[Book a free Revenue Leak Audit →](/services/audit)**
+**[Book a Revenue Leak Audit →](/services/audit)**
 
 We will map your current data flows, identify your highest-cost gaps, and give you a concrete plan to close them.
 
@@ -103,4 +103,4 @@ The tracking infrastructure that most B2B marketers depended on for the last dec
 
 The gap between businesses with this infrastructure and those without it will be one of the defining competitive divides of the next three years.
 
-Start building now. **[Book a free Revenue Leak Audit →](/services/audit)**
+Start building now. **[Book a Revenue Leak Audit →](/services/audit)**

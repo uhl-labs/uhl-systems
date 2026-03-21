@@ -79,6 +79,6 @@ Revenue Leaks entstehen nicht nur aus schlechten Prozessen. Sie entstehen auch a
 
 In der Revenue Leak Analyse schauen wir uns deine aktuelle Traffic-Abhängigkeit an und entwickeln gemeinsam eine Strategie, die deinen Umsatz auch dann schützt, wenn Google morgen die Regeln ändert.
 
-**[Jetzt kostenlose Revenue Leak Analyse buchen](https://uhl-systems.com/de/services/audit)**
+**[Jetzt Revenue Leak Analyse buchen](https://uhl-systems.com/de/services/audit)**
 
 Kein Panic-Marketing, kein blindes Umbauen. Nur eine klare Analyse, was dich betrifft, und was du dagegen tun kannst.

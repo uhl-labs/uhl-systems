@@ -67,4 +67,4 @@ A [Revenue Leak Audit](/services/audit) maps this entire flow. I look at your co
 
 The businesses that adapt their content strategy to the AI search era now will have a compounding advantage over the next two years. The businesses that keep publishing "10 tips" blog posts and hoping for the best will watch their organic revenue erode slowly enough to ignore - until it is too late to catch up.
 
-Stop optimizing for a search ecosystem that no longer exists. **[Book a free Revenue Leak Audit](/services/audit)** and find out what your content is actually worth in revenue - and what fixing the gaps could unlock.
+Stop optimizing for a search ecosystem that no longer exists. **[Book a Revenue Leak Audit](/services/audit)** and find out what your content is actually worth in revenue - and what fixing the gaps could unlock.

@@ -67,6 +67,6 @@ Das Meta-Datenleck war eine Warnung. Nicht weil Meta ein schlechtes Unternehmen 
 
 In der Revenue Leak Analyse schauen wir uns auch an, ob deine aktuellen KI-Implementierungen versteckte Compliance-Risiken tragen - und welche Anpassungen notwendig sind, um sicher zu skalieren.
 
-**[Jetzt kostenlose Revenue Leak Analyse buchen](https://uhl-systems.com/de/services/audit)**
+**[Jetzt Revenue Leak Analyse buchen](https://uhl-systems.com/de/services/audit)**
 
 Datenschutz ist kein Kostenfaktor. Richtig implementiert ist er ein Wettbewerbsvorteil.

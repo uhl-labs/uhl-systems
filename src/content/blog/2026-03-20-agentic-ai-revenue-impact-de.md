@@ -63,6 +63,6 @@ Die entscheidende Frage ist nicht: "Brauchen wir KI?" Die Frage ist: "Wo verlier
 
 Revenue Leaks zu identifizieren braucht keine Monatelange Analyse. Es braucht die richtige Methodik und den Blick von außen auf deine Systeme. Genau das bietet unsere Revenue Leak Analyse - konkret, schnell und ohne Consulting-Bullshit.
 
-**[Jetzt kostenlose Revenue Leak Analyse buchen](https://uhl-systems.com/de/services/audit)**
+**[Jetzt Revenue Leak Analyse buchen](https://uhl-systems.com/de/services/audit)**
 
-In einem kostenlosen Erstgespräch analysieren wir gemeinsam, wo in deinem System die größten Verlustquellen stecken - und was Agentic AI konkret dagegen tun kann.
+In einem Erstgespräch analysieren wir gemeinsam, wo in deinem System die größten Verlustquellen stecken - und was Agentic AI konkret dagegen tun kann.

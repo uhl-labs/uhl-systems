@@ -1,6 +1,6 @@
 ---
 title: 'Fortune-500-KI-Agenten: Das KMU-Playbook 2026'
-description: 'Was Konzerne mit KI-Agenten machen, kann der Mittelstand 2026 replizieren. Das Playbook für DACH-KMUs ohne Millionenbudget. Jetzt kostenlose Analyse buchen.'
+description: 'Was Konzerne mit KI-Agenten machen, kann der Mittelstand 2026 replizieren. Das Playbook für DACH-KMUs ohne Millionenbudget. Jetzt Revenue Leak Analyse buchen.'
 pubDate: '2026-03-21'
 heroImage: '/blog/fortune-500-ai-agents-smb-playbook-hero.png'
 tags: ['revenue-systems', 'ki-agenten', 'kmu-strategie']
@@ -75,6 +75,6 @@ Das gilt besonders im deutschen Mittelstand, der traditionell auf organisches Wa
 
 Wo in deinem Unternehmen steckt das größte ungenutzte Potenzial? Welcher Prozess kostet am meisten Ressourcen und liefert zu wenig? Das sind die Fragen, mit denen wir in der Revenue Leak Analyse anfangen.
 
-**[Jetzt kostenlose Revenue Leak Analyse buchen](https://uhl-systems.com/de/services/audit)**
+**[Jetzt Revenue Leak Analyse buchen](https://uhl-systems.com/de/services/audit)**
 
 Wir zeigen dir, welcher KI-Agenten-Use-Case in deinem spezifischen Setup den schnellsten ROI liefert - konkret und umsetzbar.

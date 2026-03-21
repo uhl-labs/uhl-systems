@@ -90,7 +90,7 @@ If you are generating revenue online and you have not audited your systems for l
 
 The first step is understanding where your system breaks. That is exactly what a Revenue Leak Audit surfaces -the hidden gaps between your offer and your actual revenue.
 
-**[Book a free Revenue Leak Audit →](/services/audit)**
+**[Book a Revenue Leak Audit →](/services/audit)**
 
 No obligation. 30 minutes. You will leave knowing exactly where your biggest leak is and what it is costing you.
 
@@ -104,4 +104,4 @@ The businesses that act now will look back in 18 months and wonder why they wait
 
 The gap is closing fast. Which side of it are you on?
 
-**Ready to find your revenue leaks? [Book a free audit today →](/services/audit)**
+**Ready to find your revenue leaks? [Book a Revenue Leak Audit today →](/services/audit)**

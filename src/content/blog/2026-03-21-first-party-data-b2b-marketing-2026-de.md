@@ -1,6 +1,6 @@
 ---
 title: 'First-Party-Daten: Warum B2B-Marketer 2026 verlieren'
-description: 'Wer 2026 kein First-Party-Daten-System hat, verliert im B2B-Marketing. DACH-Analyse: Was jetzt zählt und wie du aufholst. Kostenlose Revenue Leak Analyse buchen.'
+description: 'Wer 2026 kein First-Party-Daten-System hat, verliert im B2B-Marketing. DACH-Analyse: Was jetzt zählt und wie du aufholst. Revenue Leak Analyse buchen.'
 pubDate: '2026-03-21'
 heroImage: '/blog/first-party-data-b2b-marketing-2026-hero.png'
 tags: ['revenue-systems', 'first-party-daten', 'b2b-marketing']
@@ -69,6 +69,6 @@ Die Revenue Leaks, die aus fehlender Datenstrategie entstehen, sind oft die grö
 
 Wir helfen dir, genau diese Lücken zu identifizieren. Die Revenue Leak Analyse zeigt dir konkret, wo deine Datenstrategie heute Umsatz kostet - und was der erste sinnvolle Schritt ist.
 
-**[Jetzt kostenlose Revenue Leak Analyse buchen](https://uhl-systems.com/de/services/audit)**
+**[Jetzt Revenue Leak Analyse buchen](https://uhl-systems.com/de/services/audit)**
 
 Kein Pitch, kein Consulting-Overhead. Nur konkrete Analyse deiner größten Verlustquellen.

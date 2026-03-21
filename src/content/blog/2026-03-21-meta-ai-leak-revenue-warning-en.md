@@ -69,7 +69,7 @@ That is understandable. But it means your revenue system now has a component tha
 
 The fix is not complicated. It starts with mapping your current AI touchpoints, understanding what each agent accesses, and identifying the gaps between what you intended and what you allowed. That is a systems audit - the same kind of thinking that applies to every revenue leak.
 
-**[Book a free Revenue Leak Audit](/services/audit)** and I will map not just your funnel and conversion mechanics, but your entire operational system - including where AI agents might be creating risks you have not measured yet.
+**[Book a Revenue Leak Audit](/services/audit)** and I will map not just your funnel and conversion mechanics, but your entire operational system - including where AI agents might be creating risks you have not measured yet.
 
 The businesses that win with AI in 2026 are not the ones that deploy fastest. They are the ones that deploy smartest - with systems that protect revenue instead of accidentally leaking it.
 

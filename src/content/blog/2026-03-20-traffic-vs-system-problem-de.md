@@ -71,6 +71,6 @@ Der erste Schritt ist die Diagnose. Nicht das Bauchgefühl, nicht die Erfahrung 
 
 Genau das machen wir in der Revenue Leak Analyse: Wir schauen uns deinen aktuellen Prozess an, identifizieren die größten Verlustquellen und zeigen dir, welche Hebel sofort ansetzbar sind. Konkret, messbar, ohne Consulting-Sprache.
 
-**[Jetzt kostenlose Revenue Leak Analyse buchen](https://uhl-systems.com/de/services/audit)**
+**[Jetzt Revenue Leak Analyse buchen](https://uhl-systems.com/de/services/audit)**
 
 Nicht noch ein weiteres Werbebudget aufstocken, bevor das System steht. Erst das System, dann der Traffic.

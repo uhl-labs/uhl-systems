@@ -53,4 +53,4 @@ A [Revenue Leak Audit](/services/audit) maps every stage of your revenue system,
 
 The businesses that win in 2026 will not be the ones with the most AI tools. They will be the ones with the tightest revenue systems - powered by AI that accelerates what already works.
 
-Stop automating broken funnels. Fix the system first. Book a free Revenue Leak Audit at [uhl-systems.com/services/audit](https://uhl-systems.com/services/audit) and find out exactly where your revenue disappears - before you spend another dollar on AI tools that amplify the problem.
+Stop automating broken funnels. Fix the system first. Book a Revenue Leak Audit at [uhl-systems.com/services/audit](https://uhl-systems.com/services/audit) and find out exactly where your revenue disappears - before you spend another dollar on AI tools that amplify the problem.

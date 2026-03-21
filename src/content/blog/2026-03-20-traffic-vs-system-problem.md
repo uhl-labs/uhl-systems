@@ -59,4 +59,4 @@ The fix starts with visibility. You cannot improve what you cannot see. A [Reven
 
 This is not about running fewer ads or cutting your marketing budget. It is about making every visitor, every lead, and every customer worth more by eliminating the friction and gaps that silently drain your revenue.
 
-Stop pouring money into traffic that feeds a leaky system. Book a free Revenue Leak Audit at [uhl-systems.com/services/audit](https://uhl-systems.com/services/audit) and find out where your revenue actually goes - before your next campaign budget disappears into the same broken pipe.
+Stop pouring money into traffic that feeds a leaky system. Book a Revenue Leak Audit at [uhl-systems.com/services/audit](https://uhl-systems.com/services/audit) and find out where your revenue actually goes - before your next campaign budget disappears into the same broken pipe.
