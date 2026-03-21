@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { brand } from '../config/brand';
 ---
 
 <!doctype html>
@@ -28,7 +29,7 @@ import Footer from '../components/Footer.astro';
 
 				<section>
 					<h2 class="mb-3 text-lg font-semibold text-text">3. Webanalyse mit Google Analytics</h2>
-					<p>Diese Website nutzt Google Analytics 4 (Mess-ID: G-BSX1YMRMPY), einen Webanalysedienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.</p>
+					<p>Diese Website nutzt Google Analytics 4 (Mess-ID: {brand.analytics.ga4}), einen Webanalysedienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.</p>
 					<p class="mt-2">Google Analytics verwendet Cookies, die eine Analyse der Nutzung der Website ermöglichen. Die IP-Anonymisierung ist aktiviert, sodass Ihre IP-Adresse innerhalb der EU/EWR gekürzt wird.</p>
 					<p class="mt-2">Die Nutzung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Analyse des Nutzerverhaltens zur Optimierung des Webauftritts).</p>
 				</section>

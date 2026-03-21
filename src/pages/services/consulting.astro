@@ -2,6 +2,7 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
+import { brand } from '../../config/brand';
 ---
 
 <!doctype html>
@@ -122,7 +123,7 @@ import Header from '../../components/Header.astro';
 						Whether you need a strategic playbook your team can execute, or a full done-with-you build, we scale our involvement to match your needs. The goal is always the same: <em class="text-text">a revenue system that compounds.</em>
 					</p>
 					<div class="fade-in fade-in-delay-3 mt-10 flex flex-col gap-4 sm:flex-row">
-						<a href="https://calendly.com/uhl-systems/30min?redirect_url=https://uhl-systems.com/booking-confirmed" class="cta-primary inline-flex items-center gap-2">
+						<a href={brand.calendly.en} class="cta-primary inline-flex items-center gap-2">
 							Book Free Discovery Call
 							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
 						</a>
@@ -384,7 +385,7 @@ import Header from '../../components/Header.astro';
 							</li>
 						</ul>
 						<p class="mt-auto mb-4 text-center text-sm text-muted-dark italic">The Revenue Leak Audit is available exclusively after an initial Discovery Call.</p>
-						<a href="https://calendly.com/uhl-systems/30min?redirect_url=https://uhl-systems.com/booking-confirmed" class="cta-primary block w-full text-center">
+						<a href={brand.calendly.en} class="cta-primary block w-full text-center">
 							Book Free Discovery Call
 						</a>
 					</div>
@@ -428,7 +429,7 @@ import Header from '../../components/Header.astro';
 								Weekly Strategy Sessions
 							</li>
 						</ul>
-						<a href="https://calendly.com/uhl-systems/30min?redirect_url=https://uhl-systems.com/booking-confirmed" class="cta-primary mt-auto block w-full text-center">
+						<a href={brand.calendly.en} class="cta-primary mt-auto block w-full text-center">
 							Book Free Discovery Call
 						</a>
 					</div>
@@ -471,7 +472,7 @@ import Header from '../../components/Header.astro';
 								Priority Access & Direct Communication
 							</li>
 						</ul>
-						<a href="https://calendly.com/uhl-systems/30min?redirect_url=https://uhl-systems.com/booking-confirmed" class="cta-primary mt-auto block w-full text-center">
+						<a href={brand.calendly.en} class="cta-primary mt-auto block w-full text-center">
 							Book Free Discovery Call
 						</a>
 					</div>

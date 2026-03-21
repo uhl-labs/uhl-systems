@@ -2,6 +2,9 @@
 import BaseHead from '../../../components/BaseHead.astro';
 import Footer from '../../../components/Footer.astro';
 import Header from '../../../components/Header.astro';
+import { brand } from '../../../config/brand';
+
+const product = brand.products.find(p => p.slug === "revenue-leak-map-guide")!;
 ---
 
 <!doctype html>
@@ -123,7 +126,7 @@ import Header from '../../../components/Header.astro';
 					<span class="font-display text-4xl font-bold text-text">&euro;97</span>
 				</div>
 				<div class="fade-in fade-in-delay-3 mt-8">
-					<a href="https://shop.uhl-systems.com/checkout/buy/e521440a-3290-4747-a404-978556264dae" class="cta-primary">
+					<a href={product.checkoutUrl} class="cta-primary">
 						Jetzt Zugang sichern &rarr;
 					</a>
 				</div>
@@ -287,7 +290,7 @@ import Header from '../../../components/Header.astro';
 				<div class="mb-6">
 					<span class="font-display text-4xl font-bold text-text">&euro;97</span>
 				</div>
-				<a href="https://shop.uhl-systems.com/checkout/buy/e521440a-3290-4747-a404-978556264dae" class="cta-primary text-lg">
+				<a href={product.checkoutUrl} class="cta-primary text-lg">
 					Jetzt Zugang sichern &rarr;
 				</a>
 				</div>

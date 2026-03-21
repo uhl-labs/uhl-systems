@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { SITE_TITLE } from '../consts';
+import { brand } from '../config/brand';
 
 interface Props {
 	title: string;
@@ -37,8 +38,8 @@ const { title, description, image = '/og-default.png', isHomepage = false } = As
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
-<title>{isHomepage ? 'UHL Systems - Unlock Hidden Leverage' : title}</title>
-<meta name="title" content={isHomepage ? 'UHL Systems - Unlock Hidden Leverage' : title} />
+<title>{isHomepage ? `${brand.company} - ${brand.tagline}` : title}</title>
+<meta name="title" content={isHomepage ? `${brand.company} - ${brand.tagline}` : title} />
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
@@ -60,19 +61,19 @@ const { title, description, image = '/og-default.png', isHomepage = false } = As
 	<script type="application/ld+json" set:html={JSON.stringify({
 		"@context": "https://schema.org",
 		"@type": "Organization",
-		"name": "UHL Systems",
-		"url": "https://uhl-systems.com",
+		"name": brand.company,
+		"url": brand.url,
 		"description": "Revenue systems architecture and optimization for digital businesses.",
 		"foundingDate": "2026",
-		"sameAs": ["https://www.instagram.com/uhl.systems"]
+		"sameAs": [brand.social.instagramUrl]
 	})} />
 )}
 
 <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BSX1YMRMPY"></script>
-<script>
+<script async src={`https://www.googletagmanager.com/gtag/js?id=${brand.analytics.ga4}`}></script>
+<script define:vars={{ ga4Id: brand.analytics.ga4 }}>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag("js", new Date());
-  gtag("config", "G-BSX1YMRMPY");
+  gtag("config", ga4Id);
 </script>

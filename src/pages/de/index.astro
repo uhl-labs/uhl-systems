@@ -3,6 +3,7 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import RevenueMuncher from '../../components/RevenueMuncher.astro';
+import { brand } from '../../config/brand';
 ---
 
 <!doctype html>
@@ -384,7 +385,7 @@ import RevenueMuncher from '../../components/RevenueMuncher.astro';
 						<p>Standort: Deutschland. Aufbau: global.</p>
 					</div>
 					<p class="mt-6 font-mono text-xs tracking-wide text-muted-dark">31 Jahre &bull; Wassermann &#9811; &bull; Aktuell: Aufbau UHL Labs</p>
-					<a href="https://calendly.com/uhl-systems/free-discovery-call-revenue-leak-check-clone-1?redirect_url=https://uhl-systems.com/de/booking-confirmed" class="cta-primary mt-10 inline-flex items-center gap-2">
+					<a href={brand.calendly.de} class="cta-primary mt-10 inline-flex items-center gap-2">
 						Lass uns &uuml;ber dein System sprechen
 						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
 					</a>
@@ -404,7 +405,7 @@ import RevenueMuncher from '../../components/RevenueMuncher.astro';
 					Buche einen kostenlosen 30-Minuten Discovery Call. Wir gehen gemeinsam deine Revenue Pipeline durch und identifizieren die größten Chancen.
 				</p>
 				<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-					<a href="https://calendly.com/uhl-systems/free-discovery-call-revenue-leak-check-clone-1?redirect_url=https://uhl-systems.com/de/booking-confirmed" class="cta-primary block w-full max-w-sm text-center sm:inline-block sm:w-auto">
+					<a href={brand.calendly.de} class="cta-primary block w-full max-w-sm text-center sm:inline-block sm:w-auto">
 						Kostenlosen Discovery Call buchen
 					</a>
 				</div>

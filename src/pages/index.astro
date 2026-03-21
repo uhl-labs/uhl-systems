@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import RevenueMuncher from '../components/RevenueMuncher.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { brand } from '../config/brand';
 ---
 
 <!doctype html>
@@ -600,7 +601,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 							</li>
 						</ul>
 						<div class="mt-auto space-y-3">
-							<a href="https://calendly.com/uhl-systems/30min?redirect_url=https://uhl-systems.com/booking-confirmed" class="cta-primary block w-full text-center">
+							<a href={brand.calendly.en} class="cta-primary block w-full text-center">
 								Book Free Discovery Call
 							</a>
 							<a href="/services/audit" class="cta-ghost block w-full text-center">
@@ -649,7 +650,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 							</li>
 						</ul>
 						<div class="mt-auto space-y-3">
-							<a href="https://calendly.com/uhl-systems/30min?redirect_url=https://uhl-systems.com/booking-confirmed" class="cta-primary block w-full text-center">
+							<a href={brand.calendly.en} class="cta-primary block w-full text-center">
 								Book Free Discovery Call
 							</a>
 							<a href="/services/consulting" class="cta-ghost block w-full text-center">
@@ -697,7 +698,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 							</li>
 						</ul>
 						<div class="mt-auto space-y-3">
-							<a href="https://calendly.com/uhl-systems/30min?redirect_url=https://uhl-systems.com/booking-confirmed" class="cta-primary block w-full text-center">
+							<a href={brand.calendly.en} class="cta-primary block w-full text-center">
 								Book Free Discovery Call
 							</a>
 							<a href="/services/consulting" class="cta-ghost block w-full text-center">
@@ -738,7 +739,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 						<p>Based in Germany. Building globally.</p>
 					</div>
 					<p class="mt-6 font-mono text-xs tracking-wide text-muted-dark">31 years old &bull; Aquarius &#9811; &bull; Currently: Building UHL Labs</p>
-					<a href="https://calendly.com/uhl-systems/30min?redirect_url=https://uhl-systems.com/booking-confirmed" class="cta-primary mt-10 inline-flex items-center gap-2">
+					<a href={brand.calendly.en} class="cta-primary mt-10 inline-flex items-center gap-2">
 						Let's talk about your system
 						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
 					</a>
@@ -758,7 +759,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 					Book a free 30-minute discovery call. We'll walk through your revenue pipeline together and identify the biggest opportunities.
 				</p>
 				<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-					<a href="https://calendly.com/uhl-systems/30min?redirect_url=https://uhl-systems.com/booking-confirmed" class="cta-primary block w-full max-w-sm text-center sm:inline-block sm:w-auto">
+					<a href={brand.calendly.en} class="cta-primary block w-full max-w-sm text-center sm:inline-block sm:w-auto">
 						Book Free Discovery Call
 					</a>
 				</div>

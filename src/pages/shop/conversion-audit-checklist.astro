@@ -2,6 +2,9 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
+import { brand } from '../../config/brand';
+
+const product = brand.products.find(p => p.slug === "conversion-audit-checklist")!;
 ---
 
 <!doctype html>
@@ -127,7 +130,7 @@ import Header from '../../components/Header.astro';
 					</div>
 				</div>
 				<div class="fade-in fade-in-delay-3 mt-8">
-					<a href="https://shop.uhl-systems.com/checkout/buy/57a6a1ca-9ee1-4009-a121-1c2b650df329" class="cta-primary">
+					<a href={product.checkoutUrl} class="cta-primary">
 						Get Instant Access &rarr;
 					</a>
 				</div>
@@ -293,7 +296,7 @@ import Header from '../../components/Header.astro';
 					<span class="text-xl text-muted-dark line-through">&euro;97</span>
 					<span class="rounded-full bg-accent/15 px-3 py-1 font-mono text-[11px] font-bold tracking-wider text-accent uppercase">50% OFF</span>
 				</div>
-				<a href="https://shop.uhl-systems.com/checkout/buy/57a6a1ca-9ee1-4009-a121-1c2b650df329" class="cta-primary text-lg">
+				<a href={product.checkoutUrl} class="cta-primary text-lg">
 					Get Instant Access &rarr;
 				</a>
 				</div>
