@@ -61,36 +61,113 @@ import { brand } from '../config/brand';
 				margin: 0 auto;
 			}
 
-			/* === Stats Bar === */
-			.stats-bar {
+			/* === Credibility Bar === */
+			.credibility-bar {
 				border-top: 1px solid var(--color-border);
 				border-bottom: 1px solid var(--color-border);
 				background: #111;
 			}
-			.stats-grid {
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				gap: 2rem;
+			.credibility-grid {
+				display: flex;
+				justify-content: center;
+				align-items: baseline;
+				gap: 3rem;
 				text-align: center;
-				padding: 3.5rem 1.5rem;
-				max-width: 900px;
+				padding: 2.5rem 1.5rem;
+				max-width: 1000px;
 				margin: 0 auto;
 			}
-			.stat-number {
-				font-size: clamp(48px, 6vw, 72px);
+			.credibility-item {
+				display: flex;
+				align-items: baseline;
+				gap: 0.5rem;
+				white-space: nowrap;
+			}
+			.credibility-number {
+				font-size: clamp(28px, 4vw, 40px);
 				font-weight: 800;
 				color: var(--color-accent);
 				line-height: 1;
 				font-family: var(--font-display);
 			}
-			.stat-label {
-				margin-top: 0.75rem;
-				font-size: 16px;
+			.credibility-label {
+				font-size: 14px;
 				color: var(--color-muted);
-				line-height: 1.4;
+				line-height: 1.3;
 			}
-			@media (max-width: 640px) {
-				.stats-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+			.credibility-divider {
+				width: 1px;
+				height: 32px;
+				background: var(--color-border);
+				flex-shrink: 0;
+			}
+			@media (max-width: 768px) {
+				.credibility-grid {
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					gap: 1.5rem;
+				}
+				.credibility-divider { display: none; }
+				.credibility-item { justify-content: center; }
+			}
+
+			/* === Ways to Work Together === */
+			.ways-card {
+				border: 1px solid var(--color-border);
+				background: var(--color-bg2);
+				border-radius: 16px;
+				padding: 32px 28px;
+				transition: all 0.3s;
+				display: flex;
+				flex-direction: column;
+			}
+			.ways-card:hover {
+				border-color: rgba(0, 255, 136, 0.25);
+				background: var(--color-bg3);
+			}
+			.ways-price {
+				font-family: var(--font-display);
+				font-size: 24px;
+				font-weight: 700;
+				color: var(--color-accent);
+			}
+
+			/* === FAQ Section === */
+			.faq-item {
+				border-bottom: 1px solid var(--color-border);
+			}
+			.faq-item summary {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 1.25rem 0;
+				cursor: pointer;
+				font-size: 17px;
+				font-weight: 600;
+				color: var(--color-text);
+				list-style: none;
+				transition: color 0.2s;
+			}
+			.faq-item summary::-webkit-details-marker { display: none; }
+			.faq-item summary::after {
+				content: '+';
+				font-size: 24px;
+				font-weight: 300;
+				color: var(--color-accent);
+				transition: transform 0.2s;
+				flex-shrink: 0;
+				margin-left: 1rem;
+			}
+			.faq-item[open] summary::after {
+				transform: rotate(45deg);
+			}
+			.faq-item summary:hover { color: var(--color-accent); }
+			.faq-answer {
+				padding: 0 0 1.25rem;
+				font-size: 15px;
+				line-height: 1.7;
+				color: var(--color-muted);
+				max-width: 640px;
 			}
 
 			/* === Revenue Leak Map === */
@@ -377,20 +454,69 @@ import { brand } from '../config/brand';
 
 		<RevenueMuncher />
 
-		<!-- Stats Bar -->
-		<section class="stats-bar" data-stats>
-			<div class="stats-grid">
-				<div>
-					<div class="stat-number" data-count="7">0</div>
-					<div class="stat-label">Revenue Leak Types We Fix</div>
+		<!-- Credibility Bar -->
+		<section class="credibility-bar">
+			<div class="credibility-grid">
+				<div class="credibility-item">
+					<span class="credibility-number">50%</span>
+					<span class="credibility-label">Cost Reduction</span>
 				</div>
-				<div>
-					<div class="stat-number" data-count="90">0</div>
-					<div class="stat-label">Days to Transform Your System</div>
+				<div class="credibility-divider"></div>
+				<div class="credibility-item">
+					<span class="credibility-number">2x</span>
+					<span class="credibility-label">Revenue Growth</span>
 				</div>
-				<div>
-					<div class="stat-number" data-count="0">0</div>
-					<div class="stat-label">Extra Ad Spend Required</div>
+				<div class="credibility-divider"></div>
+				<div class="credibility-item">
+					<span class="credibility-number">7</span>
+					<span class="credibility-label">Revenue Leak Checkpoints</span>
+				</div>
+				<div class="credibility-divider"></div>
+				<div class="credibility-item">
+					<span class="credibility-number">4</span>
+					<span class="credibility-label">Digital Products</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- Ways to Work Together -->
+		<section class="border-t border-border px-6 py-20">
+			<div class="content-width">
+				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">Ways to Work Together</p>
+				<h2 class="section-heading mb-16 text-center font-display font-bold text-text">
+					Pick your starting point.
+				</h2>
+
+				<div class="grid gap-6 md:grid-cols-3">
+					<div class="ways-card">
+						<p class="mb-2 font-mono text-xs tracking-wider text-muted-dark uppercase">Tier 1</p>
+						<h3 class="mb-2 text-lg font-semibold text-text">Revenue Leak Audit</h3>
+						<p class="mb-4 text-[15px] leading-relaxed text-muted">Identify where you are losing money.</p>
+						<div class="mt-auto">
+							<div class="ways-price mb-4">1k &ndash; 2k EUR</div>
+							<a href="/services/audit" class="cta-ghost block w-full text-center">Book Audit</a>
+						</div>
+					</div>
+
+					<div class="ways-card" style="border-color: rgba(0, 255, 136, 0.3);">
+						<p class="mb-2 font-mono text-xs tracking-wider text-muted-dark uppercase">Tier 2</p>
+						<h3 class="mb-2 text-lg font-semibold text-text">Revenue Systems Consulting</h3>
+						<p class="mb-4 text-[15px] leading-relaxed text-muted">Fix the leaks, build the system.</p>
+						<div class="mt-auto">
+							<div class="ways-price mb-4">3k &ndash; 6k EUR</div>
+							<a href="/services/consulting" class="cta-ghost block w-full text-center">Book Consultation</a>
+						</div>
+					</div>
+
+					<div class="ways-card">
+						<p class="mb-2 font-mono text-xs tracking-wider text-muted-dark uppercase">Tier 3</p>
+						<h3 class="mb-2 text-lg font-semibold text-text">Revenue Systems Partner</h3>
+						<p class="mb-4 text-[15px] leading-relaxed text-muted">Ongoing execution partner.</p>
+						<div class="mt-auto">
+							<div class="ways-price mb-4">7k &ndash; 20k EUR</div>
+							<a href={brand.calendly.en} class="cta-ghost block w-full text-center">Apply</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -795,6 +921,43 @@ import { brand } from '../config/brand';
 			<div class="pointer-events-none absolute inset-0 -z-10" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.015) 1px, transparent 0); background-size: 32px 32px;"></div>
 		</section>
 
+		<!-- FAQ -->
+		<section class="border-t border-border px-6 py-28">
+			<div class="content-width">
+				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">FAQ</p>
+				<h2 class="section-heading mb-16 text-center font-display font-bold text-text">
+					Common questions.
+				</h2>
+
+				<div class="mx-auto max-w-2xl">
+					<details class="faq-item">
+						<summary>Who is this for?</summary>
+						<div class="faq-answer">Online businesses doing 5k&ndash;50k&euro;/month that have traffic and offers but aren't growing. You've tried tactics. You need a system.</div>
+					</details>
+
+					<details class="faq-item">
+						<summary>What do I actually get?</summary>
+						<div class="faq-answer">Depends on the tier. At minimum: a full Revenue Leak Audit with a prioritized action plan and written report. At the top end: an ongoing execution partner building your entire revenue system.</div>
+					</details>
+
+					<details class="faq-item">
+						<summary>How long does it take?</summary>
+						<div class="faq-answer">The Audit delivers results within 1&ndash;2 weeks. The Method runs over 3 months. The System is ongoing. You'll see your first quick wins within days.</div>
+					</details>
+
+					<details class="faq-item">
+						<summary>What does it cost?</summary>
+						<div class="faq-answer">Revenue Leak Audit: 1k&ndash;2k EUR. Revenue Systems Consulting: 3k&ndash;6k EUR. Revenue Systems Partner: 7k&ndash;20k EUR. The discovery call is free.</div>
+					</details>
+
+					<details class="faq-item">
+						<summary>What happens after I book a call?</summary>
+						<div class="faq-answer">30-minute discovery call. We walk through your revenue pipeline, identify the biggest leaks, and decide together if there's a fit. No pitch, no pressure. If it's not right, I'll tell you.</div>
+					</details>
+				</div>
+			</div>
+		</section>
+
 		<!-- Contact CTA -->
 		<section id="contact" class="border-t border-border px-6 py-28">
 			<div class="content-width text-center">
@@ -845,42 +1008,6 @@ import { brand } from '../config/brand';
 		<Footer />
 
 		<script>
-			// === Stats Bar: Count-up Animation ===
-			(function() {
-				var statsObserved = false;
-				var statsSection = document.querySelector('[data-stats]');
-				if (!statsSection) return;
-
-				function animateCount(el) {
-					var target = parseInt(el.getAttribute('data-count'), 10);
-					var prefix = el.getAttribute('data-prefix') || '';
-					if (target === 0) { el.textContent = prefix + '0'; return; }
-					var duration = 1200;
-					var start = performance.now();
-					function step(now) {
-						var progress = Math.min((now - start) / duration, 1);
-						var eased = 1 - Math.pow(1 - progress, 3);
-						var current = Math.round(eased * target);
-						el.textContent = prefix + current;
-						if (progress < 1) requestAnimationFrame(step);
-					}
-					requestAnimationFrame(step);
-				}
-
-				var observer = new IntersectionObserver(function(entries) {
-					if (statsObserved) return;
-					entries.forEach(function(entry) {
-						if (entry.isIntersecting) {
-							statsObserved = true;
-							var numbers = statsSection.querySelectorAll('[data-count]');
-							numbers.forEach(function(el) { animateCount(el); });
-							observer.disconnect();
-						}
-					});
-				}, { threshold: 0.3 });
-				observer.observe(statsSection);
-			})();
-
 			// === UHL Method Cards: Scroll-in Animation ===
 			(function() {
 				var cards = document.querySelectorAll('[data-uhl-card]');
