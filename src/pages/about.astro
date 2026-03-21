@@ -7,7 +7,7 @@ import Header from '../components/Header.astro';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title="About — Lukas Uhl | UHL Systems" description="Meet Lukas Uhl — Revenue Systems Architect, builder, and the person behind UHL Systems." />
+		<BaseHead title="About - Lukas Uhl | UHL Systems" description="Meet Lukas Uhl - Revenue Systems Architect, builder, and the person behind UHL Systems." />
 		<style>
 			@media (max-width: 767px) {
 				.about-photo { max-height: 400px !important; }
@@ -43,6 +43,13 @@ import Header from '../components/Header.astro';
 				box-shadow: 0 0 32px rgba(0, 255, 136, 0.35);
 				color: var(--color-bg);
 			}
+			.photo-glow {
+				border-radius: 1rem;
+				box-shadow:
+					0 0 0 2px rgba(0, 255, 136, 0.4),
+					0 0 40px rgba(0, 255, 136, 0.08),
+					0 32px 64px rgba(0, 0, 0, 0.6);
+			}
 		</style>
 	</head>
 	<body>
@@ -57,8 +64,8 @@ import Header from '../components/Header.astro';
 						<img
 							src="/lukas.jpg"
 							alt="Lukas Uhl"
-							class="about-photo relative z-[1] block w-full max-w-[480px] rounded-2xl object-cover object-top shadow-2xl"
-							style="max-height: 600px; border: 2px solid transparent; border-image: linear-gradient(180deg, rgba(0,255,136,0.5), transparent) 1;"
+							class="about-photo photo-glow relative z-[1] block w-full max-w-[480px] rounded-2xl object-cover object-top"
+							style="max-height: 600px;"
 						/>
 						<div class="pointer-events-none absolute -bottom-4 -right-4 z-0 h-full w-full rounded-2xl" style="background: linear-gradient(135deg, rgba(0,255,136,0.08), transparent 60%);"></div>
 					</div>
@@ -69,12 +76,13 @@ import Header from '../components/Header.astro';
 					<h1 class="font-display text-5xl font-bold tracking-tight text-text md:text-7xl">Lukas Uhl</h1>
 					<p class="mt-3 text-lg font-medium tracking-wide text-muted md:text-xl">Revenue Systems Architect. Builder. Operator.</p>
 					<div class="mt-8 space-y-4 text-[15px] leading-relaxed text-muted md:text-base md:leading-relaxed">
-						<p>I started UHL because I kept seeing the same problem: smart people with great businesses, hemorrhaging revenue through invisible leaks.</p>
-						<p>Not because they lacked ambition — but because they were optimizing fragments instead of systems.</p>
-						<p>My background spans marketing, sales engineering, software, and AI. I combine all of it to build revenue systems that compound — not just campaigns that spike.</p>
-						<p>Based in Germany. Building globally.</p>
+						<p>I grew up with a deep obsession for how things work - and an even deeper frustration when they don't. That curiosity took me through marketing, sales, software engineering, and eventually AI. Not by following a plan, but by chasing the next lever.</p>
+						<p>I started UHL after seeing the same pattern repeat itself across dozens of businesses: smart, ambitious people leaving serious money on the table - not because they lacked ideas, but because they were patching symptoms instead of fixing systems.</p>
+						<p>Revenue doesn't leak because people aren't working hard enough. It leaks because no one has mapped the whole system. That's what I do.</p>
+						<p>I build from first principles. I combine marketing strategy, conversion engineering, and AI automation to architect revenue systems that compound over time - not campaigns that spike and fade.</p>
+						<p>Based in Germany for now. The goal is freedom - to work from anywhere, build for anyone, and keep moving forward.</p>
 					</div>
-					<p class="mt-6 font-mono text-xs tracking-wide text-muted-dark">31 years old &bull; Aquarius &#9811; &bull; Currently: Building UHL Labs</p>
+					<p class="mt-6 font-mono text-xs tracking-wide text-muted/60">31 years old &bull; Aquarius &#9811;</p>
 					<a href="https://calendly.com/uhl-systems/30min?redirect_url=https://uhl-systems.com/booking-confirmed" class="cta-primary mt-10 inline-flex items-center gap-2">
 						Let's talk about your system
 						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
