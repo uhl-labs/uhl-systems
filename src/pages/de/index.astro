@@ -13,7 +13,8 @@ import { brand } from '../../config/brand';
 		<link rel="canonical" href="https://www.uhl-systems.com/de/" />
 		<style>
 			.hero-headline {
-				font-size: clamp(48px, 8vw, 96px);
+				font-size: clamp(3.5rem, 8vw, 7rem);
+				font-weight: 800;
 				line-height: 1.05;
 				letter-spacing: -0.03em;
 			}
@@ -155,6 +156,22 @@ import { brand } from '../../config/brand';
 				.credibility-divider { display: none; }
 				.credibility-item { justify-content: center; }
 			}
+			/* === Case Studies === */
+			.case-card {
+				border: 1px solid var(--color-border);
+				background: var(--color-bg2);
+				border-radius: 16px;
+				padding: 32px 28px;
+				transition: all 0.3s;
+			}
+			.case-card:hover {
+				border-color: rgba(0, 255, 136, 0.25);
+				background: var(--color-bg3);
+			}
+			.case-before { color: #ff4444; font-weight: 700; }
+			.case-after { color: #00ff88; font-weight: 700; }
+			.case-arrow { color: var(--color-muted-dark); margin: 0 0.35rem; }
+
 			/* === Ways to Work Together === */
 			.ways-card {
 				border: 1px solid var(--color-border);
@@ -212,6 +229,98 @@ import { brand } from '../../config/brand';
 				color: var(--color-muted);
 				max-width: 640px;
 			}
+			/* === Revenue Calculator === */
+			.calc-wrapper {
+				max-width: 640px;
+				margin: 0 auto;
+			}
+			.calc-field {
+				margin-bottom: 1.5rem;
+			}
+			.calc-field label {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				font-size: 14px;
+				font-weight: 600;
+				color: var(--color-text);
+				margin-bottom: 0.5rem;
+			}
+			.calc-field label span {
+				font-family: var(--font-mono);
+				font-size: 13px;
+				color: var(--color-accent);
+			}
+			.calc-slider {
+				-webkit-appearance: none;
+				appearance: none;
+				width: 100%;
+				height: 6px;
+				border-radius: 3px;
+				background: var(--color-bg3);
+				outline: none;
+			}
+			.calc-slider::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				appearance: none;
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				background: var(--color-accent);
+				cursor: pointer;
+				box-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
+			}
+			.calc-slider::-moz-range-thumb {
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				background: var(--color-accent);
+				cursor: pointer;
+				border: none;
+				box-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
+			}
+			.calc-input {
+				width: 100%;
+				padding: 10px 14px;
+				border: 1px solid var(--color-border);
+				border-radius: 8px;
+				background: var(--color-bg2);
+				color: var(--color-text);
+				font-size: 15px;
+				font-family: var(--font-mono);
+				outline: none;
+				transition: border-color 0.2s;
+			}
+			.calc-input:focus {
+				border-color: var(--color-accent);
+			}
+			.calc-results {
+				border: 1px solid var(--color-border);
+				background: var(--color-bg2);
+				border-radius: 16px;
+				padding: 28px;
+				margin-top: 2rem;
+			}
+			.calc-result-row {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				padding: 0.6rem 0;
+				font-size: 15px;
+			}
+			.calc-result-row + .calc-result-row {
+				border-top: 1px solid var(--color-border);
+			}
+			.calc-result-label { color: var(--color-muted); }
+			.calc-result-value {
+				font-family: var(--font-display);
+				font-weight: 700;
+				font-size: 18px;
+			}
+			.calc-current { color: var(--color-text); }
+			.calc-potential { color: #00ff88; }
+			.calc-leak { color: #ff4444; }
+
 			.content-width {
 				max-width: 1100px;
 				margin: 0 auto;
@@ -225,10 +334,10 @@ import { brand } from '../../config/brand';
 		<section class="relative overflow-hidden px-6 py-28 md:py-40">
 			<div class="content-width text-center">
 				<p class="fade-in mb-8 font-mono text-sm tracking-widest text-accent uppercase">Revenue Systems Architecture</p>
-				<h1 class="hero-headline fade-in fade-in-delay-1 font-display font-bold text-text">
-					Unlock Hidden Leverage.
+				<h1 class="hero-headline fade-in fade-in-delay-1 font-display text-text">
+					Unlock <span class="text-accent">Hidden</span> Leverage.
 				</h1>
-				<p class="fade-in fade-in-delay-2 mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted">
+				<p class="fade-in fade-in-delay-2 mx-auto mt-8 text-muted" style="max-width: 560px; line-height: 1.65; font-size: clamp(1rem, 2vw, 1.2rem)">
 					Die meisten Unternehmen optimieren Fragmente. Wir bauen das vollständige Revenue-System - vom ersten Klick bis zum Lifetime Value.
 				</p>
 				<div class="fade-in fade-in-delay-3 mt-14 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -254,22 +363,54 @@ import { brand } from '../../config/brand';
 			<div class="credibility-grid">
 				<div class="credibility-item">
 					<span class="credibility-number">50%</span>
-					<span class="credibility-label">Kostensenkung</span>
+					<span class="credibility-label">Durchschnittliche Kostensenkung</span>
 				</div>
 				<div class="credibility-divider"></div>
 				<div class="credibility-item">
 					<span class="credibility-number">2x</span>
-					<span class="credibility-label">Umsatzwachstum</span>
+					<span class="credibility-label">Umsatzwachstum erzielt</span>
 				</div>
 				<div class="credibility-divider"></div>
 				<div class="credibility-item">
-					<span class="credibility-number">7</span>
-					<span class="credibility-label">Revenue Leak Checkpoints</span>
+					<span class="credibility-number">90min</span>
+					<span class="credibility-label">Bis zu ersten Insights</span>
 				</div>
-				<div class="credibility-divider"></div>
-				<div class="credibility-item">
-					<span class="credibility-number">4</span>
-					<span class="credibility-label">Digitale Produkte</span>
+			</div>
+			<p class="text-center text-xs tracking-wide text-muted-dark pb-4" style="margin-top: -0.5rem;">Basierend auf echten Kundenergebnissen</p>
+		</section>
+
+		<!-- Case Studies -->
+		<section class="border-t border-border px-6 py-20">
+			<div class="content-width">
+				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">Echte Ergebnisse</p>
+				<h2 class="section-heading mb-16 text-center font-display font-bold text-text">
+					Vorher &amp; Nachher.
+				</h2>
+
+				<div class="grid gap-6 md:grid-cols-3">
+					<div class="case-card">
+						<p class="mb-1 font-mono text-xs tracking-wider text-muted-dark uppercase">E-Commerce Founder</p>
+						<p class="mb-4 text-lg font-semibold text-text">
+							<span class="case-before">&euro;6k/Mo</span><span class="case-arrow">&rarr;</span><span class="case-after">&euro;23k/Mo</span>
+						</p>
+						<p class="text-[15px] leading-relaxed text-muted">Gleiche Zielgruppe, gleiche Produkte. Wir haben die Funnel-Logik und Monetarisierung umgebaut. Umsatz fast 4x &mdash; ohne eine einzige neue Werbekampagne.</p>
+					</div>
+
+					<div class="case-card">
+						<p class="mb-1 font-mono text-xs tracking-wider text-muted-dark uppercase">SaaS CEO</p>
+						<p class="mb-4 text-lg font-semibold text-text">
+							<span class="case-before">Kosten 100%</span><span class="case-arrow">&rarr;</span><span class="case-after">Kosten &minus;50%</span>
+						</p>
+						<p class="text-[15px] leading-relaxed text-muted">Umsatz blieb stabil, w&auml;hrend wir die Betriebskosten halbierten. Kompletter Prozess-Overhaul &mdash; Redundanzen entfernt, Workflows automatisiert, Lieferanten nachverhandelt.</p>
+					</div>
+
+					<div class="case-card">
+						<p class="mb-1 font-mono text-xs tracking-wider text-muted-dark uppercase">Digital Agency Owner</p>
+						<p class="mb-4 text-lg font-semibold text-text">
+							<span class="case-before">Kosten &minus;40%</span><span class="case-arrow">+</span><span class="case-after">Umsatz 2x</span>
+						</p>
+						<p class="text-[15px] leading-relaxed text-muted">Komplettes System-Redesign. Schlankere Prozesse kombiniert mit neuer Revenue-Architektur. Weniger Aufwand, doppeltes Ergebnis.</p>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -284,32 +425,32 @@ import { brand } from '../../config/brand';
 
 				<div class="grid gap-6 md:grid-cols-3">
 					<div class="ways-card">
-						<p class="mb-2 font-mono text-xs tracking-wider text-muted-dark uppercase">Tier 1</p>
-						<h3 class="mb-2 text-lg font-semibold text-text">Revenue Leak Audit</h3>
-						<p class="mb-4 text-[15px] leading-relaxed text-muted">Finde heraus, wo du Geld verlierst.</p>
+						<p class="mb-2 font-mono text-xs tracking-wider text-muted-dark uppercase">DIY</p>
+						<h3 class="mb-2 text-lg font-semibold text-text">Digitale Produkte</h3>
+						<p class="mb-4 text-[15px] leading-relaxed text-muted">Revenue Frameworks, Audit-Templates und System-Blueprints zum Selbst-Implementieren.</p>
 						<div class="mt-auto">
-							<div class="ways-price mb-4">1k &ndash; 2k EUR</div>
-							<a href="/services/audit" class="cta-ghost block w-full text-center">Audit buchen</a>
+							<div class="ways-price mb-4">Ab &euro;47</div>
+							<a href={brand.url.shop} class="cta-ghost block w-full text-center">Produkte ansehen</a>
 						</div>
 					</div>
 
 					<div class="ways-card" style="border-color: rgba(0, 255, 136, 0.3);">
-						<p class="mb-2 font-mono text-xs tracking-wider text-muted-dark uppercase">Tier 2</p>
-						<h3 class="mb-2 text-lg font-semibold text-text">Revenue Systems Consulting</h3>
-						<p class="mb-4 text-[15px] leading-relaxed text-muted">Leaks fixen, System aufbauen.</p>
+						<p class="mb-2 font-mono text-xs tracking-wider text-muted-dark uppercase">Done With You</p>
+						<h3 class="mb-2 text-lg font-semibold text-text">Revenue Leak Audit</h3>
+						<p class="mb-4 text-[15px] leading-relaxed text-muted">Wir mappen deine komplette Revenue Pipeline, finden jeden Leak und geben dir einen priorisierten Action Plan.</p>
 						<div class="mt-auto">
-							<div class="ways-price mb-4">3k &ndash; 6k EUR</div>
-							<a href="/services/consulting" class="cta-ghost block w-full text-center">Beratung buchen</a>
+							<div class="ways-price mb-4">&euro;1k &ndash; &euro;2k</div>
+							<a href={brand.calendly.de} class="cta-ghost block w-full text-center">Audit-Call buchen</a>
 						</div>
 					</div>
 
 					<div class="ways-card">
-						<p class="mb-2 font-mono text-xs tracking-wider text-muted-dark uppercase">Tier 3</p>
-						<h3 class="mb-2 text-lg font-semibold text-text">Revenue Systems Partner</h3>
-						<p class="mb-4 text-[15px] leading-relaxed text-muted">Laufender Execution-Partner.</p>
+						<p class="mb-2 font-mono text-xs tracking-wider text-muted-dark uppercase">Done For You</p>
+						<h3 class="mb-2 text-lg font-semibold text-text">Revenue Systems Consulting</h3>
+						<p class="mb-4 text-[15px] leading-relaxed text-muted">Wir bauen, optimieren und betreiben dein gesamtes Revenue-System. Volle Execution, Compounding Results.</p>
 						<div class="mt-auto">
-							<div class="ways-price mb-4">7k &ndash; 20k EUR</div>
-							<a href={brand.calendly.de} class="cta-ghost block w-full text-center">Bewerben</a>
+							<div class="ways-price mb-4">&euro;5k &ndash; &euro;20k</div>
+							<a href={brand.calendly.de} class="cta-ghost block w-full text-center">Jetzt bewerben</a>
 						</div>
 					</div>
 				</div>
@@ -361,6 +502,63 @@ import { brand } from '../../config/brand';
 			</div>
 		</section>
 
+		<!-- Revenue Leak Calculator -->
+		<section class="border-t border-border px-6 py-28">
+			<div class="content-width">
+				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">Kostenloses Tool</p>
+				<h2 class="section-heading mb-6 text-center font-display font-bold text-text">
+					Berechne deinen Revenue Leak.
+				</h2>
+				<p class="mx-auto mb-16 max-w-2xl text-center text-muted">
+					Gib deine Zahlen ein. Sieh, wie viel Umsatz du jeden Monat auf dem Tisch liegen l&auml;sst.
+				</p>
+
+				<div class="calc-wrapper">
+					<div class="calc-field">
+						<label>Monatliche Besucher <span id="calc-traffic-val">10.000</span></label>
+						<input type="range" id="calc-traffic" class="calc-slider" min="1000" max="100000" step="1000" value="10000" />
+					</div>
+
+					<div class="calc-field">
+						<label>Aktuelle Conversion Rate <span id="calc-cr-val">1,0%</span></label>
+						<input type="range" id="calc-cr" class="calc-slider" min="10" max="500" step="10" value="100" />
+					</div>
+
+					<div class="calc-field">
+						<label>Durchschnittlicher Bestellwert (&euro;)</label>
+						<input type="number" id="calc-aov" class="calc-input" placeholder="z.B. 80" value="80" min="1" />
+					</div>
+
+					<div class="calc-field">
+						<label>E-Mail-Liste <span class="text-muted-dark text-xs font-normal">(optional)</span></label>
+						<input type="number" id="calc-email" class="calc-input" placeholder="z.B. 5000" value="" min="0" />
+					</div>
+
+					<div class="calc-results" id="calc-results">
+						<div class="calc-result-row">
+							<span class="calc-result-label">Aktueller Monatsumsatz</span>
+							<span class="calc-result-value calc-current" id="calc-current">&euro;0</span>
+						</div>
+						<div class="calc-result-row">
+							<span class="calc-result-label">Potenzial mit +0,5% CR</span>
+							<span class="calc-result-value calc-potential" id="calc-potential">&euro;0</span>
+						</div>
+						<div class="calc-result-row">
+							<span class="calc-result-label">Dein gesch&auml;tzter Revenue Leak</span>
+							<span class="calc-result-value calc-leak" id="calc-leak">&euro;0/Mo</span>
+						</div>
+					</div>
+
+					<div class="mt-10 text-center">
+						<a href={brand.calendly.de} class="cta-primary inline-flex items-center gap-2">
+							Kostenloses Audit buchen
+							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<!-- The UHL Method -->
 		<section id="method" class="border-t border-border px-6 py-28">
 			<div class="content-width">
@@ -398,134 +596,6 @@ import { brand } from '../../config/brand';
 						<p class="text-[15px] leading-relaxed text-muted">
 							Systematische Execution. Wir bauen, testen und optimieren jede Komponente deines Revenue-Systems, bis es compounded.
 						</p>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Offer Tiers -->
-		<section class="border-t border-border px-6 py-28">
-			<div class="content-width">
-				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">Zusammenarbeit</p>
-				<h2 class="section-heading mb-20 text-center font-display font-bold text-text">
-					Wähle dein Level
-				</h2>
-
-				<div class="grid gap-6 md:grid-cols-3">
-					<!-- Audit -->
-					<div class="uhl-card group">
-						<div class="mb-6">
-							<div class="mb-1 flex items-center gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-								<h3 class="text-lg font-semibold text-text">Das Audit</h3>
-							</div>
-							<p class="font-mono text-xs tracking-wider text-muted-dark uppercase">Revenue Leak Analyse</p>
-						</div>
-						<p class="mb-6 text-[15px] leading-relaxed text-muted">
-							Komplettdiagnose deines Revenue-Systems. Du bekommst eine priorisierte Map aller Leaks, Quick Wins und eine Roadmap zur Behebung. Danach: Option, weiter zusammenzuarbeiten - kein Zwang.
-						</p>
-						<div class="mb-6 border-t border-border pt-6">
-							<span class="font-display text-3xl font-bold text-text">1k &ndash; 2k</span>
-							<p class="mt-1 text-sm text-muted-dark">Einmalige Investition</p>
-						</div>
-						<ul class="space-y-3 text-[15px] text-muted">
-							<li class="flex items-start gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
-								Volle Revenue Leak Analyse (90 Min.)
-							</li>
-							<li class="flex items-start gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
-								Revenue Leak Map aller 7 Stationen
-							</li>
-							<li class="flex items-start gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
-								Priorisierter Action Plan + Quick Win Liste
-							</li>
-							<li class="flex items-start gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
-								Schriftlicher Report + Roadmap
-							</li>
-						</ul>
-						<a href="/services/audit" class="cta-ghost mt-6 block w-full text-center">Mehr erfahren</a>
-					</div>
-
-					<!-- Method -->
-					<div class="group relative rounded-2xl border border-accent/40 bg-bg2 p-10 shadow-[0_0_48px_rgba(0,255,136,0.06)] transition-all duration-300 hover:border-accent/60">
-						<div class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent px-5 py-1 font-mono text-xs font-semibold text-bg">BELIEBTESTE WAHL</div>
-						<div class="mb-6">
-							<div class="mb-1 flex items-center gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg>
-								<h3 class="text-lg font-semibold text-text">Die Methode</h3>
-							</div>
-							<p class="font-mono text-xs tracking-wider text-muted-dark uppercase">3-Monats-Engagement</p>
-						</div>
-						<p class="mb-6 text-[15px] leading-relaxed text-muted">
-							Alles aus dem Audit, plus 3 Monate intensive Zusammenarbeit. Wir designen deine komplette Revenue-Architektur und bauen das Execution Playbook. <em class="text-text">Nach 3 Monaten l&auml;uft dein Business anders.</em>
-						</p>
-						<div class="mb-6 border-t border-border pt-6">
-							<span class="font-display text-3xl font-bold text-text">3k &ndash; 6k</span>
-							<p class="mt-1 text-sm text-muted-dark">3-Monats-Engagement</p>
-						</div>
-						<ul class="space-y-3 text-[15px] text-muted">
-							<li class="flex items-start gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
-								Alles aus dem Audit
-							</li>
-							<li class="flex items-start gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
-								3 Monate intensive Zusammenarbeit
-							</li>
-							<li class="flex items-start gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
-								Revenue-System-Architektur
-							</li>
-							<li class="flex items-start gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
-								90-Tage Execution Playbook
-							</li>
-							<li class="flex items-start gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
-								W&ouml;chentliche Strategy Sessions
-							</li>
-						</ul>
-						<a href="/services/consulting" class="cta-ghost mt-6 block w-full text-center">Mehr erfahren</a>
-					</div>
-
-					<!-- System -->
-					<div class="uhl-card group">
-						<div class="mb-6">
-							<div class="mb-1 flex items-center gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-								<h3 class="text-lg font-semibold text-text">Das System</h3>
-							</div>
-							<p class="font-mono text-xs tracking-wider text-muted-dark uppercase">Full Support, Ongoing</p>
-						</div>
-						<p class="mb-6 text-[15px] leading-relaxed text-muted">
-							Dein dediziertes Revenue-Systems-Team. Wir bauen alles was gebraucht wird - Dashboards, Interfaces, Automations. Issues werden gehandelt. Kein Scope Limit.
-						</p>
-						<div class="mb-6 border-t border-border pt-6">
-							<span class="font-display text-3xl font-bold text-text">7k &ndash; 20k</span>
-							<p class="mt-1 text-sm text-muted-dark">Laufendes Engagement</p>
-						</div>
-						<ul class="space-y-3 text-[15px] text-muted">
-							<li class="flex items-start gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
-								Full 24/7 Support
-							</li>
-							<li class="flex items-start gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
-								Dashboards, Interfaces & Automations
-							</li>
-							<li class="flex items-start gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
-								Laufende Optimierung
-							</li>
-							<li class="flex items-start gap-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0 text-accent"><polyline points="20 6 9 17 4 12"/></svg>
-								Priority Access & direkte Kommunikation
-							</li>
-						</ul>
-						<a href="/services/consulting" class="cta-ghost mt-6 block w-full text-center">Mehr erfahren</a>
 					</div>
 				</div>
 			</div>
@@ -583,28 +653,43 @@ import { brand } from '../../config/brand';
 
 				<div class="mx-auto max-w-2xl">
 					<details class="faq-item">
-						<summary>F&uuml;r wen ist das?</summary>
-						<div class="faq-answer">Online-Businesses mit 5k&ndash;50k&euro;/Monat, die Traffic und Angebote haben, aber nicht wachsen. Du hast Taktiken probiert. Du brauchst ein System.</div>
+						<summary>Was ist ein Revenue Leak?</summary>
+						<div class="faq-answer">Ein Revenue Leak ist jede Stelle in deinem Business, an der potenzieller Umsatz verloren geht &mdash; Besucher, die nicht konvertieren, Kunden, die nicht zur&uuml;ckkommen, Angebote, die zu billig sind, oder Funnels mit unn&ouml;tiger Friction. Die meisten Businesses haben 3&ndash;5 erhebliche Leaks, die sie nicht sehen.</div>
 					</details>
 
 					<details class="faq-item">
-						<summary>Was bekomme ich konkret?</summary>
-						<div class="faq-answer">Kommt auf das Tier an. Mindestens: ein vollst&auml;ndiges Revenue Leak Audit mit priorisiertem Action Plan und schriftlichem Report. Im h&ouml;chsten Tier: ein laufender Execution-Partner, der dein gesamtes Revenue-System baut.</div>
+						<summary>Wie lange dauert ein Audit?</summary>
+						<div class="faq-answer">Das Revenue Leak Audit liefert umsetzbare Ergebnisse in 1&ndash;2 Wochen. Du bekommst eine vollst&auml;ndige Pipeline-Map, identifizierte Leaks mit gesch&auml;tztem Revenue-Impact und einen priorisierten Action Plan. Erste Quick Wins tauchen oft schon in Tagen auf.</div>
 					</details>
 
 					<details class="faq-item">
-						<summary>Wie lange dauert das?</summary>
-						<div class="faq-answer">Das Audit liefert Ergebnisse in 1&ndash;2 Wochen. Die Methode l&auml;uft &uuml;ber 3 Monate. Das System ist laufend. Erste Quick Wins siehst du innerhalb von Tagen.</div>
+						<summary>Brauche ich ein gro&szlig;es Team oder Budget?</summary>
+						<div class="faq-answer">Nein. Die meisten unserer Kunden sind Solo-Founder oder kleine Teams mit 5k&ndash;50k&euro;/Monat. Der Sinn eines Revenue-Systems ist, mehr aus dem herauszuholen, was du schon hast &mdash; nicht mehr Leute einzustellen oder mehr Ads zu schalten.</div>
 					</details>
 
 					<details class="faq-item">
-						<summary>Was kostet es?</summary>
-						<div class="faq-answer">Revenue Leak Audit: 1k&ndash;2k EUR. Revenue Systems Consulting: 3k&ndash;6k EUR. Revenue Systems Partner: 7k&ndash;20k EUR. Das Erstgespr&auml;ch ist kostenlos.</div>
+						<summary>Welche Ergebnisse kann ich erwarten?</summary>
+						<div class="faq-answer">Das h&auml;ngt davon ab, wo deine Leaks liegen. Typische Ergebnisse: 20&ndash;50% Kostensenkung, 1,5&ndash;3x Umsatzwachstum und deutlich h&ouml;here Conversion Rates. Wir quantifizieren den erwarteten Impact, bevor du dich festlegst.</div>
 					</details>
 
 					<details class="faq-item">
-						<summary>Was passiert nach dem Erstgespr&auml;ch?</summary>
-						<div class="faq-answer">30-Minuten Discovery Call. Wir gehen deine Revenue Pipeline durch, identifizieren die gr&ouml;&szlig;ten Leaks und entscheiden gemeinsam, ob es passt. Kein Pitch, kein Druck. Wenn es nicht passt, sage ich dir das.</div>
+						<summary>Ist das nur f&uuml;r Online-Businesses?</summary>
+						<div class="faq-answer">Prim&auml;r ja. Unser Framework funktioniert am besten f&uuml;r Businesses mit einer digitalen Revenue Pipeline &mdash; E-Commerce, SaaS, Info-Produkte, Coaching, Agenturen. Wenn du Traffic und ein Angebot hast, finden wir die Leaks.</div>
+					</details>
+
+					<details class="faq-item">
+						<summary>Wie schnell sehe ich Ergebnisse?</summary>
+						<div class="faq-answer">Quick Wins (Pricing-Fixes, Funnel-Tweaks, Conversion Copy) k&ouml;nnen innerhalb der ersten Woche wirken. Strukturelle &Auml;nderungen an deinem Revenue-System compounded &uuml;ber 30&ndash;90 Tage. Wir priorisieren High-Impact, schnelle Umsetzung zuerst.</div>
+					</details>
+
+					<details class="faq-item">
+						<summary>Was unterscheidet UHL von anderen Beratern?</summary>
+						<div class="faq-answer">Wir verkaufen keine Ratschl&auml;ge und verschwinden. Wir bauen Systeme. Jede Empfehlung ist an ein messbares Revenue-Ergebnis gekn&uuml;pft. Kein Fluff, kein Guru-Speak &mdash; nur datengetriebene Execution, fokussiert auf dein Bottom Line.</div>
+					</details>
+
+					<details class="faq-item">
+						<summary>Was passiert nach dem Audit?</summary>
+						<div class="faq-answer">Du bekommst einen schriftlichen Report mit deiner Revenue Leak Map, priorisierten Fixes und erwartetem ROI pro Hebel. Danach kannst du selbst umsetzen (DIY), mit uns zusammen arbeiten (Done-With-You) oder komplett abgeben (Done-For-You).</div>
 					</details>
 				</div>
 			</div>
@@ -673,6 +758,43 @@ import { brand } from '../../config/brand';
 					});
 				}, { threshold: 0.15 });
 				aboutEls.forEach(function(el) { observer.observe(el); });
+			})();
+
+			// === Revenue Leak Calculator ===
+			(function() {
+				var traffic = document.getElementById('calc-traffic');
+				var cr = document.getElementById('calc-cr');
+				var aov = document.getElementById('calc-aov');
+				var email = document.getElementById('calc-email');
+				if (!traffic || !cr || !aov) return;
+
+				function fmt(n) {
+					return '€' + Math.round(n).toLocaleString('de-DE');
+				}
+
+				function calc() {
+					var t = parseInt(traffic.value) || 0;
+					var c = (parseInt(cr.value) || 0) / 10000;
+
+					document.getElementById('calc-traffic-val').textContent = t.toLocaleString('de-DE');
+					document.getElementById('calc-cr-val').textContent = (c * 100).toFixed(1).replace('.', ',') + '%';
+
+					var current = t * c * a();
+					var improved = t * (c + 0.005) * a();
+					var leak = improved - current;
+
+					document.getElementById('calc-current').textContent = fmt(current);
+					document.getElementById('calc-potential').textContent = fmt(improved);
+					document.getElementById('calc-leak').textContent = fmt(leak) + '/Mo';
+				}
+
+				function a() { return parseFloat(aov.value) || 0; }
+
+				traffic.addEventListener('input', calc);
+				cr.addEventListener('input', calc);
+				aov.addEventListener('input', calc);
+				email.addEventListener('input', calc);
+				calc();
 			})();
 
 			// === Newsletter Form ===

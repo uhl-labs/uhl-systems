@@ -2,7 +2,7 @@
 title: 'First-Party Data: Why B2B Marketers Lose in 2026'
 description: 'Tracking erosion is killing third-party data. B2B marketers without a first-party data strategy are bleeding revenue silently. Here is what to do instead.'
 pubDate: '2026-03-21'
-heroImage: "/blog/first-party-data-b2b-marketing-2026-hero.png"
+heroImage: "/blog/agentic-ai-revenue-impact-hero.png"
 tags: ['revenue-systems', 'first-party-data', 'b2b-marketing', 'data-strategy']
 lang: "en"
 ---
