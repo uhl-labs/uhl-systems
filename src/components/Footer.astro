@@ -9,11 +9,8 @@ const isDE = currentPath.startsWith("/de");
 	<div class="mx-auto max-w-6xl px-6">
 		<div class="flex flex-col items-center gap-8 md:flex-row md:justify-between">
 			<div class="text-center md:text-left">
-				<div class="mb-2 flex items-center justify-center gap-2 md:justify-start">
-					<span class="font-display text-lg font-bold tracking-tight text-text">UHL</span>
-					<span class="text-sm font-light tracking-widest text-muted-dark uppercase">Systems</span>
-				</div>
-				<p class="text-sm text-muted-dark">Unlock Hidden Leverage.</p>
+				<p class="font-display text-lg font-bold tracking-tight text-text">UHL Systems</p>
+				<p class="mt-1 text-sm text-muted-dark">Unlock Hidden Leverage.</p>
 			</div>
 
 			<div class="flex items-center gap-6">
@@ -37,9 +34,8 @@ const isDE = currentPath.startsWith("/de");
 				<a href={isDE ? "/de/about" : "/about"} class="transition-colors hover:text-text">About</a>
 			</div>
 			<div class="flex flex-wrap justify-center gap-4">
-				<a href="/impressum" class="transition-colors hover:text-text">Impressum</a>
-				<a href="/privacy" class="transition-colors hover:text-text">Datenschutz</a>
-				<a href="mailto:luke@uhl-systems.com" class="transition-colors hover:text-text">luke@uhl-systems.com</a>
+				<a href={isDE ? "/de/impressum" : "/impressum"} class="transition-colors hover:text-text">Impressum</a>
+				<a href={isDE ? "/de/privacy" : "/privacy"} class="transition-colors hover:text-text">{isDE ? "Datenschutz" : "Privacy"}</a>
 			</div>
 			<p>&copy; {year} UHL Labs &middot; uhl-systems.com</p>
 		</div>

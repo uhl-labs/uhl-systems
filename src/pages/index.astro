@@ -85,7 +85,7 @@ import { brand } from '../config/brand';
 			}
 			.stat-label {
 				margin-top: 0.75rem;
-				font-size: 14px;
+				font-size: 16px;
 				color: var(--color-muted);
 				line-height: 1.4;
 			}
@@ -181,18 +181,59 @@ import { brand } from '../config/brand';
 			.leak-warning {
 				display: flex;
 				align-items: center;
-				gap: 2px;
+				justify-content: center;
 				margin-top: 4px;
-				font-size: 9px;
-				font-family: var(--font-mono);
-				color: #ff6b35;
-				letter-spacing: 0.05em;
-				white-space: nowrap;
+				position: relative;
 			}
-			.leak-warning-icon {
-				width: 10px;
-				height: 10px;
-				flex-shrink: 0;
+			.leak-stage-icon {
+				width: 22px;
+				height: 22px;
+				color: #00ff88;
+				opacity: 0.5;
+				transition: all 0.3s ease;
+				cursor: pointer;
+				filter: drop-shadow(0 0 0px transparent);
+			}
+			.leak-warning:hover .leak-stage-icon {
+				opacity: 1;
+				transform: scale(1.2);
+				filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.5));
+			}
+			.leak-tooltip {
+				position: absolute;
+				bottom: calc(100% + 10px);
+				left: 50%;
+				transform: translateX(-50%);
+				background: #111;
+				border: 1px solid rgba(232, 255, 0, 0.3);
+				border-radius: 8px;
+				padding: 10px 14px;
+				font-size: 11px;
+				font-family: var(--font-mono);
+				color: var(--color-text);
+				line-height: 1.5;
+				white-space: normal;
+				width: 200px;
+				text-align: center;
+				opacity: 0;
+				visibility: hidden;
+				transition: all 0.25s ease;
+				pointer-events: none;
+				z-index: 10;
+				box-shadow: 0 0 20px rgba(232, 255, 0, 0.08);
+			}
+			.leak-tooltip::after {
+				content: '';
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				transform: translateX(-50%);
+				border: 5px solid transparent;
+				border-top-color: rgba(232, 255, 0, 0.3);
+			}
+			.leak-warning:hover .leak-tooltip {
+				opacity: 1;
+				visibility: visible;
 			}
 			@media (max-width: 768px) {
 				.leak-flow {
@@ -383,8 +424,8 @@ import { brand } from '../config/brand';
 					<div class="leak-arrow">
 						<div class="leak-arrow-line"></div>
 						<div class="leak-warning">
-							<svg class="leak-warning-icon" viewBox="0 0 24 24" fill="none" stroke="#ff6b35" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/><path d="M12 10v4"/><circle cx="12" cy="18" r="0.5" fill="#ff6b35"/></svg>
-							Leak?
+							<svg class="leak-stage-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12 7 2l5 10-5 10z"/><path d="M12 12l5-10 5 10-5 10z"/></svg>
+							<div class="leak-tooltip">You attract visitors — but are they the right ones?</div>
 						</div>
 					</div>
 
@@ -405,8 +446,8 @@ import { brand } from '../config/brand';
 					<div class="leak-arrow">
 						<div class="leak-arrow-line"></div>
 						<div class="leak-warning">
-							<svg class="leak-warning-icon" viewBox="0 0 24 24" fill="none" stroke="#ff6b35" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/><path d="M12 10v4"/><circle cx="12" cy="18" r="0.5" fill="#ff6b35"/></svg>
-							Leak?
+							<svg class="leak-stage-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+							<div class="leak-tooltip">Your offer exists — but does it connect to your traffic?</div>
 						</div>
 					</div>
 
@@ -427,8 +468,8 @@ import { brand } from '../config/brand';
 					<div class="leak-arrow">
 						<div class="leak-arrow-line"></div>
 						<div class="leak-warning">
-							<svg class="leak-warning-icon" viewBox="0 0 24 24" fill="none" stroke="#ff6b35" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/><path d="M12 10v4"/><circle cx="12" cy="18" r="0.5" fill="#ff6b35"/></svg>
-							Leak?
+							<svg class="leak-stage-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/></svg>
+							<div class="leak-tooltip">People enter — but where do they drop off?</div>
 						</div>
 					</div>
 
@@ -449,8 +490,8 @@ import { brand } from '../config/brand';
 					<div class="leak-arrow">
 						<div class="leak-arrow-line"></div>
 						<div class="leak-warning">
-							<svg class="leak-warning-icon" viewBox="0 0 24 24" fill="none" stroke="#ff6b35" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/><path d="M12 10v4"/><circle cx="12" cy="18" r="0.5" fill="#ff6b35"/></svg>
-							Leak?
+							<svg class="leak-stage-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+							<div class="leak-tooltip">Interest exists — but friction kills the sale.</div>
 						</div>
 					</div>
 
@@ -471,8 +512,8 @@ import { brand } from '../config/brand';
 					<div class="leak-arrow">
 						<div class="leak-arrow-line"></div>
 						<div class="leak-warning">
-							<svg class="leak-warning-icon" viewBox="0 0 24 24" fill="none" stroke="#ff6b35" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/><path d="M12 10v4"/><circle cx="12" cy="18" r="0.5" fill="#ff6b35"/></svg>
-							Leak?
+							<svg class="leak-stage-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+							<div class="leak-tooltip">You sell — but is your pricing structure leaving money behind?</div>
 						</div>
 					</div>
 
@@ -493,8 +534,8 @@ import { brand } from '../config/brand';
 					<div class="leak-arrow">
 						<div class="leak-arrow-line"></div>
 						<div class="leak-warning">
-							<svg class="leak-warning-icon" viewBox="0 0 24 24" fill="none" stroke="#ff6b35" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/><path d="M12 10v4"/><circle cx="12" cy="18" r="0.5" fill="#ff6b35"/></svg>
-							Leak?
+							<svg class="leak-stage-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v9h-9"/></svg>
+							<div class="leak-tooltip">Customers buy once — but do they come back?</div>
 						</div>
 					</div>
 
@@ -721,7 +762,7 @@ import { brand } from '../config/brand';
 							src="/lukas.jpg"
 							alt="Lukas Uhl"
 							class="about-photo relative z-[1] block w-full max-w-[420px] rounded-2xl object-cover object-top shadow-2xl"
-							style="max-height: 520px; border: 2px solid transparent; border-image: linear-gradient(180deg, rgba(0,255,136,0.5), transparent) 1;"
+							style="max-height: 520px; border-radius: 1rem; box-shadow: 0 0 0 2px rgba(0,255,136,0.4), 0 0 40px rgba(0,255,136,0.08), 0 32px 64px rgba(0,0,0,0.6);"
 							loading="lazy"
 						/>
 						<div class="pointer-events-none absolute -bottom-4 -right-4 z-0 h-full w-full rounded-2xl" style="background: linear-gradient(135deg, rgba(0,255,136,0.08), transparent 60%);"></div>
@@ -733,16 +774,22 @@ import { brand } from '../config/brand';
 					<h2 class="font-display text-5xl font-bold tracking-tight text-text md:text-6xl">Lukas Uhl</h2>
 					<p class="mt-3 text-lg font-medium tracking-wide text-muted">Revenue Systems Architect. Builder. Operator.</p>
 					<div class="mt-8 space-y-4 text-[15px] leading-relaxed text-muted">
-						<p>I started UHL because I kept seeing the same problem: smart people with great businesses, hemorrhaging revenue through invisible leaks.</p>
-						<p>Not because they lacked ambition - but because they were optimizing fragments instead of systems.</p>
-						<p>My background spans marketing, sales engineering, software, and AI. I combine all of it to build revenue systems that compound - not just campaigns that spike.</p>
+						<p>I started UHL after seeing the same pattern repeat itself across dozens of businesses: smart, ambitious people leaving serious money on the table - not because they lacked ideas, but because they were patching symptoms instead of fixing systems.</p>
+						<p>Revenue doesn't leak because people aren't working hard enough. It leaks because no one has mapped the whole system. That's what I do.</p>
+						<p>I build from first principles. I combine marketing strategy, conversion engineering, and AI automation to architect revenue systems that compound over time - not campaigns that spike and fade.</p>
 						<p>Based in Germany. Building globally.</p>
 					</div>
 					<p class="mt-6 font-mono text-xs tracking-wide text-muted-dark">31 years old &bull; Aquarius &#9811; &bull; Currently: Building UHL Labs</p>
-					<a href={brand.calendly.en} class="cta-primary mt-10 inline-flex items-center gap-2">
-						Let's talk about your system
-						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-					</a>
+					<div class="mt-10 flex flex-wrap items-center gap-4">
+						<a href={brand.calendly.en} class="cta-primary inline-flex items-center gap-2">
+							Let's talk about your system
+							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+						</a>
+						<a href="/about" class="cta-ghost inline-flex items-center gap-2">
+							About Lukas
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+						</a>
+					</div>
 				</div>
 			</div>
 			<div class="pointer-events-none absolute inset-0 -z-10" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.015) 1px, transparent 0); background-size: 32px 32px;"></div>

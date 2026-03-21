@@ -52,6 +52,7 @@ const { tagline = "we eat your revenue leaks" } = Astro.props;
 	</div>
 
 	<p class="muncher-tagline" aria-live="polite"></p>
+	<div class="muncher-badge">Ad Spend: €0</div>
 </div>
 
 <style>
@@ -59,10 +60,11 @@ const { tagline = "we eat your revenue leaks" } = Astro.props;
 		position: relative;
 		width: 100%;
 		height: 56px;
-		overflow: hidden;
+		overflow: visible;
 		background: var(--color-bg);
 		border-top: 1px solid var(--color-border);
 		border-bottom: 1px solid var(--color-border);
+		margin-bottom: 32px;
 	}
 
 	.muncher-track {
@@ -185,13 +187,36 @@ const { tagline = "we eat your revenue leaks" } = Astro.props;
 		transform: translate(-50%, -50%);
 		top: 50%;
 		font-family: var(--font-mono, 'Space Mono', monospace);
-		font-size: 11px;
+		font-size: 13px;
 		letter-spacing: 0.08em;
 		color: var(--color-accent, #00ff88);
 		text-transform: uppercase;
 		white-space: nowrap;
 		min-height: 1em;
 		text-align: center;
+	}
+
+	.muncher-badge {
+		display: none;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: -28px;
+		font-family: var(--font-mono, 'Space Mono', monospace);
+		font-size: 10px;
+		letter-spacing: 0.1em;
+		color: #e8ff00;
+		background: rgba(232, 255, 0, 0.08);
+		border: 1px solid rgba(232, 255, 0, 0.2);
+		padding: 3px 12px;
+		border-radius: 999px;
+		white-space: nowrap;
+		text-transform: uppercase;
+		opacity: 0;
+		transition: opacity 0.5s ease;
+	}
+	.muncher-badge.visible {
+		opacity: 1;
 	}
 
 	/* Responsive */
@@ -232,6 +257,7 @@ const { tagline = "we eat your revenue leaks" } = Astro.props;
 		const character = strip.querySelector<HTMLElement>('.muncher-character');
 		const leakItems = strip.querySelectorAll<HTMLElement>('.leak-item');
 		const taglineEl = strip.querySelector<HTMLElement>('.muncher-tagline');
+		const badgeEl = strip.querySelector<HTMLElement>('.muncher-badge');
 		const taglineText = strip.getAttribute('data-tagline') || 'we eat your revenue leaks';
 		if (!character || !taglineEl) return;
 
@@ -289,8 +315,13 @@ const { tagline = "we eat your revenue leaks" } = Astro.props;
 				} else {
 					// Pac-Man done - short pause then typewriter
 					setTimeout(() => {
-						typewriter(taglineEl!, taglineText, 80);
-					}, 200);
+						typewriter(taglineEl!, taglineText, 40);
+						// Show badge after typewriter finishes
+						if (badgeEl) {
+							badgeEl.style.display = 'block';
+							setTimeout(() => badgeEl.classList.add('visible'), taglineText.length * 40 + 200);
+						}
+					}, 80);
 
 					// Allow re-run after delay
 					setTimeout(() => {
@@ -298,6 +329,7 @@ const { tagline = "we eat your revenue leaks" } = Astro.props;
 						character!.style.left = '-40px';
 						leakItems.forEach((item) => item.classList.remove('eaten'));
 						taglineEl!.textContent = '';
+						if (badgeEl) { badgeEl.classList.remove('visible'); badgeEl.style.display = 'none'; }
 					}, 10000);
 				}
 			}
