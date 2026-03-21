@@ -3,8 +3,33 @@ import HeaderLink from './HeaderLink.astro';
 
 const currentPath = Astro.url.pathname;
 const isDE = currentPath.startsWith("/de");
-const langSwitchHref = isDE ? "/" : "/de/";
 const langSwitchLabel = isDE ? "EN" : "DE";
+
+// Pages that exist in both languages
+const bilingualPages = ["/", "/about", "/booking-confirmed"];
+
+function getLangSwitchHref(path: string): string {
+	if (isDE) {
+		// Remove /de prefix to get the EN path
+		const enPath = path.replace(/^\/de\/?/, "/") || "/";
+		const normalized = enPath === "/" ? "/" : enPath.replace(/\/$/, "");
+		if (bilingualPages.includes(normalized)) {
+			return normalized;
+		}
+		// Fallback: go to EN homepage
+		return "/";
+	} else {
+		// Add /de prefix for the DE path
+		const normalized = path === "/" ? "/" : path.replace(/\/$/, "");
+		if (bilingualPages.includes(normalized)) {
+			return `/de${normalized === "/" ? "/" : normalized}`;
+		}
+		// Fallback: go to DE homepage
+		return "/de/";
+	}
+}
+
+const langSwitchHref = getLangSwitchHref(currentPath);
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 border-b border-border bg-bg/80 backdrop-blur-md">
