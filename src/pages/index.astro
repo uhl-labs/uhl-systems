@@ -286,16 +286,24 @@ import { brand } from '../config/brand';
 				align-items: center;
 				justify-content: center;
 				position: relative;
-				padding: 0 4px;
+				padding: 0 8px;
 				flex-shrink: 0;
 			}
-			.leak-lightning svg {
-				filter: drop-shadow(0 0 6px rgba(232, 255, 0, 0.5));
-				animation: lightning-pulse 2s ease-in-out infinite;
+			.leak-lightning svg { display: none; }
+			.leak-lightning::before {
+				content: "";
+				display: block;
+				width: 48px;
+				height: 2px;
+				background: #e8ff00;
+				border-radius: 2px;
+				box-shadow: 0 0 8px rgba(232, 255, 0, 0.6), 0 0 20px rgba(232, 255, 0, 0.3);
+				animation: flow-pulse 2s ease-in-out infinite;
+				margin-bottom: 4px;
 			}
-			@keyframes lightning-pulse {
-				0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 6px rgba(232, 255, 0, 0.5)); }
-				50% { opacity: 1; filter: drop-shadow(0 0 12px rgba(232, 255, 0, 0.8)); }
+			@keyframes flow-pulse {
+				0%, 100% { opacity: 0.6; box-shadow: 0 0 6px rgba(232, 255, 0, 0.4), 0 0 14px rgba(232, 255, 0, 0.2); }
+				50% { opacity: 1; box-shadow: 0 0 12px rgba(232, 255, 0, 0.9), 0 0 28px rgba(232, 255, 0, 0.5); }
 			}
 			.leak-warning {
 				display: flex;
