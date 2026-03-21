@@ -50,19 +50,19 @@ export const brand = {
       title: "Conversion Audit Checklist",
       slug: "conversion-audit-checklist",
       price: "€47",
-      checkoutUrl: "https://shop.uhl-systems.com/checkout/buy/531a2a29-8a07-484a-9ef6-84798405b20e",
+      checkoutUrl: "https://shop.uhl-systems.com/checkout/buy/e521440a-3290-4747-a404-978556264dae",
     },
     {
       title: "Revenue Leak Audit Template",
       slug: "revenue-leak-audit-template",
-      price: "€67",
-      checkoutUrl: "https://shop.uhl-systems.com/checkout/buy/e521440a-3290-4747-a404-978556264dae",
+      price: "€147",
+      checkoutUrl: "https://shop.uhl-systems.com/checkout/buy/5b65085e-6265-4d66-bee1-8333a595a70e",
     },
     {
       title: "The 90-Day Revenue System Playbook",
       slug: "90-day-revenue-playbook",
-      price: "€127",
-      checkoutUrl: "",
+      price: "€197",
+      checkoutUrl: "https://shop.uhl-systems.com/checkout/buy/531a2a29-8a07-484a-9ef6-84798405b20e",
     }
   ],
 
