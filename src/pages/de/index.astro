@@ -149,12 +149,25 @@ import { brand } from '../../config/brand';
 			}
 			@media (max-width: 768px) {
 				.credibility-grid {
-					display: grid;
-					grid-template-columns: 1fr 1fr;
-					gap: 1.5rem;
+					display: flex;
+					flex-direction: row;
+					flex-wrap: nowrap;
+					justify-content: space-around;
+					gap: 0.5rem;
+					padding: 1.75rem 1rem;
 				}
+				.credibility-item {
+					flex-direction: column;
+					align-items: center;
+					gap: 0.25rem;
+					flex: 1;
+					min-width: 0;
+					white-space: normal;
+					text-align: center;
+				}
+				.credibility-number { font-size: clamp(22px, 6vw, 32px); }
+				.credibility-label { font-size: 11px; line-height: 1.3; }
 				.credibility-divider { display: none; }
-				.credibility-item { justify-content: center; }
 			}
 			/* === Case Studies === */
 			.case-card {
@@ -389,27 +402,27 @@ import { brand } from '../../config/brand';
 
 				<div class="grid gap-6 md:grid-cols-3">
 					<div class="case-card">
-						<p class="mb-1 font-mono text-xs tracking-wider text-muted-dark uppercase">E-Commerce Founder</p>
+						<p class="mb-1 font-mono text-xs tracking-wider text-muted-dark uppercase">Online Business</p>
 						<p class="mb-4 text-lg font-semibold text-text">
-							<span class="case-before">&euro;6k/Mo</span><span class="case-arrow">&rarr;</span><span class="case-after">&euro;23k/Mo</span>
+							<span class="case-before">Kosten &minus;50%</span><span class="case-arrow">&rarr;</span><span class="case-after">Umsatz stabil</span>
 						</p>
-						<p class="text-[15px] leading-relaxed text-muted">Gleiche Zielgruppe, gleiche Produkte. Wir haben die Funnel-Logik und Monetarisierung umgebaut. Umsatz fast 4x &mdash; ohne eine einzige neue Werbekampagne.</p>
+						<p class="text-[15px] leading-relaxed text-muted">Betriebskosten halbiert ohne Umsatzeinbussen. Prozessredundanzen entfernt, Kernworkflows automatisiert, Lieferantenvertraege neu verhandelt. Gleicher Output, halbe Kosten.</p>
 					</div>
 
 					<div class="case-card">
-						<p class="mb-1 font-mono text-xs tracking-wider text-muted-dark uppercase">SaaS CEO</p>
+						<p class="mb-1 font-mono text-xs tracking-wider text-muted-dark uppercase">Lead-Generierungs-Business</p>
 						<p class="mb-4 text-lg font-semibold text-text">
-							<span class="case-before">Kosten 100%</span><span class="case-arrow">&rarr;</span><span class="case-after">Kosten &minus;50%</span>
+							<span class="case-before">Kosten &minus;60%</span><span class="case-arrow">+</span><span class="case-after">Umsatz gestiegen</span>
 						</p>
-						<p class="text-[15px] leading-relaxed text-muted">Umsatz blieb stabil, w&auml;hrend wir die Betriebskosten halbierten. Kompletter Prozess-Overhaul &mdash; Redundanzen entfernt, Workflows automatisiert, Lieferanten nachverhandelt.</p>
+						<p class="text-[15px] leading-relaxed text-muted">Akquisitionssystem von Grund auf neu gebaut. Kosten pro Lead sanken um 60%, Volumen stieg gleichzeitig. Der Revenue Leak steckte im Funnel-Aufbau, nicht in der Traffic-Quelle.</p>
 					</div>
 
 					<div class="case-card">
-						<p class="mb-1 font-mono text-xs tracking-wider text-muted-dark uppercase">Digital Agency Owner</p>
+						<p class="mb-1 font-mono text-xs tracking-wider text-muted-dark uppercase">Coaching Business</p>
 						<p class="mb-4 text-lg font-semibold text-text">
 							<span class="case-before">Kosten &minus;40%</span><span class="case-arrow">+</span><span class="case-after">Umsatz 2x</span>
 						</p>
-						<p class="text-[15px] leading-relaxed text-muted">Komplettes System-Redesign. Schlankere Prozesse kombiniert mit neuer Revenue-Architektur. Weniger Aufwand, doppeltes Ergebnis.</p>
+						<p class="text-[15px] leading-relaxed text-muted">Komplettes Revenue-System-Redesign. Schlankere Prozesse, neue Angebotsstruktur und ein Conversion-System das wirklich konvertiert. Weniger Aufwand, doppelter Output.</p>
 					</div>
 				</div>
 			</div>
