@@ -140,11 +140,38 @@ a:hover {
 }
 
 .prose blockquote {
+  border-left: 4px solid var(--color-accent);
+  background: var(--color-bg2);
+  padding: 1rem 1.25rem;
+  margin: 1.75rem 0;
+  border-radius: 0 8px 8px 0;
+  color: #cccccc;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.05em;
+  line-height: 1.7;
+}
+
+.prose h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
   border-left: 3px solid var(--color-accent);
-  padding-left: 1em;
-  margin-left: 0;
-  color: var(--color-muted);
-  font-style: italic;
+  padding-left: 0.75rem;
+  margin-top: 2.5em;
+}
+
+.prose h2 + p {
+  font-size: 1.08em;
+  color: #cccccc;
+  font-weight: 500;
+  line-height: 1.85;
+}
+
+.prose strong {
+  color: var(--color-text);
+  font-weight: 700;
 }
 
 .prose img {
