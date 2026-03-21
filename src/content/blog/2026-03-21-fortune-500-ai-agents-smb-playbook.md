@@ -2,7 +2,7 @@
 title: 'Fortune 500 AI Agents: The SMB Playbook for 2026'
 description: '67% of Fortune 500 companies now run AI agents. Here is how small businesses and coaches can match their leverage without the headcount.'
 pubDate: '2026-03-21'
-heroImage: "/blog/agentic-ai-revenue-impact-hero.png"
+heroImage: "/blog/fortune-500-ai-agents-smb-playbook-hero.png"
 tags: ['revenue-systems', 'ai-agents', 'business-automation', 'sme-growth']
 lang: "en"
 ---
