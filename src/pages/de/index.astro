@@ -55,6 +55,29 @@ import RevenueMuncher from '../../components/RevenueMuncher.astro';
 				border-color: rgba(0, 255, 136, 0.25);
 				background: var(--color-bg3);
 			}
+			/* === About Section === */
+			@media (max-width: 767px) {
+				.about-photo { max-height: 400px !important; }
+				.about-photo-wrapper { transform: rotate(0deg) !important; }
+			}
+			.about-text-col {
+				opacity: 0;
+				transform: translateX(40px);
+				transition: opacity 0.8s ease, transform 0.8s ease;
+			}
+			.about-text-col.visible {
+				opacity: 1;
+				transform: translateX(0);
+			}
+			.about-photo-col {
+				opacity: 0;
+				transform: translateY(30px);
+				transition: opacity 0.7s ease, transform 0.7s ease;
+			}
+			.about-photo-col.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
 			.uhl-letter {
 				font-size: 48px;
 				font-weight: 800;
@@ -334,6 +357,42 @@ import RevenueMuncher from '../../components/RevenueMuncher.astro';
 			</div>
 		</section>
 
+		<!-- About / Founder -->
+		<section id="about" class="relative overflow-hidden border-t border-border" style="background: #0d0d0d;">
+			<div class="mx-auto grid max-w-6xl items-center gap-0 px-6 py-32 md:grid-cols-2 md:gap-16">
+				<div class="about-photo-col relative mb-12 flex justify-center md:mb-0">
+					<div class="about-photo-wrapper relative" style="transform: rotate(-2deg);">
+						<span class="absolute left-4 top-4 z-10 rounded bg-accent/90 px-2 py-1 font-mono text-[10px] font-bold tracking-widest text-bg uppercase">Founder</span>
+						<img
+							src="/lukas.jpg"
+							alt="Lukas Uhl"
+							class="about-photo relative z-[1] block w-full max-w-[420px] rounded-2xl object-cover object-top shadow-2xl"
+							style="max-height: 520px; border: 2px solid transparent; border-image: linear-gradient(180deg, rgba(0,255,136,0.5), transparent) 1;"
+							loading="lazy"
+						/>
+						<div class="pointer-events-none absolute -bottom-4 -right-4 z-0 h-full w-full rounded-2xl" style="background: linear-gradient(135deg, rgba(0,255,136,0.08), transparent 60%);"></div>
+					</div>
+				</div>
+				<div class="about-text-col">
+					<p class="mb-4 font-mono text-sm tracking-widest text-accent uppercase">Der Kopf Hinter UHL</p>
+					<h2 class="font-display text-5xl font-bold tracking-tight text-text md:text-6xl">Lukas Uhl</h2>
+					<p class="mt-3 text-lg font-medium tracking-wide text-muted">Revenue Systems Architect. Builder. Operator.</p>
+					<div class="mt-8 space-y-4 text-[15px] leading-relaxed text-muted">
+						<p>Ich habe UHL gegr&uuml;ndet, weil ich immer wieder dasselbe Problem gesehen habe: kluge Menschen mit starken Unternehmen, die Umsatz durch unsichtbare Lecks verlieren.</p>
+						<p>Nicht aus mangelndem Ehrgeiz — sondern weil sie Fragmente optimieren statt Systeme.</p>
+						<p>Mein Hintergrund verbindet Marketing, Sales, Software Engineering und KI. Ich kombiniere alles davon, um Revenue-Systeme zu bauen, die wachsen — keine Kampagnen, die kurz aufflackern.</p>
+						<p>Standort: Deutschland. Aufbau: global.</p>
+					</div>
+					<p class="mt-6 font-mono text-xs tracking-wide text-muted-dark">31 Jahre &bull; Wassermann &#9811; &bull; Aktuell: Aufbau UHL Labs</p>
+					<a href="https://calendly.com/uhl-systems/free-discovery-call-revenue-leak-check-clone-1?redirect_url=https://uhl-systems.com/de/booking-confirmed" class="cta-primary mt-10 inline-flex items-center gap-2">
+						Lass uns &uuml;ber dein System sprechen
+						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+					</a>
+				</div>
+			</div>
+			<div class="pointer-events-none absolute inset-0 -z-10" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.015) 1px, transparent 0); background-size: 32px 32px;"></div>
+		</section>
+
 		<!-- Contact CTA -->
 		<section id="contact" class="border-t border-border px-6 py-28">
 			<div class="content-width text-center">
@@ -384,6 +443,21 @@ import RevenueMuncher from '../../components/RevenueMuncher.astro';
 		<Footer />
 
 		<script>
+			// === About Section: Scroll Reveal ===
+			(function() {
+				var aboutEls = document.querySelectorAll('.about-text-col, .about-photo-col');
+				if (!aboutEls.length) return;
+				var observer = new IntersectionObserver(function(entries) {
+					entries.forEach(function(entry) {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('visible');
+							observer.unobserve(entry.target);
+						}
+					});
+				}, { threshold: 0.15 });
+				aboutEls.forEach(function(el) { observer.observe(el); });
+			})();
+
 			// === Newsletter Form ===
 			(function() {
 				var form = document.getElementById('newsletter-form');
