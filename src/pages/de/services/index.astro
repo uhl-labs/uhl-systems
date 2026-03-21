@@ -1,0 +1,206 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="de">
+	<head>
+		<BaseHead title="Services - Revenue Systeme | UHL Systems" description="Von der Diagnose bis zur kompletten Umsetzung. Revenue Leak Audit, Revenue Systems Consulting und laufender System-Support - waehle dein Level." />
+		<style>
+			.section-heading {
+				font-size: clamp(32px, 5vw, 56px);
+				line-height: 1.1;
+				letter-spacing: -0.02em;
+			}
+			.hero-headline {
+				font-size: clamp(36px, 6vw, 64px);
+				line-height: 1.1;
+				letter-spacing: -0.03em;
+			}
+			.cta-primary {
+				background-color: var(--color-accent);
+				color: var(--color-bg);
+				border-radius: 999px;
+				padding: 14px 36px;
+				font-weight: 600;
+				transition: all 0.2s;
+			}
+			.cta-primary:hover {
+				box-shadow: 0 0 32px rgba(0, 255, 136, 0.35);
+				color: var(--color-bg);
+			}
+			.cta-ghost {
+				border: 1px solid var(--color-border);
+				border-radius: 999px;
+				padding: 14px 36px;
+				color: var(--color-muted);
+				transition: all 0.2s;
+			}
+			.cta-ghost:hover {
+				border-color: var(--color-accent);
+				color: var(--color-text);
+			}
+			.service-card {
+				border: 1px solid var(--color-border);
+				background: var(--color-bg2);
+				border-radius: 16px;
+				padding: 48px 40px;
+				transition: all 0.3s;
+			}
+			.service-card:hover {
+				border-color: rgba(0, 255, 136, 0.25);
+				background: var(--color-bg3);
+			}
+			.content-width {
+				max-width: 1100px;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+
+		<!-- Hero -->
+		<section class="relative overflow-hidden px-6 py-24 md:py-36">
+			<div class="content-width text-center">
+				<p class="fade-in mb-6 font-mono text-sm tracking-widest text-accent uppercase">Services</p>
+				<h1 class="hero-headline fade-in fade-in-delay-1 font-display font-bold text-text">
+					Repariere das System, nicht die Symptome
+				</h1>
+				<p class="fade-in fade-in-delay-2 mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted">
+					Ob du eine Diagnose, ein strategisches Playbook oder ein komplett aufgebautes Revenue System brauchst - wir skalieren unsere Beteiligung passend zu deinen Anforderungen.
+				</p>
+			</div>
+			<div class="pointer-events-none absolute inset-0 -z-10" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px;"></div>
+			<div class="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full" style="background: radial-gradient(circle, rgba(0,255,136,0.05) 0%, transparent 70%);"></div>
+		</section>
+
+		<!-- Service Cards -->
+		<section class="border-t border-border px-6 py-28">
+			<div class="content-width">
+				<div class="grid gap-8 md:grid-cols-2">
+
+					<!-- Revenue Leak Audit -->
+					<div class="service-card flex flex-col">
+						<div class="mb-4 flex items-center gap-3">
+							<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+							</div>
+							<div>
+								<h2 class="text-xl font-semibold text-text">Revenue Leak Audit</h2>
+								<p class="font-mono text-xs tracking-wider text-muted-dark uppercase">Diagnose</p>
+							</div>
+						</div>
+						<p class="mb-6 text-[15px] leading-relaxed text-muted">
+							Komplette Diagnose deines Revenue Systems. Wir analysieren jede Phase von Traffic bis LTV, identifizieren jedes Leck und liefern eine priorisierte Roadmap zur Behebung. Der schnellste Weg zu sehen, wo dein Geld hingeht.
+						</p>
+						<div class="mb-6 border-t border-border pt-6">
+							<span class="font-display text-3xl font-bold text-text">1k &ndash; 2k</span>
+							<p class="mt-1 text-sm text-muted-dark">Einmalige Investition</p>
+						</div>
+						<div class="mt-auto space-y-3">
+							<a href="/de/services/audit" class="cta-primary block w-full text-center">
+								Mehr erfahren
+							</a>
+						</div>
+					</div>
+
+					<!-- Revenue Systems Consulting -->
+					<div class="service-card flex flex-col" style="border-color: rgba(0, 255, 136, 0.3);">
+						<div class="mb-4 flex items-center gap-3">
+							<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg>
+							</div>
+							<div>
+								<h2 class="text-xl font-semibold text-text">Revenue Systems Consulting</h2>
+								<p class="font-mono text-xs tracking-wider text-muted-dark uppercase">Strategie + Umsetzung</p>
+							</div>
+						</div>
+						<p class="mb-6 text-[15px] leading-relaxed text-muted">
+							Ueber die Diagnose hinaus. Wir designen und bauen deine komplette Revenue-Architektur - die Strategie, die Funnels, die Conversion-Systeme, die Retention-Engines. Vom strategischen Playbook bis zur kompletten Done-with-you Umsetzung.
+						</p>
+						<div class="mb-6 border-t border-border pt-6">
+							<span class="font-display text-3xl font-bold text-text">3k &ndash; 20k</span>
+							<p class="mt-1 text-sm text-muted-dark">Engagement-basiert</p>
+						</div>
+						<div class="mt-auto space-y-3">
+							<a href="/de/services/consulting" class="cta-primary block w-full text-center">
+								Mehr erfahren
+							</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- The UHL Method -->
+		<section class="border-t border-border px-6 py-28">
+			<div class="content-width">
+				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">Die Methode</p>
+				<h2 class="section-heading mb-6 text-center font-display font-bold text-text">
+					U &ndash; H &ndash; L
+				</h2>
+				<p class="mx-auto mb-20 max-w-xl text-center text-muted">
+					Unlock Hidden Leverage. Drei Phasen. Ein System. Kompoundierende Ergebnisse.
+				</p>
+
+				<div class="grid gap-8 md:grid-cols-3">
+					<!-- U -->
+					<div class="service-card">
+						<div class="mb-4 text-4xl font-extrabold text-accent font-display">U</div>
+						<h3 class="mb-3 text-xl font-semibold text-text">Uncover Revenue Leaks</h3>
+						<p class="text-[15px] leading-relaxed text-muted">
+							Tiefgreifendes Audit deines aktuellen Systems. Wir analysieren jeden Touchpoint ueber alle 7 Stationen, identifizieren jedes Leck und quantifizieren den Umsatz, der auf der Strecke bleibt.
+						</p>
+					</div>
+
+					<!-- H -->
+					<div class="service-card">
+						<div class="mb-4 text-4xl font-extrabold text-accent font-display">H</div>
+						<h3 class="mb-3 text-xl font-semibold text-text">Hack Conversion Systems</h3>
+						<p class="text-[15px] leading-relaxed text-muted">
+							Datengetriebenes Strategie-Design mit bewaehrten Frameworks. Wir bauen deine Revenue-Architektur mit klaren Prioritaeten, Timelines und erwartetem Impact pro Hebel.
+						</p>
+					</div>
+
+					<!-- L -->
+					<div class="service-card">
+						<div class="mb-4 text-4xl font-extrabold text-accent font-display">L</div>
+						<h3 class="mb-3 text-xl font-semibold text-text">Leverage Existing Traffic</h3>
+						<p class="text-[15px] leading-relaxed text-muted">
+							Systematische Umsetzung fuer maximalen ROI. Wir bauen, testen und optimieren jede Komponente deines Revenue Systems, bis es kompoundiert - ohne zusaetzliche Werbeausgaben.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA -->
+		<section class="border-t border-border px-6 py-28">
+			<div class="content-width text-center">
+				<p class="mb-4 font-mono text-sm tracking-widest text-accent uppercase">Nicht sicher, wo du anfangen sollst?</p>
+				<h2 class="section-heading mb-6 font-display font-bold text-text">
+					Buche ein kostenloses Discovery Call
+				</h2>
+				<p class="mx-auto mb-14 max-w-xl text-muted">
+					Wir gehen gemeinsam deine Revenue-Pipeline durch und empfehlen den richtigen Startpunkt. 30 Minuten, unverbindlich.
+				</p>
+				<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+					<a href="https://calendly.com/uhl-systems/free-discovery-call-revenue-leak-check-clone-1?redirect_url=https://uhl-systems.com/de/booking-confirmed" class="cta-primary inline-flex items-center gap-2">
+						Kostenloses Discovery Call buchen
+						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+					</a>
+					<a href="/shop" class="cta-ghost inline-flex items-center gap-2">
+						DIY-Tools ansehen
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<Footer />
+	</body>
+</html>

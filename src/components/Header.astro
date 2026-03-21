@@ -5,27 +5,11 @@ const currentPath = Astro.url.pathname;
 const isDE = currentPath.startsWith("/de");
 const langSwitchLabel = isDE ? "EN" : "DE";
 
-// Pages that exist in both languages
-const bilingualPages = ["/", "/about", "/booking-confirmed"];
-
 function getLangSwitchHref(path: string): string {
 	if (isDE) {
-		// Remove /de prefix to get the EN path
-		const enPath = path.replace(/^\/de\/?/, "/") || "/";
-		const normalized = enPath === "/" ? "/" : enPath.replace(/\/$/, "");
-		if (bilingualPages.includes(normalized)) {
-			return normalized;
-		}
-		// Fallback: go to EN homepage
-		return "/";
+		return path.replace(/^\/de/, "") || "/";
 	} else {
-		// Add /de prefix for the DE path
-		const normalized = path === "/" ? "/" : path.replace(/\/$/, "");
-		if (bilingualPages.includes(normalized)) {
-			return `/de${normalized === "/" ? "/" : normalized}`;
-		}
-		// Fallback: go to DE homepage
-		return "/de/";
+		return `/de${path === "/" ? "" : path}`;
 	}
 }
 
@@ -41,11 +25,11 @@ const langSwitchHref = getLangSwitchHref(currentPath);
 
 		<!-- Desktop nav -->
 		<div class="hidden items-center gap-8 md:flex">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/services">Services</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
+			<HeaderLink href={isDE ? "/de" : "/"}>Home</HeaderLink>
+			<HeaderLink href={isDE ? "/de/services" : "/services"}>Services</HeaderLink>
+			<HeaderLink href={isDE ? "/de/blog" : "/blog"}>Blog</HeaderLink>
 			<HeaderLink href={isDE ? "/de/about" : "/about"}>About</HeaderLink>
-			<HeaderLink href="/shop">Shop</HeaderLink>
+			<HeaderLink href={isDE ? "/de/shop" : "/shop"}>Shop</HeaderLink>
 			<HeaderLink href="#contact">Contact</HeaderLink>
 			<a href="https://www.instagram.com/uhl.systems" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-muted transition-colors hover:text-accent" aria-label="Instagram @uhl.systems">
 				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
@@ -73,11 +57,11 @@ const langSwitchHref = getLangSwitchHref(currentPath);
 	<!-- Mobile menu drawer -->
 	<div id="mobile-menu" class="hidden border-t border-border bg-bg/95 backdrop-blur-md md:hidden">
 		<div class="mx-auto flex max-w-6xl flex-col gap-1 px-6 py-4">
-			<a href="/" class="mobile-nav-link">Home</a>
-			<a href="/services" class="mobile-nav-link">Services</a>
-			<a href="/blog" class="mobile-nav-link">Blog</a>
+			<a href={isDE ? "/de" : "/"} class="mobile-nav-link">Home</a>
+			<a href={isDE ? "/de/services" : "/services"} class="mobile-nav-link">Services</a>
+			<a href={isDE ? "/de/blog" : "/blog"} class="mobile-nav-link">Blog</a>
 			<a href={isDE ? "/de/about" : "/about"} class="mobile-nav-link">About</a>
-			<a href="/shop" class="mobile-nav-link">Shop</a>
+			<a href={isDE ? "/de/shop" : "/shop"} class="mobile-nav-link">Shop</a>
 			<a href="#contact" class="mobile-nav-link">Contact</a>
 			<a href="https://www.instagram.com/uhl.systems" target="_blank" rel="noopener noreferrer" class="mobile-nav-link flex items-center gap-2">
 				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
