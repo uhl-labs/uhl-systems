@@ -1,5 +1,5 @@
 ---
-title: 'SEO ist tot 2026 — was danach kommt wird teuer'
+title: 'SEO ist tot 2026 - was danach kommt wird teuer'
 description: 'KI-Suche verändert Traffic-Modelle fundamental. Für deutsche KMUs, die auf Google-Sichtbarkeit gebaut haben, wird 2026 eine Zäsur. Was jetzt zählt. Analyse buchen.'
 pubDate: '2026-03-21'
 heroImage: '/blog/seo-dead-ai-search-2026-hero.png'
@@ -7,11 +7,11 @@ tags: ['revenue-systems', 'seo-wandel', 'ki-suche']
 lang: 'de'
 ---
 
-# SEO ist tot 2026 — was danach kommt wird teuer
+# SEO ist tot 2026 - was danach kommt wird teuer
 
 Übertrieben? Schauen wir auf die Zahlen.
 
-Google AI Overviews, Perplexity, ChatGPT Search, Bing Copilot — KI-Suchsysteme beantworten Fragen direkt, ohne dass Nutzer auf eine Website klicken müssen. Erste Studien zeigen Rückgänge im organischen Click-Through von 30 bis 60% für informationsbasierte Suchanfragen in Kategorien, die früher stabile Traffic-Quellen waren.
+Google AI Overviews, Perplexity, ChatGPT Search, Bing Copilot - KI-Suchsysteme beantworten Fragen direkt, ohne dass Nutzer auf eine Website klicken müssen. Erste Studien zeigen Rückgänge im organischen Click-Through von 30 bis 60% für informationsbasierte Suchanfragen in Kategorien, die früher stabile Traffic-Quellen waren.
 
 Für US-amerikanische Unternehmen ist das eine starke Herausforderung. Für deutsche KMUs, die traditionell stark auf Google-Abhängigkeit gesetzt haben, ist es eine existenzielle Zäsur.
 

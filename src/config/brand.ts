@@ -1,4 +1,4 @@
-// AUTO-GENERATED from BRAND.md — do not edit manually
+// AUTO-GENERATED from BRAND.md - do not edit manually
 // Run: node scripts/sync-brand.js
 // Last sync: 2026-03-21T12:59:01.793Z
 
