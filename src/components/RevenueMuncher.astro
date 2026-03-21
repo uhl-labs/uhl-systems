@@ -181,9 +181,9 @@ const { tagline = "we eat your revenue leaks" } = Astro.props;
 	/* Tagline */
 	.muncher-tagline {
 		position: absolute;
-		right: 20px;
+		left: 50%;
+		transform: translate(-50%, -50%);
 		top: 50%;
-		transform: translateY(-50%);
 		font-family: var(--font-mono, 'Space Mono', monospace);
 		font-size: 11px;
 		letter-spacing: 0.08em;
@@ -191,6 +191,7 @@ const { tagline = "we eat your revenue leaks" } = Astro.props;
 		text-transform: uppercase;
 		white-space: nowrap;
 		min-height: 1em;
+		text-align: center;
 	}
 
 	/* Responsive */
