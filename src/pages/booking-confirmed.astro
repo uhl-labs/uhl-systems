@@ -1,0 +1,117 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="Booking Confirmed | UHL Systems"
+      description="Your call with UHL Systems is confirmed."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <style>
+      .confirmed-hero {
+        min-height: calc(100vh - 200px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .confirmed-card {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .confirmed-headline {
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        color: var(--color-text);
+      }
+
+      .confirmed-subline {
+        font-size: 1.25rem;
+        color: var(--color-accent);
+        margin-top: 0.5rem;
+        font-weight: 500;
+      }
+
+      .confirmed-body {
+        color: var(--color-muted);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        margin-top: 1.5rem;
+      }
+
+      .cta-primary {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 0.85rem 2rem;
+        background: var(--color-accent);
+        color: #080808;
+        font-weight: 700;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: box-shadow 0.2s ease, transform 0.2s ease;
+      }
+      .cta-primary:hover {
+        box-shadow: 0 0 20px color-mix(in srgb, var(--color-accent) 40%, transparent);
+        transform: translateY(-1px);
+      }
+
+      .aside-note {
+        margin-top: 2.5rem;
+        font-size: 0.9rem;
+        color: var(--color-muted-dark);
+      }
+      .aside-note a {
+        color: var(--color-accent2);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .aside-note a:hover {
+        color: var(--color-text);
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(16px);
+        animation: fadeIn 0.7s ease-out forwards;
+      }
+      .fade-in-delay-1 { animation-delay: 0.15s; }
+      .fade-in-delay-2 { animation-delay: 0.3s; }
+      .fade-in-delay-3 { animation-delay: 0.45s; }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main class="confirmed-hero px-6">
+      <div class="confirmed-card">
+        <h1 class="confirmed-headline fade-in">You're booked. 🔥</h1>
+        <p class="confirmed-subline fade-in fade-in-delay-1">We'll see you soon.</p>
+        <p class="confirmed-body fade-in fade-in-delay-2">
+          Your call is confirmed. Check your email for the calendar invite.
+          We'll review your answers beforehand so we can make the most of our time together.
+        </p>
+        <a href="/" class="cta-primary fade-in fade-in-delay-3">Back to Home</a>
+        <p class="aside-note fade-in fade-in-delay-3">
+          While you wait — <a href="/services/audit">check out how the UHL Revenue Leak Map works.</a>
+        </p>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
