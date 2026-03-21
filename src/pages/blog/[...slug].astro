@@ -15,8 +15,29 @@ type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
 const { Content } = await render(post);
+
+const allPosts = (await getCollection('blog'))
+	.filter((p) => (!p.data.lang || p.data.lang === 'en') && p.id !== post.id)
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const currentTags = post.data.tags || [];
+
+const scored = allPosts.map((p) => {
+	const shared = (p.data.tags || []).filter((t: string) => currentTags.includes(t)).length;
+	return { post: p, shared };
+});
+scored.sort((a, b) => b.shared - a.shared || b.post.data.pubDate.valueOf() - a.post.data.pubDate.valueOf());
+
+const relatedPosts = scored.slice(0, 3).map((s) => ({
+	id: s.post.id,
+	title: s.post.data.title,
+	description: s.post.data.description,
+	pubDate: s.post.data.pubDate,
+	heroImage: s.post.data.heroImage,
+	href: `/blog/${s.post.id}/`,
+}));
 ---
 
-<BlogPost {...post.data}>
+<BlogPost {...post.data} relatedPosts={relatedPosts} lang="en">
 	<Content />
 </BlogPost>
