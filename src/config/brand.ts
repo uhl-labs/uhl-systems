@@ -1,18 +1,24 @@
-// Single source of truth für alle Brand-Werte
-// Spiegelt ~/.openclaw/workspace/BRAND.md wider
-// Bei Brand-Änderungen: NUR diese Datei anpassen
+// AUTO-GENERATED from BRAND.md — do not edit manually
+// Run: node scripts/sync-brand.js
+// Last sync: 2026-03-21T12:59:01.793Z
 
 export const brand = {
   company: "UHL Systems",
   tagline: "Unlock Hidden Leverage",
-  url: "https://www.uhl-systems.com",
-  shopUrl: "https://shop.uhl-systems.com",
+
+  url: {
+    www: "https://www.uhl-systems.com",
+    shop: "https://shop.uhl-systems.com",
+    cta: "https://uhl-systems.com/services/audit",
+    ctaDe: "https://uhl-systems.com/de/services/audit",
+  },
 
   social: {
     instagram: "@uhl.systems",
     instagramUrl: "https://instagram.com/uhl.systems",
     linkedin: "Lukas Uhl",
     linkedinUrl: "https://linkedin.com/in/lukas-uhl",
+    twitterX: "",
   },
 
   calendly: {
@@ -20,13 +26,17 @@ export const brand = {
     de: "https://calendly.com/uhl-systems/free-discovery-call-revenue-leak-check-clone-1?redirect_url=https://uhl-systems.com/de/booking-confirmed",
   },
 
-  cta: {
-    en: "https://uhl-systems.com/services/audit",
-    de: "https://uhl-systems.com/de/services/audit",
-  },
-
   analytics: {
     ga4: "G-BSX1YMRMPY",
+  },
+
+  colors: {
+    primary: "#0a0a0a",
+    secondary: "#1a1a1a",
+    accent: "#e8ff00",
+    text: "#ffffff",
+    textMuted: "#888888",
+    border: "#2a2a2a",
   },
 
   products: [
@@ -52,7 +62,20 @@ export const brand = {
       title: "The 90-Day Revenue System Playbook",
       slug: "90-day-revenue-playbook",
       price: "€127",
-      checkoutUrl: "", // TODO
+      checkoutUrl: "",
+    }
+  ],
+
+  services: [
+    {
+      name: "Revenue Leak Audit",
+      priceRange: "1.000€ – 2.000€",
+      deliverable: "Priorisierte Revenue Leak Roadmap",
     },
+    {
+      name: "Revenue Systems Consulting",
+      priceRange: "5.000€ – 20.000€",
+      deliverable: "Vollständiges Revenue System Design + Implementierung",
+    }
   ],
 } as const;
