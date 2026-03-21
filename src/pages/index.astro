@@ -220,6 +220,10 @@ import { brand } from '../config/brand';
 				align-items: center;
 				text-align: center;
 				position: relative;
+				transition: transform 0.3s ease;
+			}
+			.leak-flow > :nth-child(4n+3) {
+				transform: translateY(28px);
 			}
 			.leak-card {
 				border: 1px solid #1a1a1a;
@@ -276,19 +280,22 @@ import { brand } from '../config/brand';
 				transform: translateY(4px);
 				transition: all 0.3s;
 			}
-			.leak-arrow {
+			.leak-lightning {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-				padding: 0 2px;
+				position: relative;
+				padding: 0 4px;
 				flex-shrink: 0;
-				margin-top: 30px;
 			}
-			.leak-arrow-line {
-				width: 24px;
-				height: 1px;
-				background: linear-gradient(90deg, rgba(0, 255, 136, 0.3), rgba(0, 255, 136, 0.1));
+			.leak-lightning svg {
+				filter: drop-shadow(0 0 6px rgba(232, 255, 0, 0.5));
+				animation: lightning-pulse 2s ease-in-out infinite;
+			}
+			@keyframes lightning-pulse {
+				0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 6px rgba(232, 255, 0, 0.5)); }
+				50% { opacity: 1; filter: drop-shadow(0 0 12px rgba(232, 255, 0, 0.8)); }
 			}
 			.leak-warning {
 				display: flex;
@@ -357,16 +364,11 @@ import { brand } from '../config/brand';
 					width: 100%;
 					max-width: 280px;
 				}
-				.leak-arrow {
-					margin-top: 0;
-					padding: 6px 0;
-					flex-direction: row;
-					gap: 6px;
+				.leak-flow > :nth-child(4n+3) {
+					transform: none;
 				}
-				.leak-arrow-line {
-					width: 1px;
-					height: 20px;
-					background: linear-gradient(180deg, rgba(0, 255, 136, 0.3), rgba(0, 255, 136, 0.1));
+				.leak-lightning {
+					padding: 6px 0;
 				}
 			}
 
@@ -717,11 +719,13 @@ import { brand } from '../config/brand';
 						</div>
 					</div>
 
-					<div class="leak-arrow">
-						<div class="leak-arrow-line"></div>
+					<div class="leak-lightning">
+						<svg viewBox="0 0 24 40" width="18" height="30" fill="none">
+							<path d="M14 2L4 22h8l-2 16L22 18h-9l1-16z" fill="#e8ff00" opacity="0.85"/>
+						</svg>
 						<div class="leak-warning">
 							<svg class="leak-stage-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12 7 2l5 10-5 10z"/><path d="M12 12l5-10 5 10-5 10z"/></svg>
-							<div class="leak-tooltip">You attract visitors — but are they the right ones?</div>
+							<div class="leak-tooltip">You attract visitors - but are they the right ones?</div>
 						</div>
 					</div>
 
@@ -739,11 +743,13 @@ import { brand } from '../config/brand';
 						</div>
 					</div>
 
-					<div class="leak-arrow">
-						<div class="leak-arrow-line"></div>
+					<div class="leak-lightning">
+						<svg viewBox="0 0 24 40" width="18" height="30" fill="none">
+							<path d="M14 2L4 22h8l-2 16L22 18h-9l1-16z" fill="#e8ff00" opacity="0.85"/>
+						</svg>
 						<div class="leak-warning">
 							<svg class="leak-stage-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-							<div class="leak-tooltip">Your offer exists — but does it connect to your traffic?</div>
+							<div class="leak-tooltip">Your offer exists - but does it connect to your traffic?</div>
 						</div>
 					</div>
 
@@ -761,11 +767,13 @@ import { brand } from '../config/brand';
 						</div>
 					</div>
 
-					<div class="leak-arrow">
-						<div class="leak-arrow-line"></div>
+					<div class="leak-lightning">
+						<svg viewBox="0 0 24 40" width="18" height="30" fill="none">
+							<path d="M14 2L4 22h8l-2 16L22 18h-9l1-16z" fill="#e8ff00" opacity="0.85"/>
+						</svg>
 						<div class="leak-warning">
 							<svg class="leak-stage-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/></svg>
-							<div class="leak-tooltip">People enter — but where do they drop off?</div>
+							<div class="leak-tooltip">People enter - but where do they drop off?</div>
 						</div>
 					</div>
 
@@ -783,11 +791,13 @@ import { brand } from '../config/brand';
 						</div>
 					</div>
 
-					<div class="leak-arrow">
-						<div class="leak-arrow-line"></div>
+					<div class="leak-lightning">
+						<svg viewBox="0 0 24 40" width="18" height="30" fill="none">
+							<path d="M14 2L4 22h8l-2 16L22 18h-9l1-16z" fill="#e8ff00" opacity="0.85"/>
+						</svg>
 						<div class="leak-warning">
 							<svg class="leak-stage-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-							<div class="leak-tooltip">Interest exists — but friction kills the sale.</div>
+							<div class="leak-tooltip">Interest exists - but friction kills the sale.</div>
 						</div>
 					</div>
 
@@ -805,11 +815,13 @@ import { brand } from '../config/brand';
 						</div>
 					</div>
 
-					<div class="leak-arrow">
-						<div class="leak-arrow-line"></div>
+					<div class="leak-lightning">
+						<svg viewBox="0 0 24 40" width="18" height="30" fill="none">
+							<path d="M14 2L4 22h8l-2 16L22 18h-9l1-16z" fill="#e8ff00" opacity="0.85"/>
+						</svg>
 						<div class="leak-warning">
 							<svg class="leak-stage-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-							<div class="leak-tooltip">You sell — but is your pricing structure leaving money behind?</div>
+							<div class="leak-tooltip">You sell - but is your pricing structure leaving money behind?</div>
 						</div>
 					</div>
 
@@ -827,11 +839,13 @@ import { brand } from '../config/brand';
 						</div>
 					</div>
 
-					<div class="leak-arrow">
-						<div class="leak-arrow-line"></div>
+					<div class="leak-lightning">
+						<svg viewBox="0 0 24 40" width="18" height="30" fill="none">
+							<path d="M14 2L4 22h8l-2 16L22 18h-9l1-16z" fill="#e8ff00" opacity="0.85"/>
+						</svg>
 						<div class="leak-warning">
 							<svg class="leak-stage-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v9h-9"/></svg>
-							<div class="leak-tooltip">Customers buy once — but do they come back?</div>
+							<div class="leak-tooltip">Customers buy once - but do they come back?</div>
 						</div>
 					</div>
 
@@ -875,13 +889,8 @@ import { brand } from '../config/brand';
 					</div>
 
 					<div class="calc-field">
-						<label>Average Order Value (&euro;)</label>
-						<input type="number" id="calc-aov" class="calc-input" placeholder="e.g. 80" value="80" min="1" />
-					</div>
-
-					<div class="calc-field">
-						<label>Email List Size <span class="text-muted-dark text-xs font-normal">(optional)</span></label>
-						<input type="number" id="calc-email" class="calc-input" placeholder="e.g. 5000" value="" min="0" />
+						<label>Avg. Order Value (&euro;) <span id="calc-aov-val">&euro;250</span></label>
+						<input type="range" id="calc-aov" class="calc-slider" min="50" max="5000" step="50" value="250" />
 					</div>
 
 					<div class="calc-results" id="calc-results">
@@ -894,8 +903,12 @@ import { brand } from '../config/brand';
 							<span class="calc-result-value calc-potential" id="calc-potential">&euro;0</span>
 						</div>
 						<div class="calc-result-row">
-							<span class="calc-result-label">Your Estimated Revenue Leak</span>
+							<span class="calc-result-label">Monthly Revenue Leak</span>
 							<span class="calc-result-value calc-leak" id="calc-leak">&euro;0/mo</span>
+						</div>
+						<div class="calc-result-row">
+							<span class="calc-result-label">Annual Revenue Leak</span>
+							<span class="calc-result-value calc-leak" id="calc-leak-annual">&euro;0/yr</span>
 						</div>
 					</div>
 
@@ -1132,7 +1145,6 @@ import { brand } from '../config/brand';
 			var traffic = document.getElementById('calc-traffic');
 			var cr = document.getElementById('calc-cr');
 			var aov = document.getElementById('calc-aov');
-			var email = document.getElementById('calc-email');
 			if (!traffic || !cr || !aov) return;
 
 			function fmt(n) {
@@ -1141,11 +1153,12 @@ import { brand } from '../config/brand';
 
 			function calc() {
 				var t = parseInt(traffic.value) || 0;
-				var c = (parseInt(cr.value) || 0) / 10000; // slider value is basis points * 100
-				var a = parseFloat(aov.value) || 0;
+				var c = (parseInt(cr.value) || 0) / 10000;
+				var a = parseInt(aov.value) || 0;
 
 				document.getElementById('calc-traffic-val').textContent = t.toLocaleString('en-US');
 				document.getElementById('calc-cr-val').textContent = (c * 100).toFixed(1) + '%';
+				document.getElementById('calc-aov-val').textContent = '€' + a.toLocaleString('en-US');
 
 				var current = t * c * a;
 				var improved = t * (c + 0.005) * a;
@@ -1154,12 +1167,12 @@ import { brand } from '../config/brand';
 				document.getElementById('calc-current').textContent = fmt(current);
 				document.getElementById('calc-potential').textContent = fmt(improved);
 				document.getElementById('calc-leak').textContent = fmt(leak) + '/mo';
+				document.getElementById('calc-leak-annual').textContent = fmt(leak * 12) + '/yr';
 			}
 
 			traffic.addEventListener('input', calc);
 			cr.addEventListener('input', calc);
 			aov.addEventListener('input', calc);
-			email.addEventListener('input', calc);
 			calc();
 		})();
 
