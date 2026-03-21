@@ -13,14 +13,18 @@ import { brand } from '../../config/brand';
 		<link rel="canonical" href="https://www.uhl-systems.com/de/" />
 		<style>
 			.hero-headline {
-				font-size: clamp(2.6rem, 10vw, 7rem);
+				font-size: clamp(2rem, 9vw, 7rem);
 				font-weight: 800;
 				line-height: 1.05;
 				letter-spacing: -0.03em;
 				text-align: center;
-				overflow-wrap: break-word;
-				word-break: break-word;
-				text-wrap: balance;
+				overflow: hidden;
+				max-width: 100%;
+			}
+			@media (max-width: 480px) {
+				.hero-headline {
+					font-size: clamp(1.8rem, 11vw, 3rem);
+				}
 			}
 			.section-heading {
 				font-size: clamp(32px, 5vw, 56px);
