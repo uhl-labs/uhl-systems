@@ -10,6 +10,7 @@ import { SITE_TITLE } from '../../consts';
 const cutoff = new Date('2026-01-01');
 const posts = (await getCollection('blog'))
 	.filter((post) => post.data.pubDate >= cutoff)
+	.filter((post) => !post.data.lang || post.data.lang === 'en')
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
