@@ -2,10 +2,10 @@
 interface Props {
 	tagline?: string;
 }
-const { tagline = "We eat revenue leaks." } = Astro.props;
+const { tagline = "we eat your revenue leaks" } = Astro.props;
 ---
 
-<div class="muncher-strip" data-muncher>
+<div class="muncher-strip" data-muncher data-tagline={tagline}>
 	<div class="muncher-track">
 		<!-- Leak items that get eaten -->
 		<div class="leak-item" style="left: 15%;">
@@ -51,7 +51,7 @@ const { tagline = "We eat revenue leaks." } = Astro.props;
 		</div>
 	</div>
 
-	<p class="muncher-tagline">{tagline}</p>
+	<p class="muncher-tagline" aria-live="polite"></p>
 </div>
 
 <style>
@@ -187,13 +187,10 @@ const { tagline = "We eat revenue leaks." } = Astro.props;
 		font-family: var(--font-mono, 'Space Mono', monospace);
 		font-size: 11px;
 		letter-spacing: 0.08em;
-		color: var(--color-muted, #888);
-		opacity: 0;
-		transition: opacity 0.6s ease 0.3s;
+		color: var(--color-accent, #00ff88);
 		text-transform: uppercase;
-	}
-	.muncher-strip.active .muncher-tagline {
-		opacity: 1;
+		white-space: nowrap;
+		min-height: 1em;
 	}
 
 	/* Responsive */
@@ -233,15 +230,30 @@ const { tagline = "We eat revenue leaks." } = Astro.props;
 
 		const character = strip.querySelector<HTMLElement>('.muncher-character');
 		const leakItems = strip.querySelectorAll<HTMLElement>('.leak-item');
-		if (!character) return;
+		const taglineEl = strip.querySelector<HTMLElement>('.muncher-tagline');
+		const taglineText = strip.getAttribute('data-tagline') || 'we eat your revenue leaks';
+		if (!character || !taglineEl) return;
 
 		let hasRun = false;
+
+		function typewriter(el: HTMLElement, text: string, speed: number) {
+			el.textContent = '';
+			let i = 0;
+			function type() {
+				if (i < text.length) {
+					el.textContent += text.charAt(i);
+					i++;
+					setTimeout(type, speed);
+				}
+			}
+			type();
+		}
 
 		function runAnimation() {
 			if (hasRun) return;
 			hasRun = true;
 
-			strip!.classList.add('active');
+			taglineEl!.textContent = '';
 			const trackWidth = strip!.offsetWidth;
 			const duration = 3000;
 			const startTime = performance.now();
@@ -274,13 +286,17 @@ const { tagline = "We eat revenue leaks." } = Astro.props;
 				if (progress < 1) {
 					requestAnimationFrame(animate);
 				} else {
-					// Done — allow re-run after delay
+					// Pac-Man done — short pause then typewriter
+					setTimeout(() => {
+						typewriter(taglineEl!, taglineText, 80);
+					}, 200);
+
+					// Allow re-run after delay
 					setTimeout(() => {
 						hasRun = false;
-						// Reset items
 						character!.style.left = '-40px';
 						leakItems.forEach((item) => item.classList.remove('eaten'));
-						strip!.classList.remove('active');
+						taglineEl!.textContent = '';
 					}, 10000);
 				}
 			}
