@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://uhl-systems.com/sitemap-index.xml
