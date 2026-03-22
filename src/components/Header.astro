@@ -7,6 +7,10 @@ const isDE = currentPath.startsWith("/de");
 const langSwitchLabel = isDE ? "EN" : "DE";
 
 function getLangSwitchHref(path: string): string {
+	// Blog articles: switch to blog index of other language (no guaranteed mirror)
+	if (path.match(/^\/de\/blog\/.+/)) return "/blog/";
+	if (path.match(/^\/blog\/.+/)) return "/de/blog/";
+
 	if (isDE) {
 		return path.replace(/^\/de/, "") || "/";
 	} else {
