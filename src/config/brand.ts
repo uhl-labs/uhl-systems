@@ -26,6 +26,12 @@ export const brand = {
     de: "https://calendly.com/uhl-systems/free-discovery-call-revenue-leak-check-clone-1?redirect_url=https://uhl-systems.com/de/booking-confirmed",
   },
 
+  strategyCall: {
+    checkoutUrl: "https://shop.uhl-systems.com/checkout/buy/92492d9e-27cc-4337-8949-0be8c44c91bb",
+    price: "€97",
+    duration: "30 Min",
+  },
+
   analytics: {
     ga4: "G-BSX1YMRMPY",
   },
