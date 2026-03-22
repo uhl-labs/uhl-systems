@@ -37,7 +37,10 @@
       </a>
 
       <!-- Dismiss = DIY Products link -->
-      <a id="exit-popup-dismiss" href="" style="display:block;width:100%;text-align:center;color:#444;font-size:10pt;font-family:Helvetica,Arial,sans-serif;padding:6px;transition:color 0.2s;text-decoration:none;cursor:pointer;"></a>
+      <a id="exit-popup-dismiss" href="" style="display:flex;align-items:center;justify-content:center;gap:6px;width:100%;text-align:center;color:#555;font-size:10pt;font-family:Helvetica,Arial,sans-serif;padding:8px;transition:color 0.2s;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,0.15);cursor:pointer;">
+        <span id="exit-popup-dismiss-text"></span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
 </div>
@@ -76,7 +79,7 @@
   document.getElementById("exit-popup-cta-text").textContent = copy.cta;
   document.getElementById("exit-popup-shop-text").textContent = copy.shop;
   document.getElementById("exit-popup-shop").setAttribute("href", copy.shopUrl);
-  document.getElementById("exit-popup-dismiss").textContent = copy.dismiss;
+  document.getElementById("exit-popup-dismiss-text").textContent = copy.dismiss;
   document.getElementById("exit-popup-dismiss").setAttribute("href", copy.shopUrl);
 
   function showPopup() {
@@ -107,7 +110,7 @@
   });
 
   // 2 minutes timer (120s) - test: 15s
-  setTimeout(showPopup, 10000);
+  setTimeout(showPopup, 120000);
 
   // Exit-intent desktop only
   if (window.innerWidth > 768) {
