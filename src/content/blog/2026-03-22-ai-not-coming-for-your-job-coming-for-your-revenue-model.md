@@ -121,6 +121,6 @@ AI is not coming for your job. But it is coming for the revenue model that pays 
 
 The businesses that thrive are not the ones with the most AI tools. They are the ones that built AI into a connected revenue system - where every component amplifies every other component, and growth compounds instead of stalling.
 
-**[Book a Strategy Call for 97 EUR](https://shop.uhl-systems.com/checkout/buy/92492d9e-27cc-4337-8949-0be8c44c91bb)** and we will map your revenue system, identify where AI can drive actual revenue, and show you exactly where your current model is vulnerable.
+**[Book a Strategy Call for €97](https://shop.uhl-systems.com/checkout/buy/92492d9e-27cc-4337-8949-0be8c44c91bb)** and we will map your revenue system, identify where AI can drive actual revenue, and show you exactly where your current model is vulnerable.
 
 Your job is probably safe. Your revenue model might not be.
