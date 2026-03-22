@@ -33,7 +33,10 @@ const { title, description, pubDate, updatedDate, heroImage, relatedPosts, lang 
 			<article>
 				{heroImage && (
 					<div class="mb-8 overflow-hidden rounded-xl">
-						<img src={heroImage} alt={title} class="w-full h-auto object-cover" loading="lazy" />
+						<picture>
+							<source srcset={heroImage.replace(/\.png$/, '.webp')} type="image/webp" />
+							<img src={heroImage} alt={title} class="w-full h-auto object-cover" loading="lazy" />
+						</picture>
 					</div>
 				)}
 				<div class="mb-8">
