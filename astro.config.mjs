@@ -2,16 +2,16 @@
 
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import node from '@astrojs/node';
+import vercel from '@astrojs/vercel';
 import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 
-// https://astro.build/config
+// https://astro.build/docs
 export default defineConfig({
   site: 'https://uhl-systems.com',
   output: 'server',
-  adapter: node({ mode: 'standalone' }),
+  adapter: vercel(),
   integrations: [mdx(), sitemap()],
 
   vite: {

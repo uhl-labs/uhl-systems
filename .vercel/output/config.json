@@ -1,0 +1,152 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"src": "^/_server-islands/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/_image/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/subscribe/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/blog/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/booking-confirmed/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/de/about/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/de/blog/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/de/booking-confirmed/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/de/impressum/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/de/privacy/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/de/services/audit/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/de/services/consulting/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/de/services/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/de/shop/90-day-revenue-playbook/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/de/shop/conversion-audit-checklist/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/de/shop/revenue-leak-audit-template/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/de/shop/revenue-leak-map-guide/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/de/shop/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/de/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/impressum/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/privacy/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/rss\\.xml$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/services/audit/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/services/consulting/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/services/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/shop/90-day-revenue-playbook/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/shop/conversion-audit-checklist/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/shop/revenue-leak-audit-template/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/shop/revenue-leak-map-guide/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/shop/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/404/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/.*$",
+			"dest": "_render",
+			"status": 404
+		}
+	]
+}

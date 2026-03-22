@@ -1,0 +1,316 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+import { brand } from '../../../config/brand';
+
+const product = brand.products.find(p => p.slug === "revenue-leak-map-guide")!;
+---
+
+<!doctype html>
+<html lang="de">
+	<head>
+		<BaseHead title="Revenue Leak Map PDF Guide | UHL Systems" description="30-seitiger Deep Dive zu allen 7 Revenue-Leak-Typen. Symptome, Diagnose-Framework und Loesung fuer jeden einzelnen - mit echten Business-Beispielen." />
+		<style>
+			.hero-headline {
+				font-size: clamp(36px, 6vw, 64px);
+				line-height: 1.1;
+				letter-spacing: -0.03em;
+			}
+			.section-heading {
+				font-size: clamp(28px, 4vw, 44px);
+				line-height: 1.15;
+				letter-spacing: -0.02em;
+			}
+			.cta-primary {
+				background-color: var(--color-accent);
+				color: var(--color-bg);
+				border-radius: 999px;
+				padding: 16px 40px;
+				font-weight: 600;
+				font-size: 18px;
+				transition: all 0.2s;
+				display: inline-block;
+			}
+			.cta-primary:hover {
+				box-shadow: 0 0 32px rgba(0, 255, 136, 0.35);
+				color: var(--color-bg);
+			}
+			.content-width {
+				max-width: 820px;
+				margin: 0 auto;
+			}
+			.feature-item {
+				display: flex;
+				align-items: flex-start;
+				gap: 14px;
+			}
+			.feature-icon {
+				flex-shrink: 0;
+				width: 28px;
+				height: 28px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 8px;
+				background: rgba(0, 255, 136, 0.1);
+				color: var(--color-accent);
+				margin-top: 2px;
+			}
+			.faq-item {
+				border-bottom: 1px solid var(--color-border);
+				padding: 24px 0;
+			}
+			.faq-item:last-child {
+				border-bottom: none;
+			}
+		</style>
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "FAQPage",
+			"mainEntity": [
+				{
+					"@type": "Question",
+					"name": "Fuer wen ist das?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Die Revenue Leak Map ist fuer Online-Business-Inhaber, die verstehen wollen, warum ihr Umsatz nicht so schnell waechst wie er sollte. Ideal fuer Coaches, SaaS-Gruender und Berater mit 5k-100k/Monat, die Leaks vermuten, aber nicht sehen koennen."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "In welchem Format ist der Guide?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Es ist ein 30-seitiges PDF, das sowohl zum Lesen als auch als Nachschlagewerk konzipiert ist. Jeder Leak-Typ bekommt sein eigenes Kapitel mit Symptomen, Diagnose-Schritten und einem Fix-Playbook."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "Brauche ich Vorkenntnisse?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Nein. Der Guide erklaert jeden Revenue-Leak-Typ von Grund auf mit echten Beispielen. Wenn du ein Online-Business fuehrst und deine Basis-Metriken kennst (Traffic, Conversion, Umsatz), bist du bereit."
+					}
+				}
+			]
+		}
+		</script>
+	</head>
+	<body>
+		<Header />
+
+		<!-- Breadcrumb -->
+		<div class="px-6 pt-28 pb-4">
+			<div class="content-width">
+				<nav class="flex items-center gap-2 font-mono text-sm text-muted-dark">
+					<a href="/de/shop" class="transition-colors hover:text-accent">Shop</a>
+					<span>&rarr;</span>
+					<span class="text-muted">Revenue Leak Map PDF Guide</span>
+				</nav>
+			</div>
+		</div>
+
+		<!-- Hero -->
+		<section class="px-6 pb-20 pt-8">
+			<div class="content-width">
+				<span class="mb-6 inline-block rounded-full bg-accent/10 px-4 py-1.5 font-mono text-[11px] tracking-wider text-accent uppercase">Digitaler Download - Sofort-Zugang</span>
+				<h1 class="hero-headline fade-in font-display font-bold text-text">
+					Revenue Leak Map PDF Guide
+				</h1>
+				<p class="fade-in fade-in-delay-1 mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+					Die komplette Karte aller 7 Revenue-Leak-Typen - Symptome, Diagnose und die exakte Loesung fuer jeden. 30 Seiten konzentrierte Strategie.
+				</p>
+				<div class="fade-in fade-in-delay-2 mt-10 flex flex-wrap items-center gap-5">
+					<span class="font-display text-4xl font-bold text-text">&euro;97</span>
+				</div>
+				<div class="fade-in fade-in-delay-3 mt-8">
+					<a href={product.checkoutUrl} class="cta-primary block w-full text-center">Jetzt kaufen - {product.price}</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- What You Get -->
+		<section class="border-t border-border px-6 py-20">
+			<div class="content-width">
+				<h2 class="section-heading mb-12 font-display font-bold text-text">Was du bekommst</h2>
+				<div class="grid gap-6 sm:grid-cols-2">
+					<div class="feature-item">
+						<div class="feature-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/></svg>
+						</div>
+						<div>
+							<p class="font-semibold text-text">30-Seiten Deep Dive</p>
+							<p class="mt-1 text-sm text-muted">Umfassender Guide - kein Fuellmaterial, nur Substanz</p>
+						</div>
+					</div>
+					<div class="feature-item">
+						<div class="feature-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/></svg>
+						</div>
+						<div>
+							<p class="font-semibold text-text">Alle 7 Revenue-Leak-Typen erklaert</p>
+							<p class="mt-1 text-sm text-muted">Jede Leak-Kategorie kartiert und aufgeschluesselt</p>
+						</div>
+					</div>
+					<div class="feature-item">
+						<div class="feature-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/></svg>
+						</div>
+						<div>
+							<p class="font-semibold text-text">Symptom-Checkliste pro Leak</p>
+							<p class="mt-1 text-sm text-muted">Schnell erkennen, welche Leaks bei dir zutreffen</p>
+						</div>
+					</div>
+					<div class="feature-item">
+						<div class="feature-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/></svg>
+						</div>
+						<div>
+							<p class="font-semibold text-text">Diagnose-Framework</p>
+							<p class="mt-1 text-sm text-muted">Schritt-fuer-Schritt-Prozess zur Bestaetigung jedes Leaks</p>
+						</div>
+					</div>
+					<div class="feature-item">
+						<div class="feature-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/></svg>
+						</div>
+						<div>
+							<p class="font-semibold text-text">Fix-Playbook pro Leak</p>
+							<p class="mt-1 text-sm text-muted">Umsetzbare Fix-Strategie fuer jeden Leak-Typ</p>
+						</div>
+					</div>
+					<div class="feature-item">
+						<div class="feature-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/></svg>
+						</div>
+						<div>
+							<p class="font-semibold text-text">Echte Business-Beispiele</p>
+							<p class="mt-1 text-sm text-muted">Sieh, wie jeder Leak-Typ in echten Unternehmen auftritt</p>
+						</div>
+					</div>
+				</div>
+				<p class="mt-8 font-mono text-sm text-muted-dark">Format: PDF</p>
+			</div>
+		</section>
+
+		<!-- Who This Is For -->
+		<section class="border-t border-border px-6 py-20">
+			<div class="content-width">
+				<h2 class="section-heading mb-12 font-display font-bold text-text">Fuer wen ist das</h2>
+				<div class="grid gap-8 sm:grid-cols-3">
+					<div class="rounded-xl border border-border bg-bg2 p-6">
+						<p class="mb-2 font-mono text-xs tracking-wider text-accent uppercase">Coaches</p>
+						<p class="text-[15px] text-muted">Du generierst Leads, aber dein Umsatz fuehlt sich gedeckelt an und du kannst nicht herausfinden, warum das Wachstum stagniert.</p>
+					</div>
+					<div class="rounded-xl border border-border bg-bg2 p-6">
+						<p class="mb-2 font-mono text-xs tracking-wider text-accent uppercase">SaaS-Gruender</p>
+						<p class="text-[15px] text-muted">Dein MRR waechst nicht proportional zu deinem Traffic - es gibt versteckte Leaks zwischen Anmeldung und Zahlung.</p>
+					</div>
+					<div class="rounded-xl border border-border bg-bg2 p-6">
+						<p class="mb-2 font-mono text-xs tracking-wider text-accent uppercase">Berater</p>
+						<p class="text-[15px] text-muted">Du willst ein komplettes mentales Modell von Revenue Leaks, um Probleme schneller zu diagnostizieren - fuer dich selbst oder deine Kunden.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- What Problem It Solves -->
+		<section class="border-t border-border px-6 py-20">
+			<div class="content-width">
+				<h2 class="section-heading mb-8 font-display font-bold text-text">Welches Problem es loest</h2>
+				<div class="space-y-6 text-[16px] leading-relaxed text-muted">
+					<p>
+						Revenue Leaks sind von Natur aus unsichtbar. Sie zeigen sich nicht als Fehler - sie zeigen sich als Stagnation. Du gibst Geld fuer Ads aus, erstellst Content, launchst Angebote... aber deine Umsatzkurve bleibt flach. Das Problem ist nicht der Aufwand. Es ist, dass du die falschen Dinge optimierst, weil du nicht sehen kannst, wo die eigentlichen Leaks sind.
+					</p>
+					<p>
+						Die Revenue Leak Map gibt dir eine komplette Taxonomie, wie Online-Businesses Geld verlieren. Jeder der 7 Leak-Typen hat sein eigenes Kapitel: wie er aussieht, wie man ihn diagnostiziert und wie man ihn genau behebt. Das ist keine Theorie - es ist dasselbe Framework, mit dem wir sechsstellige Betraege an verlorenem Umsatz fuer Kunden zurueckgeholt haben.
+					</p>
+					<p>
+						Sobald du die Leaks sehen kannst, kannst du priorisieren. Anstatt einen weiteren A/B-Test zu starten oder eine weitere Kampagne zu launchen, weisst du, welcher einzelne Fix den groessten Unterschied macht. Diese Klarheit ist mehr wert als jede Taktik.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Sample / Preview -->
+		<section class="border-t border-border px-6 py-20">
+			<div class="content-width">
+				<h2 class="section-heading mb-8 font-display font-bold text-text">Das steckt drin</h2>
+				<div class="rounded-xl border border-border bg-bg2 p-8">
+					<ul class="space-y-4 text-[15px] text-muted">
+						<li class="flex items-start gap-3">
+							<span class="mt-1 text-accent">&#9656;</span>
+							<span>Die 7 Revenue-Leak-Typen - eine komplette Taxonomie von Traffic Leaks bis Lifetime Value Leaks</span>
+						</li>
+						<li class="flex items-start gap-3">
+							<span class="mt-1 text-accent">&#9656;</span>
+							<span>Symptom-Checklisten - 5-8 Warnsignale pro Leak-Typ zur Selbstdiagnose in Minuten</span>
+						</li>
+						<li class="flex items-start gap-3">
+							<span class="mt-1 text-accent">&#9656;</span>
+							<span>Fix-Playbooks - Schritt-fuer-Schritt-Reparaturanleitungen mit Prioritaets-Massnahmen fuer jeden Leak</span>
+						</li>
+						<li class="flex items-start gap-3">
+							<span class="mt-1 text-accent">&#9656;</span>
+							<span>Echte Beispiele - wie jeder Leak-Typ in echten Online-Businesses aufgetreten ist (und behoben wurde)</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!-- FAQ -->
+		<section class="border-t border-border px-6 py-20">
+			<div class="content-width">
+				<h2 class="section-heading mb-8 font-display font-bold text-text">Haeufig gestellte Fragen</h2>
+				<div>
+					<div class="faq-item">
+						<h3 class="mb-3 text-lg font-semibold text-text">Fuer wen ist das?</h3>
+						<p class="text-[15px] text-muted">Die Revenue Leak Map ist fuer Online-Business-Inhaber, die verstehen wollen, warum ihr Umsatz nicht so schnell waechst wie er sollte. Ideal fuer Coaches, SaaS-Gruender und Berater mit 5k-100k/Monat, die Leaks vermuten, aber nicht sehen koennen.</p>
+					</div>
+					<div class="faq-item">
+						<h3 class="mb-3 text-lg font-semibold text-text">In welchem Format ist der Guide?</h3>
+						<p class="text-[15px] text-muted">Es ist ein 30-seitiges PDF, das sowohl zum Lesen als auch als Nachschlagewerk konzipiert ist. Jeder Leak-Typ bekommt sein eigenes Kapitel mit Symptomen, Diagnose-Schritten und einem Fix-Playbook.</p>
+					</div>
+					<div class="faq-item">
+						<h3 class="mb-3 text-lg font-semibold text-text">Brauche ich Vorkenntnisse?</h3>
+						<p class="text-[15px] text-muted">Nein. Der Guide erklaert jeden Revenue-Leak-Typ von Grund auf mit echten Beispielen. Wenn du ein Online-Business fuehrst und deine Basis-Metriken kennst (Traffic, Conversion, Umsatz), bist du bereit.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA Bottom -->
+		<section class="border-t border-border px-6 py-24">
+			<div class="content-width text-center">
+				<div class="mb-6">
+					<span class="font-display text-4xl font-bold text-text">&euro;97</span>
+				</div>
+				<a href={product.checkoutUrl} class="cta-primary block w-full text-center">Jetzt kaufen - {product.price}</a>
+				</div>
+		</section>
+
+
+	<!-- Upsell -->
+	<section class="border-t border-border px-6 py-16 bg-bg2">
+		<div class="mx-auto max-w-3xl text-center">
+			<p class="font-mono text-xs tracking-widest text-accent uppercase mb-3">Naechster Schritt</p>
+			<h3 class="font-display text-xl font-bold text-text mb-3">
+				Willst du das volle Bild?
+			</h3>
+			<p class="text-muted text-sm mb-6 max-w-md mx-auto">
+				Der Strategy Call nimmt deine Revenue Leak Map und macht daraus einen priorisierten Aktionsplan - spezifisch fuer dein Business.
+			</p>
+			<a href={brand.strategyCall.checkoutUrl} class="cta-primary inline-flex items-center gap-2">
+				Strategy Call buchen - €97
+				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+			</a>
+			<p class="mt-2 font-mono text-xs text-muted-dark">30 Min &nbsp;|&nbsp; €97 &nbsp;|&nbsp; Zahlung bei Buchung</p>
+		</div>
+	</section>
+
+		<Footer />
+	</body>
+</html>

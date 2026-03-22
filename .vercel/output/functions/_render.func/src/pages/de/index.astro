@@ -1,0 +1,1272 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import RevenueMuncher from '../../components/RevenueMuncher.astro';
+import { brand } from '../../config/brand';
+---
+
+<!doctype html>
+<html lang="de">
+	<head>
+		<BaseHead title="UHL Systems - Unlock Hidden Leverage | Revenue Systeme" description="Wir finden die Revenue Leaks in deinem Business und beheben sie. Revenue Leak Audit ab 1k - 2k." isHomepage={false} />
+		<link rel="canonical" href="https://www.uhl-systems.com/de/" />
+		<style>
+			.hero-headline {
+				font-size: clamp(2rem, 9vw, 7rem);
+				font-weight: 800;
+				line-height: 1.05;
+				letter-spacing: -0.03em;
+				text-align: center;
+				overflow: hidden;
+				max-width: 100%;
+			}
+			@media (max-width: 480px) {
+				.hero-headline {
+					font-size: clamp(1.8rem, 11vw, 3rem);
+				}
+			}
+			.section-heading {
+				font-size: clamp(32px, 5vw, 56px);
+				line-height: 1.1;
+				letter-spacing: -0.02em;
+			}
+			.cta-primary {
+				background-color: var(--color-accent);
+				color: var(--color-bg);
+				border-radius: 999px;
+				padding: 14px 36px;
+				font-weight: 600;
+				transition: all 0.2s;
+			}
+			.cta-primary:hover {
+				box-shadow: 0 0 32px rgba(0, 255, 136, 0.35);
+				color: var(--color-bg);
+			}
+			.cta-ghost {
+				border: 1px solid var(--color-border);
+				border-radius: 999px;
+				padding: 14px 36px;
+				color: var(--color-muted);
+				transition: all 0.2s;
+			}
+			.cta-ghost:hover {
+				border-color: var(--color-accent);
+				color: var(--color-text);
+			}
+			.uhl-card {
+				border: 1px solid var(--color-border);
+				background: var(--color-bg2);
+				border-radius: 16px;
+				padding: 40px 32px;
+				transition: all 0.3s;
+			}
+			.uhl-card:hover {
+				border-color: rgba(0, 255, 136, 0.25);
+				background: var(--color-bg3);
+			}
+			.content-width {
+				max-width: 1100px;
+				margin: 0 auto;
+			}
+
+			/* === Credibility Bar === */
+			.credibility-bar {
+				border-top: 1px solid var(--color-border);
+				border-bottom: 1px solid var(--color-border);
+				background: #111;
+			}
+			.credibility-grid {
+				display: flex;
+				justify-content: center;
+				align-items: baseline;
+				gap: 3rem;
+				text-align: center;
+				padding: 2.5rem 1.5rem;
+				max-width: 1000px;
+				margin: 0 auto;
+			}
+			.credibility-item {
+				display: flex;
+				align-items: baseline;
+				gap: 0.5rem;
+				white-space: nowrap;
+			}
+			.credibility-number {
+				font-size: clamp(28px, 4vw, 40px);
+				font-weight: 800;
+				color: var(--color-accent);
+				line-height: 1;
+				font-family: var(--font-display);
+			}
+			.credibility-label {
+				font-size: 14px;
+				color: var(--color-muted);
+				line-height: 1.3;
+			}
+			.credibility-divider {
+				width: 1px;
+				height: 32px;
+				background: var(--color-border);
+				flex-shrink: 0;
+			}
+			@media (max-width: 768px) {
+				.credibility-grid {
+					display: flex;
+					flex-direction: row;
+					flex-wrap: nowrap;
+					justify-content: space-around;
+					gap: 0.5rem;
+					padding: 1.75rem 1rem;
+				}
+				.credibility-item {
+					flex-direction: column;
+					align-items: center;
+					gap: 0.25rem;
+					flex: 1;
+					min-width: 0;
+					white-space: normal;
+					text-align: center;
+				}
+				.credibility-number {
+					font-size: clamp(22px, 6vw, 32px);
+				}
+				.credibility-label {
+					font-size: 11px;
+					line-height: 1.3;
+				}
+				.credibility-divider { display: none; }
+			}
+
+			/* === Case Studies === */
+			.case-card {
+				border: 1px solid var(--color-border);
+				background: var(--color-bg2);
+				border-radius: 16px;
+				padding: 32px 28px;
+				transition: all 0.3s;
+			}
+			.case-card:hover {
+				border-color: rgba(0, 255, 136, 0.25);
+				background: var(--color-bg3);
+			}
+			.case-before { color: #ff4444; font-weight: 700; }
+			.case-after { color: #00ff88; font-weight: 700; }
+			.case-arrow { color: var(--color-muted-dark); margin: 0 0.35rem; }
+
+			/* === Ways to Work Together === */
+			.ways-card {
+				border: 1px solid var(--color-border);
+				background: var(--color-bg2);
+				border-radius: 16px;
+				padding: 32px 28px;
+				transition: all 0.3s;
+				display: flex;
+				flex-direction: column;
+			}
+			.ways-card:hover {
+				border-color: rgba(0, 255, 136, 0.25);
+				background: var(--color-bg3);
+			}
+			.ways-price {
+				font-family: var(--font-display);
+				font-size: 24px;
+				font-weight: 700;
+				color: var(--color-accent);
+			}
+
+			/* === FAQ Section === */
+			.faq-item {
+				border-bottom: 1px solid var(--color-border);
+			}
+			.faq-item summary {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 1.25rem 0;
+				cursor: pointer;
+				font-size: 17px;
+				font-weight: 600;
+				color: var(--color-text);
+				list-style: none;
+				transition: color 0.2s;
+			}
+			.faq-item summary::-webkit-details-marker { display: none; }
+			.faq-item summary::after {
+				content: '+';
+				font-size: 24px;
+				font-weight: 300;
+				color: var(--color-accent);
+				transition: transform 0.2s;
+				flex-shrink: 0;
+				margin-left: 1rem;
+			}
+			.faq-item[open] summary::after {
+				transform: rotate(45deg);
+			}
+			.faq-item summary:hover { color: var(--color-accent); }
+			.faq-answer {
+				padding: 0 0 1.25rem;
+				font-size: 15px;
+				line-height: 1.7;
+				color: var(--color-muted);
+				max-width: 640px;
+			}
+
+			/* === Revenue Leak Map === */
+			.leak-flow {
+				display: flex;
+				align-items: flex-start;
+				gap: 0;
+				padding-bottom: 1rem;
+			}
+			.leak-station {
+				flex: 1;
+				min-width: 120px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+				position: relative;
+				transition: transform 0.3s ease;
+			}
+			.leak-flow > :nth-child(4n+3) {
+				transform: translateY(28px);
+			}
+			.leak-card {
+				border: 1px solid #1a1a1a;
+				background: var(--color-bg2);
+				border-radius: 14px;
+				padding: 20px 12px 16px;
+				transition: all 0.35s ease;
+				width: 100%;
+				cursor: default;
+			}
+			.leak-card:hover {
+				border-color: #00ff88;
+				box-shadow: 0 0 24px rgba(0, 255, 136, 0.15), 0 0 48px rgba(0, 255, 136, 0.05);
+				background: var(--color-bg3);
+			}
+			.leak-card:hover .leak-icon-wrap {
+				background: rgba(0, 255, 136, 0.12);
+			}
+			.leak-card:hover .leak-hover-desc {
+				opacity: 1;
+				transform: translateY(0);
+			}
+			.leak-icon-wrap {
+				width: 44px;
+				height: 44px;
+				border-radius: 10px;
+				background: var(--color-bg3);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin: 0 auto 10px;
+				transition: background 0.3s;
+			}
+			.leak-number {
+				font-family: var(--font-mono);
+				font-size: 10px;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				color: var(--color-muted-dark);
+			}
+			.leak-title {
+				font-size: 13px;
+				font-weight: 600;
+				color: var(--color-text);
+				margin-top: 4px;
+				line-height: 1.3;
+			}
+			.leak-hover-desc {
+				font-size: 11px;
+				color: var(--color-muted-dark);
+				margin-top: 8px;
+				line-height: 1.4;
+				opacity: 0;
+				transform: translateY(4px);
+				transition: all 0.3s;
+			}
+			.leak-lightning {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+				padding: 0 8px;
+				flex-shrink: 0;
+			}
+			.leak-lightning svg { display: none; }
+			.leak-lightning::before {
+				content: "";
+				display: block;
+				width: 48px;
+				height: 2px;
+				background: #e8ff00;
+				border-radius: 2px;
+				box-shadow: 0 0 8px rgba(232, 255, 0, 0.6), 0 0 20px rgba(232, 255, 0, 0.3);
+				animation: flow-pulse 2s ease-in-out infinite;
+				margin-bottom: 4px;
+			}
+			@keyframes flow-pulse {
+				0%, 100% { opacity: 0.6; box-shadow: 0 0 6px rgba(232, 255, 0, 0.4), 0 0 14px rgba(232, 255, 0, 0.2); }
+				50% { opacity: 1; box-shadow: 0 0 12px rgba(232, 255, 0, 0.9), 0 0 28px rgba(232, 255, 0, 0.5); }
+			}
+			.leak-warning {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-top: 4px;
+				position: relative;
+			}
+			.leak-stage-icon {
+				width: 22px;
+				height: 22px;
+				color: #00ff88;
+				opacity: 0.5;
+				transition: all 0.3s ease;
+				cursor: pointer;
+				filter: drop-shadow(0 0 0px transparent);
+			}
+			.leak-warning:hover .leak-stage-icon {
+				opacity: 1;
+				transform: scale(1.2);
+				filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.5));
+			}
+			.leak-tooltip {
+				position: absolute;
+				bottom: calc(100% + 10px);
+				left: 50%;
+				transform: translateX(-50%);
+				background: #111;
+				border: 1px solid rgba(232, 255, 0, 0.3);
+				border-radius: 8px;
+				padding: 10px 14px;
+				font-size: 11px;
+				font-family: var(--font-mono);
+				color: var(--color-text);
+				line-height: 1.5;
+				white-space: normal;
+				width: 200px;
+				text-align: center;
+				opacity: 0;
+				visibility: hidden;
+				transition: all 0.25s ease;
+				pointer-events: none;
+				z-index: 10;
+				box-shadow: 0 0 20px rgba(232, 255, 0, 0.08);
+			}
+			.leak-tooltip::after {
+				content: '';
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				transform: translateX(-50%);
+				border: 5px solid transparent;
+				border-top-color: rgba(232, 255, 0, 0.3);
+			}
+			.leak-warning:hover .leak-tooltip {
+				opacity: 1;
+				visibility: visible;
+			}
+			@media (max-width: 768px) {
+				.leak-flow {
+					flex-direction: column;
+					align-items: center;
+					gap: 0;
+				}
+				.leak-station {
+					width: 100%;
+					max-width: 280px;
+				}
+				.leak-flow > :nth-child(4n+3) {
+					transform: none;
+				}
+				.leak-lightning {
+					padding: 6px 0;
+				}
+			}
+
+			/* === Revenue Calculator === */
+			.calc-wrapper {
+				max-width: 640px;
+				margin: 0 auto;
+			}
+			.calc-field {
+				margin-bottom: 1.5rem;
+			}
+			.calc-field label {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				font-size: 14px;
+				font-weight: 600;
+				color: var(--color-text);
+				margin-bottom: 0.5rem;
+			}
+			.calc-field label span {
+				font-family: var(--font-mono);
+				font-size: 13px;
+				color: var(--color-accent);
+			}
+			.calc-slider {
+				-webkit-appearance: none;
+				appearance: none;
+				width: 100%;
+				height: 6px;
+				border-radius: 3px;
+				background: var(--color-bg3);
+				outline: none;
+			}
+			.calc-slider::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				appearance: none;
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				background: var(--color-accent);
+				cursor: pointer;
+				box-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
+			}
+			.calc-slider::-moz-range-thumb {
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				background: var(--color-accent);
+				cursor: pointer;
+				border: none;
+				box-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
+			}
+			.calc-input {
+				width: 100%;
+				padding: 10px 14px;
+				border: 1px solid var(--color-border);
+				border-radius: 8px;
+				background: var(--color-bg2);
+				color: var(--color-text);
+				font-size: 15px;
+				font-family: var(--font-mono);
+				outline: none;
+				transition: border-color 0.2s;
+			}
+			.calc-input:focus {
+				border-color: var(--color-accent);
+			}
+			.calc-results {
+				border: 1px solid var(--color-border);
+				background: var(--color-bg2);
+				border-radius: 16px;
+				padding: 28px;
+				margin-top: 2rem;
+			}
+			.calc-result-row {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				padding: 0.6rem 0;
+				font-size: 15px;
+			}
+			.calc-result-row + .calc-result-row {
+				border-top: 1px solid var(--color-border);
+			}
+			.calc-result-label { color: var(--color-muted); }
+			.calc-result-value {
+				font-family: var(--font-display);
+				font-weight: 700;
+				font-size: 18px;
+			}
+			.calc-current { color: var(--color-text); }
+			.calc-potential { color: #00ff88; }
+			.calc-leak { color: #ff4444; }
+
+			/* === UHL Method Cards === */
+			.uhl-method-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 2rem;
+			}
+			@media (max-width: 768px) {
+				.uhl-method-grid { grid-template-columns: 1fr; }
+			}
+			.uhl-method-card {
+				position: relative;
+				overflow: hidden;
+				border: 1px solid var(--color-border);
+				background: var(--color-bg2);
+				border-radius: 16px;
+				padding: 48px 32px 40px;
+				transition: all 0.4s ease;
+				opacity: 0;
+				transform: translateY(40px);
+			}
+			.uhl-method-card.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+			.uhl-method-card:hover {
+				border-color: rgba(0, 255, 136, 0.35);
+				box-shadow: 0 0 32px rgba(0, 255, 136, 0.08);
+				background: var(--color-bg3);
+			}
+			.uhl-watermark {
+				position: absolute;
+				top: -20px;
+				right: -10px;
+				font-size: 180px;
+				font-weight: 900;
+				font-family: var(--font-display);
+				color: rgba(0, 255, 136, 0.04);
+				line-height: 1;
+				pointer-events: none;
+				user-select: none;
+			}
+			.uhl-method-letter {
+				font-size: 28px;
+				font-weight: 700;
+				color: var(--color-accent);
+				font-family: var(--font-display);
+				position: relative;
+			}
+			.uhl-method-title {
+				font-size: 20px;
+				font-weight: 600;
+				color: var(--color-text);
+				margin-top: 12px;
+				position: relative;
+			}
+			/* === About Section === */
+			@media (max-width: 767px) {
+				.about-photo { max-height: 400px !important; }
+				.about-photo-wrapper { transform: rotate(0deg) !important; }
+			}
+			.about-text-col {
+				opacity: 0;
+				transform: translateX(40px);
+				transition: opacity 0.8s ease, transform 0.8s ease;
+			}
+			.about-text-col.visible {
+				opacity: 1;
+				transform: translateX(0);
+			}
+			.about-photo-col {
+				opacity: 0;
+				transform: translateY(30px);
+				transition: opacity 0.7s ease, transform 0.7s ease;
+			}
+			.about-photo-col.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			.uhl-method-desc {
+				font-size: 15px;
+				color: var(--color-muted);
+				line-height: 1.7;
+				margin-top: 12px;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+
+		<!-- Hero -->
+		<section class="relative overflow-hidden px-6 py-28 md:py-40">
+			<div class="content-width text-center">
+				<p class="fade-in mb-8 font-mono text-sm tracking-widest text-accent uppercase">Revenue Systems Architecture</p>
+				<h1 class="hero-headline fade-in fade-in-delay-1 font-display text-text">
+					Unlock <span class="text-accent hero-hidden-word">Hidden</span> Leverage.
+				</h1>
+				<p class="fade-in fade-in-delay-2 mx-auto mt-8 text-muted" style="max-width: 560px; line-height: 1.65; font-size: clamp(1rem, 2vw, 1.2rem)">
+					Die meisten Unternehmen optimieren Fragmente. Wir bauen das vollst&auml;ndige Revenue-System - vom ersten Klick bis zum Lifetime Value.
+				</p>
+				<div class="fade-in fade-in-delay-3 mt-14 flex flex-col items-center justify-center gap-4 sm:flex-row">
+					<a href="#contact" class="cta-primary inline-flex items-center gap-2">
+						Revenue Leaks finden
+						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+					</a>
+					<a href="#method" class="cta-ghost inline-flex items-center gap-2">
+						Methode entdecken
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+					</a>
+				</div>
+			</div>
+			<!-- Background grid effect -->
+			<div class="pointer-events-none absolute inset-0 -z-10" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px;"></div>
+			<div class="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full" style="background: radial-gradient(circle, rgba(0,255,136,0.05) 0%, transparent 70%);"></div>
+		</section>
+
+		<RevenueMuncher tagline="wir fressen deine Revenue Leaks" />
+
+		<!-- Credibility Bar -->
+		<section class="credibility-bar">
+			<div class="credibility-grid">
+				<div class="credibility-item">
+					<span class="credibility-number">50%</span>
+					<span class="credibility-label">Durchschnittliche Kostensenkung</span>
+				</div>
+				<div class="credibility-divider"></div>
+				<div class="credibility-item">
+					<span class="credibility-number">2x</span>
+					<span class="credibility-label">Umsatzwachstum erzielt</span>
+				</div>
+				<div class="credibility-divider"></div>
+				<div class="credibility-item">
+					<span class="credibility-number">90min</span>
+					<span class="credibility-label">Bis zu ersten Insights</span>
+				</div>
+			</div>
+			<p class="text-center text-xs tracking-wide text-muted-dark pb-4" style="margin-top: -0.5rem;">Basierend auf echten Kundenergebnissen</p>
+		</section>
+
+		<!-- Case Studies -->
+		<section class="border-t border-border px-6 py-20">
+			<div class="content-width">
+				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">Echte Ergebnisse</p>
+				<h2 class="section-heading mb-16 text-center font-display font-bold text-text">
+					Vorher &amp; Nachher.
+				</h2>
+
+				<div class="grid gap-6 md:grid-cols-3">
+					<div class="case-card">
+						<p class="mb-1 font-mono text-xs tracking-wider text-muted-dark uppercase">Online Business</p>
+						<p class="mb-4 text-lg font-semibold text-text">
+							<span class="case-before">Kosten &minus;50%</span><span class="case-arrow">&rarr;</span><span class="case-after">Umsatz stabil</span>
+						</p>
+						<p class="text-[15px] leading-relaxed text-muted">Betriebskosten halbiert, Umsatz unveraendert. Gleicher Output, halbe Kosten. Aber der eigentliche Gewinn: Umsatz der jetzt planbar reinkommt, nicht mehr in zufalligen Spitzen.</p>
+					</div>
+
+					<div class="case-card">
+						<p class="mb-1 font-mono text-xs tracking-wider text-muted-dark uppercase">Coaching Business</p>
+						<p class="mb-4 text-lg font-semibold text-text">
+							<span class="case-before">Gleiche Kosten</span><span class="case-arrow">&rarr;</span><span class="case-after">Umsatz +40%</span>
+						</p>
+						<p class="text-[15px] leading-relaxed text-muted">Kein neues Budget. Keine neuen Kanaele. Wir haben die Conversion-Logik repariert und den Leak in der Angebotsstruktur gestopft. 40% mehr Umsatz aus exakt demselben Traffic.</p>
+					</div>
+
+					<div class="case-card">
+						<p class="mb-1 font-mono text-xs tracking-wider text-muted-dark uppercase">Selbststaendiger Unternehmer</p>
+						<p class="mb-4 text-lg font-semibold text-text">
+							<span class="case-before">Kosten &minus;40%</span><span class="case-arrow">+</span><span class="case-after">Umsatz 2x</span>
+						</p>
+						<p class="text-[15px] leading-relaxed text-muted">Weniger Aufwand, doppelter Output. Aber das Wichtigste: kein Hamsterrad mehr. Umsatz wurde planbar, verlasslich, vorausschaubar. Das ist das eigentliche Ergebnis.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Transparency Block -->
+		<section class="border-t border-border px-6 py-16" style="background: #0d0d0d;">
+			<div class="content-width max-w-2xl mx-auto text-center">
+				<p class="mb-4 font-mono text-sm tracking-widest text-accent uppercase">Die echte Geschichte</p>
+				<h2 class="font-display text-2xl font-bold text-text mb-6">Jahre im Business.<br/>Unter dem Radar. Mit Absicht.</h2>
+				<p class="text-muted leading-relaxed text-[15px]">
+					Lukas arbeitet seit Jahren an der Schnittstelle von Marketing, Sales, Engineering, AI und Finance. Nicht als Agentur - sondern als jemand, der die Systeme rausfinden wollte, die wirklich funktionieren. Jetzt ist es Zeit, die Tueren zu oeffnen. Die Ergebnisse oben kommen aus demselben System, auf das du Zugriff bekommst. Praxisgetestet. Kein Pitch-Deck. Keine Theorie.
+				</p>
+			</div>
+		</section>
+
+		<!-- Ways to Work Together -->
+		<section class="border-t border-border px-6 py-20">
+			<div class="content-width">
+				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">Zusammenarbeit</p>
+				<h2 class="section-heading mb-16 text-center font-display font-bold text-text">
+					W&auml;hle deinen Einstieg.
+				</h2>
+
+				<div class="grid gap-6 md:grid-cols-3">
+					<div class="ways-card">
+						<p class="mb-2 font-mono text-xs tracking-wider text-muted-dark uppercase">DIY</p>
+						<h3 class="mb-2 text-lg font-semibold text-text">Digitale Produkte</h3>
+						<p class="mb-4 text-[15px] leading-relaxed text-muted">Revenue Frameworks, Audit-Templates und System-Blueprints zum Selbst-Implementieren.</p>
+						<div class="mt-auto">
+							<div class="ways-price mb-4">Ab &euro;47</div>
+							<a href={brand.url.shop} class="cta-ghost block w-full text-center">Produkte ansehen</a>
+						</div>
+					</div>
+
+					<div class="ways-card" style="border-color: rgba(0, 255, 136, 0.3);">
+						<p class="mb-2 font-mono text-xs tracking-wider text-muted-dark uppercase">Done With You</p>
+						<h3 class="mb-2 text-lg font-semibold text-text">Revenue Leak Audit</h3>
+						<p class="mb-4 text-[15px] leading-relaxed text-muted">Wir mappen deine komplette Revenue Pipeline, finden jeden Leak und geben dir einen priorisierten Action Plan.</p>
+						<div class="mt-auto">
+							<div class="ways-price mb-4">&euro;1k &ndash; &euro;2k</div>
+							<a href={brand.strategyCall.checkoutUrl} class="cta-ghost block w-full text-center">Audit-Call buchen</a>
+							<p class="mt-2 font-mono text-xs text-muted-dark text-center">30 Min &nbsp;|&nbsp; €97 &nbsp;|&nbsp; Zahlung bei Buchung</p>
+						</div>
+					</div>
+
+					<div class="ways-card">
+						<p class="mb-2 font-mono text-xs tracking-wider text-muted-dark uppercase">Done For You</p>
+						<h3 class="mb-2 text-lg font-semibold text-text">Revenue Systems Consulting</h3>
+						<p class="mb-4 text-[15px] leading-relaxed text-muted">Wir bauen, optimieren und betreiben dein gesamtes Revenue-System. Volle Execution, Compounding Results.</p>
+						<div class="mt-auto">
+							<div class="ways-price mb-4">&euro;5k &ndash; &euro;20k</div>
+							<a href={brand.strategyCall.checkoutUrl} class="cta-ghost block w-full text-center">Jetzt bewerben</a>
+							<p class="mt-2 font-mono text-xs text-muted-dark text-center">30 Min &nbsp;|&nbsp; €97 &nbsp;|&nbsp; Zahlung bei Buchung</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Revenue Leak Map -->
+		<section class="border-t border-border px-6 py-28">
+			<div class="content-width">
+				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">Die Revenue Leak Map</p>
+				<h2 class="section-heading mb-6 text-center font-display font-bold text-text">
+					Wo verliert dein Business Geld?
+				</h2>
+				<p class="mx-auto mb-20 max-w-2xl text-center text-muted">
+					Jedes Business hat eine Revenue Pipeline. Die meisten haben L&uuml;cken, die sie nicht sehen. Wir mappen den gesamten Flow und finden die Leaks.
+				</p>
+
+				<div class="leak-flow">
+					<!-- 01 Traffic Acquisition -->
+					<div class="leak-station">
+						<div class="leak-card">
+							<div class="leak-icon-wrap">
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M12 19V5"/><path d="m5 12 7-7 7 7"/>
+								</svg>
+							</div>
+							<div class="leak-number">01</div>
+							<div class="leak-title">Traffic Akquise</div>
+							<div class="leak-hover-desc">Falsche Zielgruppe, verbranntes Budget</div>
+						</div>
+					</div>
+
+					<div class="leak-lightning">
+						<svg viewBox="0 0 24 40" width="18" height="30" fill="none">
+							<path d="M14 2L4 22h8l-2 16L22 18h-9l1-16z" fill="#e8ff00" opacity="0.85"/>
+						</svg>
+						<div class="leak-warning">
+							<svg class="leak-stage-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12 7 2l5 10-5 10z"/><path d="M12 12l5-10 5 10-5 10z"/></svg>
+							<div class="leak-tooltip">Du ziehst Besucher an - aber sind es die richtigen?</div>
+						</div>
+					</div>
+
+					<!-- 02 Offer Positioning -->
+					<div class="leak-station">
+						<div class="leak-card">
+							<div class="leak-icon-wrap">
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+									<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+								</svg>
+							</div>
+							<div class="leak-number">02</div>
+							<div class="leak-title">Offer Positionierung</div>
+							<div class="leak-hover-desc">Schwache Positionierung, keine Dringlichkeit</div>
+						</div>
+					</div>
+
+					<div class="leak-lightning">
+						<svg viewBox="0 0 24 40" width="18" height="30" fill="none">
+							<path d="M14 2L4 22h8l-2 16L22 18h-9l1-16z" fill="#e8ff00" opacity="0.85"/>
+						</svg>
+						<div class="leak-warning">
+							<svg class="leak-stage-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+							<div class="leak-tooltip">Dein Angebot existiert - aber passt es zu deinem Traffic?</div>
+						</div>
+					</div>
+
+					<!-- 03 Funnel Journey -->
+					<div class="leak-station">
+						<div class="leak-card">
+							<div class="leak-icon-wrap">
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/>
+								</svg>
+							</div>
+							<div class="leak-number">03</div>
+							<div class="leak-title">Funnel Journey</div>
+							<div class="leak-hover-desc">Friction killt Conversions</div>
+						</div>
+					</div>
+
+					<div class="leak-lightning">
+						<svg viewBox="0 0 24 40" width="18" height="30" fill="none">
+							<path d="M14 2L4 22h8l-2 16L22 18h-9l1-16z" fill="#e8ff00" opacity="0.85"/>
+						</svg>
+						<div class="leak-warning">
+							<svg class="leak-stage-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/></svg>
+							<div class="leak-tooltip">Leute kommen rein - aber wo steigen sie aus?</div>
+						</div>
+					</div>
+
+					<!-- 04 Conversion Action -->
+					<div class="leak-station">
+						<div class="leak-card">
+							<div class="leak-icon-wrap">
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M9 3h6l3 7-7.5 11L3 10z"/><path d="m14 8-3 5"/>
+								</svg>
+							</div>
+							<div class="leak-number">04</div>
+							<div class="leak-title">Conversion Action</div>
+							<div class="leak-hover-desc">Kein Vertrauen, kein Beweis, kein Abschluss</div>
+						</div>
+					</div>
+
+					<div class="leak-lightning">
+						<svg viewBox="0 0 24 40" width="18" height="30" fill="none">
+							<path d="M14 2L4 22h8l-2 16L22 18h-9l1-16z" fill="#e8ff00" opacity="0.85"/>
+						</svg>
+						<div class="leak-warning">
+							<svg class="leak-stage-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+							<div class="leak-tooltip">Interesse ist da - aber Friction killt den Abschluss.</div>
+						</div>
+					</div>
+
+					<!-- 05 Monetization -->
+					<div class="leak-station">
+						<div class="leak-card">
+							<div class="leak-icon-wrap">
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+								</svg>
+							</div>
+							<div class="leak-number">05</div>
+							<div class="leak-title">Monetization</div>
+							<div class="leak-hover-desc">Unterbewertet, keine Upsells</div>
+						</div>
+					</div>
+
+					<div class="leak-lightning">
+						<svg viewBox="0 0 24 40" width="18" height="30" fill="none">
+							<path d="M14 2L4 22h8l-2 16L22 18h-9l1-16z" fill="#e8ff00" opacity="0.85"/>
+						</svg>
+						<div class="leak-warning">
+							<svg class="leak-stage-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+							<div class="leak-tooltip">Du verkaufst - aber laesst deine Pricing-Struktur Geld liegen?</div>
+						</div>
+					</div>
+
+					<!-- 06 Retention -->
+					<div class="leak-station">
+						<div class="leak-card">
+							<div class="leak-icon-wrap">
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v9h-9"/>
+								</svg>
+							</div>
+							<div class="leak-number">06</div>
+							<div class="leak-title">Retention</div>
+							<div class="leak-hover-desc">Churn zerst&ouml;rt alles</div>
+						</div>
+					</div>
+
+					<div class="leak-lightning">
+						<svg viewBox="0 0 24 40" width="18" height="30" fill="none">
+							<path d="M14 2L4 22h8l-2 16L22 18h-9l1-16z" fill="#e8ff00" opacity="0.85"/>
+						</svg>
+						<div class="leak-warning">
+							<svg class="leak-stage-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v9h-9"/></svg>
+							<div class="leak-tooltip">Kunden kaufen einmal - aber kommen sie zurueck?</div>
+						</div>
+					</div>
+
+					<!-- 07 LTV Growth -->
+					<div class="leak-station">
+						<div class="leak-card">
+							<div class="leak-icon-wrap">
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/>
+								</svg>
+							</div>
+							<div class="leak-number">07</div>
+							<div class="leak-title">LTV Growth</div>
+							<div class="leak-hover-desc">Kein Compounding, kein Wachstum</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Revenue Leak Calculator -->
+		<section class="border-t border-border px-6 py-28">
+			<div class="content-width">
+				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">Tool</p>
+				<h2 class="section-heading mb-6 text-center font-display font-bold text-text">
+					Berechne deinen Revenue Leak.
+				</h2>
+				<p class="mx-auto mb-16 max-w-2xl text-center text-muted">
+					Gib deine Zahlen ein. Sieh, wie viel Umsatz du jeden Monat auf dem Tisch liegen l&auml;sst.
+				</p>
+
+				<div class="calc-wrapper">
+					<div class="calc-field">
+						<label>Monatliche Besucher <span id="calc-traffic-val">10.000</span></label>
+						<input type="range" id="calc-traffic" class="calc-slider" min="1000" max="100000" step="1000" value="10000" />
+					</div>
+
+					<div class="calc-field">
+						<label>Aktuelle Conversion Rate <span id="calc-cr-val">1,0%</span></label>
+						<input type="range" id="calc-cr" class="calc-slider" min="10" max="500" step="10" value="100" />
+					</div>
+
+					<div class="calc-field">
+						<label>Durchschn. Bestellwert (&euro;) <span id="calc-aov-val">&euro;250</span></label>
+						<input type="range" id="calc-aov" class="calc-slider" min="50" max="5000" step="50" value="250" />
+					</div>
+
+					<div class="calc-field">
+						<label>Gr&ouml;&szlig;e der E-Mail-Liste <span id="calc-email-val">2.000</span></label>
+						<input type="range" id="calc-email" class="calc-slider" min="0" max="50000" step="500" value="2000" />
+					</div>
+
+					<div class="calc-field">
+						<label>Verkaufszyklus (Tage) <span id="calc-cycle-val">14</span></label>
+						<input type="range" id="calc-cycle" class="calc-slider" min="1" max="90" step="1" value="14" />
+					</div>
+
+					<div class="calc-results" id="calc-results">
+						<div class="calc-result-row">
+							<span class="calc-result-label">Aktueller Monatsumsatz</span>
+							<span class="calc-result-value calc-current" id="calc-current">&euro;0</span>
+						</div>
+						<div class="calc-result-row">
+							<span class="calc-result-label">Potenzial mit +0,5% CR</span>
+							<span class="calc-result-value calc-potential" id="calc-potential">&euro;0</span>
+						</div>
+						<div class="calc-result-row">
+							<span class="calc-result-label">Monatlicher Revenue Leak</span>
+							<span class="calc-result-value calc-leak" id="calc-leak">&euro;0/Mo</span>
+						</div>
+						<div class="calc-result-row">
+							<span class="calc-result-label">J&auml;hrlicher Revenue Leak</span>
+							<span class="calc-result-value calc-leak" id="calc-leak-annual">&euro;0/Jahr</span>
+						<div class="calc-result-row">
+							<span class="calc-result-label">E-Mail Revenue Opportunity</span>
+							<span class="calc-result-value calc-potential" id="calc-email-opp">&euro;0/Mo</span>
+						</div>
+						<div class="calc-result-row">
+							<span class="calc-result-label">Sales Cycle Verlust</span>
+							<span class="calc-result-value calc-leak" id="calc-cycle-loss">&euro;0/Mo</span>
+						</div>
+						</div>
+					</div>
+
+					<div class="mt-10 text-center">
+						<a href={brand.strategyCall.checkoutUrl} class="cta-primary inline-flex items-center gap-2">
+							Revenue Audit buchen
+							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+						</a>
+						<p class="mt-2 font-mono text-xs text-muted-dark text-center">30 Min &nbsp;|&nbsp; €97 &nbsp;|&nbsp; Zahlung bei Buchung</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- The UHL Method -->
+		<section id="method" class="border-t border-border px-6 py-28">
+			<div class="content-width">
+				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">Die Methode</p>
+				<h2 class="section-heading mb-6 text-center font-display font-bold text-text">
+					U &ndash; H &ndash; L
+				</h2>
+				<p class="mx-auto mb-20 max-w-xl text-center text-muted">
+					Unlock Hidden Leverage. Drei Phasen. Ein System. Compounding Results.
+				</p>
+
+				<div class="uhl-method-grid">
+					<div class="uhl-method-card" data-uhl-card>
+						<div class="uhl-watermark">U</div>
+						<div class="uhl-method-letter">U</div>
+						<div class="uhl-method-title">Revenue Leaks aufdecken</div>
+						<div class="uhl-method-desc">
+							Deep Audit deines aktuellen Systems. Wir mappen jeden Touchpoint, identifizieren jeden Leak und quantifizieren den Revenue, der auf dem Tisch liegen bleibt.
+						</div>
+					</div>
+
+					<div class="uhl-method-card" data-uhl-card style="transition-delay: 0.12s;">
+						<div class="uhl-watermark">H</div>
+						<div class="uhl-method-letter">H</div>
+						<div class="uhl-method-title">Conversion-Systeme hacken</div>
+						<div class="uhl-method-desc">
+							Datengetriebenes Strategy-Design. Wir bauen deine Revenue-Architektur mit klaren Priorit&auml;ten, Timelines und erwartetem Impact pro Hebel.
+						</div>
+					</div>
+
+					<div class="uhl-method-card" data-uhl-card style="transition-delay: 0.24s;">
+						<div class="uhl-watermark">L</div>
+						<div class="uhl-method-letter">L</div>
+						<div class="uhl-method-title">Bestehenden Traffic hebeln</div>
+						<div class="uhl-method-desc">
+							Systematische Execution. Wir bauen, testen und optimieren jede Komponente deines Revenue-Systems, bis es compounded.
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- About / Founder -->
+		<section id="about" class="relative overflow-hidden border-t border-border" style="background: #0d0d0d;">
+			<div class="mx-auto grid max-w-6xl items-center gap-0 px-6 py-32 md:grid-cols-2 md:gap-16">
+				<!-- Photo column -->
+				<div class="about-photo-col relative mb-12 flex justify-center md:mb-0">
+					<div class="about-photo-wrapper relative" style="transform: rotate(-2deg);">
+						<span class="absolute left-4 top-4 z-10 rounded bg-accent/90 px-2 py-1 font-mono text-[10px] font-bold tracking-widest text-bg uppercase">Founder</span>
+						<img
+							src="/lukas.jpg"
+							alt="Lukas Uhl"
+							class="about-photo relative z-[1] block w-full max-w-[420px] rounded-2xl object-cover object-top shadow-2xl"
+							style="max-height: 520px; border-radius: 1rem; box-shadow: 0 0 0 2px rgba(0,255,136,0.4), 0 0 40px rgba(0,255,136,0.08), 0 32px 64px rgba(0,0,0,0.6);"
+							loading="lazy"
+						/>
+						<div class="pointer-events-none absolute -bottom-4 -right-4 z-0 h-full w-full rounded-2xl" style="background: linear-gradient(135deg, rgba(0,255,136,0.08), transparent 60%);"></div>
+					</div>
+				</div>
+				<!-- Text column -->
+				<div class="about-text-col">
+					<p class="mb-4 font-mono text-sm tracking-widest text-accent uppercase">Der Kopf Hinter UHL</p>
+					<h2 class="font-display text-5xl font-bold tracking-tight text-text md:text-6xl">Lukas Uhl</h2>
+					<p class="mt-3 text-lg font-medium tracking-wide text-muted">Revenue Systems Architect. Builder. Operator.</p>
+					<div class="mt-8 space-y-4 text-[15px] leading-relaxed text-muted">
+						<p>UHL habe ich gegr&uuml;ndet, nachdem ich dasselbe Muster immer wieder gesehen habe: kluge, ambitionierte Menschen, die echtes Geld auf dem Tisch liegen lassen - nicht weil ihnen Ideen fehlen, sondern weil sie Symptome behandeln statt Systeme zu reparieren.</p>
+						<p>Umsatz verliert man nicht, weil man zu wenig arbeitet. Man verliert ihn, weil niemand das ganze System durchdacht hat. Genau das ist meine Aufgabe.</p>
+						<p>Ich baue von Grundprinzipien aus. Marketing-Strategie, Conversion Engineering und KI-Automatisierung kombiniere ich zu Revenue-Systemen, die &uuml;ber Zeit wachsen - keine Kampagnen, die kurz aufflackern und verschwinden.</p>
+						<p>Standort: Deutschland. Aufbau: global.</p>
+					</div>
+					<p class="mt-6 font-mono text-xs tracking-wide text-muted-dark">31 Jahre &bull; Wassermann &#9811; &bull; Aktuell: Aufbau UHL Labs</p>
+					<div class="mt-10 flex flex-wrap items-center gap-4">
+						<a href={brand.strategyCall.checkoutUrl} class="cta-primary inline-flex items-center gap-2">
+							Lass uns &uuml;ber dein System sprechen
+							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+						</a>
+						<p class="mt-2 font-mono text-xs text-muted-dark">30 Min &nbsp;|&nbsp; €97 &nbsp;|&nbsp; Zahlung bei Buchung</p>
+						<a href="/de/about" class="cta-ghost inline-flex items-center gap-2">
+							&Uuml;ber Lukas
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="pointer-events-none absolute inset-0 -z-10" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.015) 1px, transparent 0); background-size: 32px 32px;"></div>
+		</section>
+
+		<!-- FAQ -->
+		<section class="border-t border-border px-6 py-28">
+			<div class="content-width">
+				<p class="mb-4 text-center font-mono text-sm tracking-widest text-accent uppercase">FAQ</p>
+				<h2 class="section-heading mb-16 text-center font-display font-bold text-text">
+					H&auml;ufige Fragen.
+				</h2>
+
+				<div class="mx-auto max-w-2xl">
+					<details class="faq-item">
+						<summary>Was ist ein Revenue Leak?</summary>
+						<div class="faq-answer">Ein Revenue Leak ist jede Stelle in deinem Business, an der potenzieller Umsatz verloren geht - Besucher, die nicht konvertieren, Kunden, die nicht zur&uuml;ckkommen, Angebote, die zu billig sind, oder Funnels mit unn&ouml;tiger Friction. Die meisten Businesses haben 3&ndash;5 erhebliche Leaks, die sie nicht sehen.</div>
+					</details>
+
+					<details class="faq-item">
+						<summary>Wie lange dauert ein Audit?</summary>
+						<div class="faq-answer">Das Revenue Leak Audit liefert umsetzbare Ergebnisse in 1&ndash;2 Wochen. Du bekommst eine vollst&auml;ndige Pipeline-Map, identifizierte Leaks mit gesch&auml;tztem Revenue-Impact und einen priorisierten Action Plan. Erste Quick Wins tauchen oft schon in Tagen auf.</div>
+					</details>
+
+					<details class="faq-item">
+						<summary>Brauche ich ein gro&szlig;es Team oder Budget?</summary>
+						<div class="faq-answer">Nein. Die meisten unserer Kunden sind Solo-Founder oder kleine Teams mit 5k&ndash;50k&euro;/Monat. Der Sinn eines Revenue-Systems ist, mehr aus dem herauszuholen, was du schon hast - nicht mehr Leute einzustellen oder mehr Ads zu schalten.</div>
+					</details>
+
+					<details class="faq-item">
+						<summary>Welche Ergebnisse kann ich erwarten?</summary>
+						<div class="faq-answer">Das h&auml;ngt davon ab, wo deine Leaks liegen. Typische Ergebnisse: 20&ndash;50% Kostensenkung, 1,5&ndash;3x Umsatzwachstum und deutlich h&ouml;here Conversion Rates. Wir quantifizieren den erwarteten Impact, bevor du dich festlegst.</div>
+					</details>
+
+					<details class="faq-item">
+						<summary>Ist das nur f&uuml;r Online-Businesses?</summary>
+						<div class="faq-answer">Prim&auml;r ja. Unser Framework funktioniert am besten f&uuml;r Businesses mit einer digitalen Revenue Pipeline - E-Commerce, SaaS, Info-Produkte, Coaching, Agenturen. Wenn du Traffic und ein Angebot hast, finden wir die Leaks.</div>
+					</details>
+
+					<details class="faq-item">
+						<summary>Wie schnell sehe ich Ergebnisse?</summary>
+						<div class="faq-answer">Quick Wins (Pricing-Fixes, Funnel-Tweaks, Conversion Copy) k&ouml;nnen innerhalb der ersten Woche wirken. Strukturelle &Auml;nderungen an deinem Revenue-System compounded &uuml;ber 30&ndash;90 Tage. Wir priorisieren High-Impact, schnelle Umsetzung zuerst.</div>
+					</details>
+
+					<details class="faq-item">
+						<summary>Was unterscheidet UHL von anderen Beratern?</summary>
+						<div class="faq-answer">Wir verkaufen keine Ratschl&auml;ge und verschwinden. Wir bauen Systeme. Jede Empfehlung ist an ein messbares Revenue-Ergebnis gekn&uuml;pft. Kein Fluff, kein Guru-Speak - nur datengetriebene Execution, fokussiert auf dein Bottom Line.</div>
+					</details>
+
+					<details class="faq-item">
+						<summary>Was passiert nach dem Audit?</summary>
+						<div class="faq-answer">Du bekommst einen schriftlichen Report mit deiner Revenue Leak Map, priorisierten Fixes und erwartetem ROI pro Hebel. Danach kannst du selbst umsetzen (DIY), mit uns zusammen arbeiten (Done-With-You) oder komplett abgeben (Done-For-You).</div>
+					</details>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact CTA -->
+		<section id="contact" class="border-t border-border px-6 py-28">
+			<div class="content-width text-center">
+				<p class="mb-4 font-mono text-sm tracking-widest text-accent uppercase">Loslegen</p>
+				<h2 class="section-heading mb-6 font-display font-bold text-text">
+					Bereit, das System zu fixen?
+				</h2>
+				<p class="mx-auto mb-14 max-w-xl text-muted">
+					Buche einen 30-Minuten Strategy Call (97 EUR). Wir gehen gemeinsam deine Revenue Pipeline durch und identifizieren die gr&ouml;&szlig;ten Chancen.
+				</p>
+				<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+					<a href={brand.strategyCall.checkoutUrl} class="cta-primary block w-full max-w-sm text-center sm:inline-block sm:w-auto">
+						Strategy Call buchen - 97 EUR
+					</a>
+					<p class="mt-2 font-mono text-xs text-muted">30 Min | 97 EUR | Zahlung bei Buchung</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Newsletter Opt-In -->
+		<section class="border-t border-border bg-[#0a0a0a] px-6 py-20">
+			<div class="mx-auto max-w-xl text-center">
+				<h2 class="mb-3 font-display text-2xl font-bold text-text md:text-3xl">
+					Hol dir die Revenue Leak Map
+				</h2>
+				<p class="mb-8 text-muted">
+					W&ouml;chentliche Insights zu Revenue-Systemen. Kein Spam. Jederzeit abmelden.
+				</p>
+				<form id="newsletter-form" class="flex flex-col gap-3 sm:flex-row">
+					<input
+						type="email"
+						required
+						placeholder="email@example.com"
+						class="flex-1 rounded-full border border-border bg-bg2 px-5 py-3 text-text placeholder-muted-dark outline-none transition-colors focus:border-accent"
+					/>
+					<button type="submit" class="cta-primary whitespace-nowrap">
+						Anmelden →
+					</button>
+				</form>
+				<p id="newsletter-thanks" class="mt-4 hidden text-sm font-medium text-accent">
+					Danke! Schau in dein Postfach.
+				</p>
+				<p class="mt-4 text-xs text-muted-dark">
+					Schlie&szlig; dich 0+ Operators an, die bessere Systeme bauen. Guide bei jeder Anmeldung.
+				</p>
+			</div>
+		</section>
+
+		<Footer />
+
+		<script>
+			// === UHL Method Cards: Scroll-in Animation ===
+			(function() {
+				var cards = document.querySelectorAll('[data-uhl-card]');
+				if (!cards.length) return;
+				var observer = new IntersectionObserver(function(entries) {
+					entries.forEach(function(entry) {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('visible');
+							observer.unobserve(entry.target);
+						}
+					});
+				}, { threshold: 0.15 });
+				cards.forEach(function(card) { observer.observe(card); });
+			})();
+
+			// === About Section: Scroll Reveal ===
+			(function() {
+				var aboutEls = document.querySelectorAll('.about-text-col, .about-photo-col');
+				if (!aboutEls.length) return;
+				var observer = new IntersectionObserver(function(entries) {
+					entries.forEach(function(entry) {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('visible');
+							observer.unobserve(entry.target);
+						}
+					});
+				}, { threshold: 0.15 });
+				aboutEls.forEach(function(el) { observer.observe(el); });
+			})();
+
+			// === Revenue Leak Calculator ===
+			(function() {
+				var traffic = document.getElementById('calc-traffic');
+				var cr = document.getElementById('calc-cr');
+				var aov = document.getElementById('calc-aov');
+				var emailList = document.getElementById('calc-email');
+				var salesCycle = document.getElementById('calc-cycle');
+				if (!traffic || !cr || !aov || !emailList || !salesCycle) return;
+
+				function fmt(n) {
+					return '€' + Math.round(n).toLocaleString('de-DE');
+				}
+
+				function calc() {
+					var t = parseInt(traffic.value) || 0;
+					var c = (parseInt(cr.value) || 0) / 10000;
+					var a = parseInt(aov.value) || 0;
+					var el = parseInt(emailList.value) || 0;
+					var sc = parseInt(salesCycle.value) || 1;
+
+					document.getElementById('calc-traffic-val').textContent = t.toLocaleString('de-DE');
+					document.getElementById('calc-cr-val').textContent = (c * 100).toFixed(1).replace('.', ',') + '%';
+					document.getElementById('calc-aov-val').textContent = '€' + a.toLocaleString('de-DE');
+					document.getElementById('calc-email-val').textContent = el.toLocaleString('de-DE');
+					document.getElementById('calc-cycle-val').textContent = sc;
+
+					var current = t * c * a;
+					var improved = t * (c + 0.005) * a;
+					var leak = improved - current;
+
+					var emailBenchmark = el * 0.01 * a;
+					var emailActual = el * c * a;
+					var emailOpp = emailBenchmark - emailActual;
+					if (emailOpp < 0) emailOpp = 0;
+
+					var deals = t * c;
+					var cycleLoss = deals * (1 - 1 / sc) * a;
+
+					document.getElementById('calc-current').textContent = fmt(current);
+					document.getElementById('calc-potential').textContent = fmt(improved);
+					document.getElementById('calc-leak').textContent = fmt(leak) + '/Mo';
+					document.getElementById('calc-leak-annual').textContent = fmt(leak * 12) + '/Jahr';
+					document.getElementById('calc-email-opp').textContent = fmt(emailOpp) + '/Mo';
+					document.getElementById('calc-cycle-loss').textContent = fmt(cycleLoss) + '/Mo';
+				}
+
+				traffic.addEventListener('input', calc);
+				cr.addEventListener('input', calc);
+				aov.addEventListener('input', calc);
+				emailList.addEventListener('input', calc);
+				salesCycle.addEventListener('input', calc);
+				calc();
+			})();
+
+			// === Newsletter Form ===
+			(function() {
+				var form = document.getElementById('newsletter-form');
+				if (!form) return;
+				form.addEventListener('submit', function(e) {
+					e.preventDefault();
+					var emailInput = form.querySelector('input[type="email"]');
+					var btn = form.querySelector('button[type="submit"]');
+					if (!emailInput || !btn) return;
+					btn.disabled = true;
+					btn.textContent = '...';
+					fetch('/api/subscribe', {
+						method: 'POST',
+						body: JSON.stringify({ email: emailInput.value }),
+						headers: { 'Content-Type': 'application/json' }
+					})
+					.then(function(res) { return res.json(); })
+					.then(function(data) {
+						if (data.success) {
+							form.style.display = 'none';
+							document.getElementById('newsletter-thanks').classList.remove('hidden');
+						} else {
+							btn.disabled = false;
+							btn.textContent = 'Anmelden \u2192';
+							alert('Etwas ist schiefgelaufen. Bitte versuche es nochmal.');
+						}
+					})
+					.catch(function() {
+						btn.disabled = false;
+						btn.textContent = 'Anmelden \u2192';
+						alert('Etwas ist schiefgelaufen. Bitte versuche es nochmal.');
+					});
+				});
+			})();
+		</script>
+	</body>
+</html>

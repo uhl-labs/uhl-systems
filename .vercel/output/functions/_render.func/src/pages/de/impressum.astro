@@ -1,0 +1,35 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="de">
+	<head>
+		<BaseHead title="Impressum | UHL Systems" description="Impressum – Angaben gemäß § 5 TMG" />
+	</head>
+	<body>
+		<Header />
+		<main class="mx-auto max-w-3xl px-6 py-24">
+			<h1 class="mb-12 font-display text-3xl font-bold tracking-tight text-text">Impressum</h1>
+
+			<div class="space-y-8 text-muted">
+				<section>
+					<p class="mb-1 text-sm uppercase tracking-widest text-muted-dark">Angaben gemäß § 5 TMG</p>
+					<p class="text-text">Lukas Uhl</p>
+					<p>UHL Labs</p>
+					<p>Enthofstraße 1</p>
+					<p>85276 Pfaffenhofen</p>
+				</section>
+
+				<section>
+					<p class="mb-1 text-sm uppercase tracking-widest text-muted-dark">Kontakt</p>
+					<p>E-Mail: <a href="mailto:luke@uhl-systems.com" class="text-accent transition-colors hover:text-accent2">luke@uhl-systems.com</a></p>
+					<p>Web: <a href="https://www.uhl-systems.com" class="text-accent transition-colors hover:text-accent2">www.uhl-systems.com</a></p>
+				</section>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
