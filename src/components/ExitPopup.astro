@@ -1,0 +1,73 @@
+---
+---
+<div id="exit-popup-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(4px);z-index:9999;align-items:center;justify-content:center;padding:20px;">
+  <div id="exit-popup-card" style="background:#111;border:1px solid rgba(232,255,0,0.3);border-top:3px solid #e8ff00;border-radius:12px;max-width:480px;width:100%;padding:40px;position:relative;transform:translateY(20px);opacity:0;transition:all 0.3s ease;">
+    <button id="exit-popup-close" style="position:absolute;top:16px;right:16px;background:none;border:none;color:#666;font-size:20px;cursor:pointer;line-height:1;">x</button>
+    <p id="exit-popup-headline" style="font-family:Helvetica,Arial,sans-serif;font-size:26pt;font-weight:800;color:#fff;margin:0 0 16px;line-height:1.1;"></p>
+    <p id="exit-popup-subtext" style="font-family:Helvetica,Arial,sans-serif;font-size:13pt;color:#aaa;margin:0 0 32px;line-height:1.6;"></p>
+    <a id="exit-popup-cta" href="https://shop.uhl-systems.com/checkout/buy/92492d9e-27cc-4337-8949-0be8c44c91bb" style="display:block;background:#e8ff00;color:#0a0a0a;font-weight:800;font-family:Helvetica,Arial,sans-serif;text-align:center;padding:16px 24px;border-radius:8px;text-decoration:none;font-size:13pt;margin-bottom:16px;"></a>
+    <button id="exit-popup-dismiss" style="display:block;width:100%;background:none;border:none;color:#555;font-size:11pt;cursor:pointer;font-family:Helvetica,Arial,sans-serif;"></button>
+  </div>
+</div>
+
+<script>
+(function() {
+  var shown = false;
+  var STORAGE_KEY = "uhl_popup_shown";
+
+  if (localStorage.getItem(STORAGE_KEY)) return;
+
+  var isDE = window.location.pathname.startsWith("/de");
+
+  var copy = {
+    headline: isDE ? "Noch da?" : "Still here?",
+    subtext: isDE
+      ? "Du bist schon eine Weile hier. Das bedeutet meistens, dass was haengengeblieben ist. Lass uns herausfinden ob wir zusammenarbeiten koennen."
+      : "You have been reading for a while. That usually means something clicked. Let us find out if we can work together.",
+    cta: isDE ? "Strategy Call buchen - 97 Euros" : "Book Strategy Call - 97 Euros",
+    dismiss: isDE ? "Nein danke, ich schaue nur" : "No thanks, I am just looking"
+  };
+
+  document.getElementById("exit-popup-headline").textContent = copy.headline;
+  document.getElementById("exit-popup-subtext").textContent = copy.subtext;
+  document.getElementById("exit-popup-cta").textContent = copy.cta;
+  document.getElementById("exit-popup-dismiss").textContent = copy.dismiss;
+
+  function showPopup() {
+    if (shown) return;
+    shown = true;
+    localStorage.setItem(STORAGE_KEY, "1");
+    var overlay = document.getElementById("exit-popup-overlay");
+    var card = document.getElementById("exit-popup-card");
+    overlay.style.display = "flex";
+    setTimeout(function() {
+      card.style.transform = "translateY(0)";
+      card.style.opacity = "1";
+    }, 10);
+  }
+
+  function hidePopup() {
+    var overlay = document.getElementById("exit-popup-overlay");
+    var card = document.getElementById("exit-popup-card");
+    card.style.transform = "translateY(20px)";
+    card.style.opacity = "0";
+    setTimeout(function() { overlay.style.display = "none"; }, 300);
+  }
+
+  document.getElementById("exit-popup-close").addEventListener("click", hidePopup);
+  document.getElementById("exit-popup-dismiss").addEventListener("click", hidePopup);
+  document.getElementById("exit-popup-overlay").addEventListener("click", function(e) {
+    if (e.target === this) hidePopup();
+  });
+
+  // Time trigger: 2 minutes
+  setTimeout(showPopup, 120000);
+
+  // Exit-intent: desktop only
+  if (window.innerWidth > 768) {
+    document.addEventListener("mouseleave", function(e) {
+      if (e.clientY < 10) showPopup();
+    });
+  }
+})();
+</script>

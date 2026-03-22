@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import RevenueMuncher from '../components/RevenueMuncher.astro';
+import ExitPopup from '../components/ExitPopup.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { brand } from '../config/brand';
 ---
@@ -1394,5 +1395,6 @@ import { brand } from '../config/brand';
 				});
 			})();
 		</script>
+	<ExitPopup />
 	</body>
 </html>
