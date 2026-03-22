@@ -909,23 +909,30 @@ import { brand } from '../config/brand';
 						<input type="range" id="calc-email" class="calc-slider" min="0" max="500000" step="1000" value="2000" />
 					</div>
 
-					<!-- Block 1: Current State -->
+					<div class="calc-field">
+						<label>Your Actual Monthly Revenue <span id="calc-actual-val" style="font-weight: 400;">&euro; enter</span></label>
+						<input type="number" id="calc-actual" placeholder="e.g. 25000" style="width:100%; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--color-border); background: var(--color-bg2); color: var(--color-text); font-size: 16px; outline: none;" min="0" step="1000" />
+						<p style="font-size: 11px; color: var(--color-muted); margin-top: 4px;">Enter your real monthly revenue to see your exact leaks</p>
+					</div>
+
+					<!-- Block 1: Your Current State -->
 					<div class="calc-block calc-block-neutral" style="margin-top: 2rem;">
 						<div class="calc-block-title">Your Current State</div>
 						<div class="calc-item">
 							<div>
-								<div class="calc-item-label">Monthly Revenue</div>
-								<div class="calc-item-sublabel">Based on your inputs</div>
+								<div class="calc-item-label">Your Monthly Revenue</div>
+								<div class="calc-item-sublabel" id="calc-current-sub">Based on your inputs</div>
 							</div>
 							<div class="calc-item-value" id="calc-current">&euro;0</div>
 						</div>
 						<div class="calc-item">
 							<div>
-								<div class="calc-item-label">Yearly Revenue</div>
-								<div class="calc-item-sublabel">Projected annual run rate</div>
+								<div class="calc-item-label">Industry Benchmark</div>
+								<div class="calc-item-sublabel">2% CR standard</div>
 							</div>
-							<div class="calc-item-value" id="calc-yearly">&euro;0</div>
+							<div class="calc-item-value" id="calc-benchmark">&euro;0/mo</div>
 						</div>
+						<div id="calc-benchmark-compare" style="text-align: center; font-size: 13px; padding: 4px 0; display: none;"></div>
 					</div>
 
 					<!-- Block 2: Where You Leak -->
@@ -934,7 +941,7 @@ import { brand } from '../config/brand';
 						<div class="calc-item">
 							<div>
 								<div class="calc-item-label" id="calc-conv-label">Conversion Gap</div>
-								<div class="calc-item-sublabel">What +X% conversion would add to your bottom line</div>
+								<div class="calc-item-sublabel" id="calc-conv-sub">What +X% conversion would add to your bottom line</div>
 							</div>
 							<div class="calc-item-value calc-value-red" id="calc-conv-gap">&euro;0/mo</div>
 						</div>
@@ -959,7 +966,7 @@ import { brand } from '../config/brand';
 						<div class="calc-block-title">Total Opportunity</div>
 						<div style="text-align: center; padding: 12px 0;">
 							<div class="calc-big-number calc-value-yellow" id="calc-total-opp">&euro;0/mo</div>
-							<div class="calc-item-sublabel" style="margin-top: 6px;">Combined monthly opportunity identified</div>
+							<div class="calc-item-sublabel" id="calc-total-sub" style="margin-top: 6px;">Combined monthly opportunity identified</div>
 						</div>
 						<p style="text-align: center; font-size: 13px; color: var(--color-muted); margin-top: 8px;">
 							This is what a fixed revenue system could unlock.
@@ -1203,6 +1210,7 @@ import { brand } from '../config/brand';
 			var cr = document.getElementById('calc-cr');
 			var aov = document.getElementById('calc-aov');
 			var emailList = document.getElementById('calc-email');
+			var actualInput = document.getElementById('calc-actual');
 			if (!traffic || !cr || !aov || !emailList) return;
 
 			function fmt(n) {
@@ -1214,33 +1222,75 @@ import { brand } from '../config/brand';
 				var c = (parseInt(cr.value) || 0) / 10000;
 				var a = parseInt(aov.value) || 0;
 				var el = parseInt(emailList.value) || 0;
+				var actual = parseInt(actualInput.value) || 0;
 
 				document.getElementById('calc-traffic-val').textContent = t.toLocaleString('en-US');
 				document.getElementById('calc-cr-val').textContent = (c * 100).toFixed(1) + '%';
 				document.getElementById('calc-aov-val').textContent = '€' + a.toLocaleString('en-US');
 				document.getElementById('calc-email-val').textContent = el.toLocaleString('en-US');
+				document.getElementById('calc-actual-val').textContent = actual > 0 ? fmt(actual) : '€ enter';
+
+				var theoretical = t * c * a;
+				var benchmarkRev = t * 0.02 * a;
 
 				// Block 1: Current State
-				var current = t * c * a;
-				var yearly = current * 12;
-				document.getElementById('calc-current').textContent = fmt(current);
-				document.getElementById('calc-yearly').textContent = fmt(yearly);
+				var displayRevenue = actual > 0 ? actual : theoretical;
+				var currentEl = document.getElementById('calc-current');
+				var currentSub = document.getElementById('calc-current-sub');
+				if (actual > 0) {
+					currentEl.textContent = fmt(actual);
+					currentSub.textContent = 'Your real revenue';
+				} else {
+					currentEl.textContent = fmt(theoretical) + ' (estimated)';
+					currentSub.textContent = 'Based on your inputs';
+				}
+				document.getElementById('calc-benchmark').textContent = fmt(benchmarkRev) + '/mo';
+
+				var compareEl = document.getElementById('calc-benchmark-compare');
+				if (actual > 0) {
+					compareEl.style.display = 'block';
+					if (actual < benchmarkRev) {
+						var gap = benchmarkRev - actual;
+						compareEl.innerHTML = '<span style="color: #ef4444;">You are ' + fmt(gap) + ' below benchmark</span>';
+					} else {
+						compareEl.innerHTML = '<span style="color: #22c55e;">\u2713 Above benchmark</span>';
+					}
+				} else {
+					compareEl.style.display = 'none';
+				}
 
 				// Block 2: Where You Leak
-				var benchmark = 0.02;
 				var convGap = 0;
 				var convLabel = document.getElementById('calc-conv-label');
 				var convGapEl = document.getElementById('calc-conv-gap');
-				if (c >= benchmark) {
-					convLabel.textContent = 'Conversion Gap';
-					convGapEl.textContent = '\u2713 Above benchmark';
-					convGapEl.className = 'calc-item-value calc-value-green';
+				var convSub = document.getElementById('calc-conv-sub');
+
+				if (actual > 0) {
+					convGap = Math.max(0, benchmarkRev - actual);
+					if (convGap > 0) {
+						convLabel.textContent = 'Conversion Gap';
+						convGapEl.textContent = '+' + fmt(convGap) + '/mo';
+						convGapEl.className = 'calc-item-value calc-value-red';
+						convSub.textContent = 'Gap between your revenue and 2% benchmark';
+					} else {
+						convLabel.textContent = 'Conversion Gap';
+						convGapEl.textContent = '\u2713 Above benchmark';
+						convGapEl.className = 'calc-item-value calc-value-green';
+						convSub.textContent = 'You are already above the 2% benchmark';
+					}
 				} else {
-					var improved = t * benchmark * a;
-					convGap = improved - current;
-					convLabel.textContent = 'If you hit 2% conversion';
-					convGapEl.textContent = '+' + fmt(convGap) + '/mo';
-					convGapEl.className = 'calc-item-value calc-value-red';
+					if (c >= 0.02) {
+						convLabel.textContent = 'Conversion Gap';
+						convGapEl.textContent = '\u2713 Above benchmark';
+						convGapEl.className = 'calc-item-value calc-value-green';
+						convSub.textContent = 'Estimated at 2% benchmark';
+					} else {
+						convGap = Math.max(0, benchmarkRev - theoretical);
+						convLabel.textContent = 'If you hit 2% conversion';
+						convGapEl.textContent = '+' + fmt(convGap) + '/mo';
+						convGapEl.className = 'calc-item-value calc-value-red';
+						convSub.textContent = 'Estimated at 2% benchmark';
+					}
 				}
 
 				var emailRow = document.getElementById('calc-email-row');
@@ -1259,12 +1309,19 @@ import { brand } from '../config/brand';
 				// Block 3: Total Opportunity
 				var totalOpp = convGap + emailGap;
 				document.getElementById('calc-total-opp').textContent = '+' + fmt(totalOpp) + '/mo';
+				var totalSub = document.getElementById('calc-total-sub');
+				if (actual > 0) {
+					totalSub.textContent = 'This is what you are leaving on the table every month.';
+				} else {
+					totalSub.textContent = 'This is your estimated monthly opportunity.';
+				}
 			}
 
 			traffic.addEventListener('input', calc);
 			cr.addEventListener('input', calc);
 			aov.addEventListener('input', calc);
 			emailList.addEventListener('input', calc);
+			actualInput.addEventListener('input', calc);
 			calc();
 		})();
 
