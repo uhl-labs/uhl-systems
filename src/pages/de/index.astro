@@ -1338,13 +1338,13 @@ import { brand } from '../../config/brand';
 					btn.disabled = true;
 					btn.textContent = '...';
 
-					fetch('https://api.resend.com/contacts', {
+					fetch('/api/subscribe', {
 						method: 'POST',
 						headers: {
 							'Authorization': 'Bearer re_QNyWMxZH_9XJAKj52q5KZKSfnsvgpfdQU',
 							'Content-Type': 'application/json'
 						},
-						body: JSON.stringify({ email: email, unsubscribed: false })
+						body: JSON.stringify({ email: email, lang: 'de' })
 					})
 					.then(function() {
 						form.style.display = 'none';
