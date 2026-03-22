@@ -890,8 +890,22 @@ import { brand } from '../config/brand';
 
 				<div class="calc-wrapper">
 					<div class="calc-field">
-						<label>Monthly Visitors <span id="calc-traffic-val">10,000</span></label>
+						<label>Monthly Leads <span id="calc-traffic-val">10,000</span></label>
 						<input type="range" id="calc-traffic" class="calc-slider" min="1000" max="1000000" step="5000" value="10000" />
+						<p style="font-size: 11px; color: var(--color-muted); margin-top: 4px;">How many qualified leads or prospects reach your funnel per month</p>
+					</div>
+
+					<div class="calc-field">
+						<label>Industry <span id="calc-industry-label" style="font-weight: 400;"></span></label>
+						<select id="calc-industry" style="width:100%; padding:12px 16px; border-radius:8px; border:1px solid var(--color-border); background:var(--color-bg2); color:var(--color-text); font-size:15px; outline:none;">
+							<option value="saas">SaaS / Software</option>
+							<option value="ecom">E-Commerce</option>
+							<option value="consulting" selected>Consulting / Services</option>
+							<option value="agency">Agency</option>
+							<option value="coaching">Coaching / Courses</option>
+							<option value="b2b">B2B / Enterprise</option>
+						</select>
+						<p style="font-size: 11px; color: var(--color-muted); margin-top: 4px;">Sets the industry conversion benchmark</p>
 					</div>
 
 					<div class="calc-field">
@@ -927,8 +941,8 @@ import { brand } from '../config/brand';
 						</div>
 						<div class="calc-item">
 							<div>
-								<div class="calc-item-label">Industry Benchmark</div>
-								<div class="calc-item-sublabel">2% CR standard</div>
+								<div class="calc-item-label" id="calc-benchmark-label">Industry Benchmark</div>
+								<div class="calc-item-sublabel" id="calc-benchmark-sub">8% CR benchmark</div>
 							</div>
 							<div class="calc-item-value" id="calc-benchmark">&euro;0/mo</div>
 						</div>
@@ -1211,7 +1225,25 @@ import { brand } from '../config/brand';
 			var aov = document.getElementById('calc-aov');
 			var emailList = document.getElementById('calc-email');
 			var actualInput = document.getElementById('calc-actual');
+			var industrySelect = document.getElementById('calc-industry');
 			if (!traffic || !cr || !aov || !emailList) return;
+
+			var benchmarks = {
+				saas: 0.03,
+				ecom: 0.025,
+				consulting: 0.08,
+				agency: 0.10,
+				coaching: 0.05,
+				b2b: 0.12
+			};
+			var industryNames = {
+				saas: 'SaaS / Software',
+				ecom: 'E-Commerce',
+				consulting: 'Consulting / Services',
+				agency: 'Agency',
+				coaching: 'Coaching / Courses',
+				b2b: 'B2B / Enterprise'
+			};
 
 			function fmt(n) {
 				return '€' + Math.round(n).toLocaleString('en-US');
@@ -1223,6 +1255,9 @@ import { brand } from '../config/brand';
 				var a = parseInt(aov.value) || 0;
 				var el = parseInt(emailList.value) || 0;
 				var actual = parseInt(actualInput.value) || 0;
+				var selectedIndustry = industrySelect.value;
+				var industryBenchmark = benchmarks[selectedIndustry] || 0.02;
+				var industryName = industryNames[selectedIndustry] || selectedIndustry;
 
 				document.getElementById('calc-traffic-val').textContent = t.toLocaleString('en-US');
 				document.getElementById('calc-cr-val').textContent = (c * 100).toFixed(1) + '%';
@@ -1231,7 +1266,9 @@ import { brand } from '../config/brand';
 				document.getElementById('calc-actual-val').textContent = actual > 0 ? fmt(actual) : '€ enter';
 
 				var theoretical = t * c * a;
-				var benchmarkRev = t * 0.02 * a;
+				var benchmarkRev = t * industryBenchmark * a;
+
+				document.getElementById('calc-benchmark-sub').textContent = (industryBenchmark * 100) + '% CR benchmark for ' + industryName;
 
 				// Block 1: Current State
 				var displayRevenue = actual > 0 ? actual : theoretical;
@@ -1265,31 +1302,32 @@ import { brand } from '../config/brand';
 				var convGapEl = document.getElementById('calc-conv-gap');
 				var convSub = document.getElementById('calc-conv-sub');
 
+				var benchmarkPct = (industryBenchmark * 100) + '%';
 				if (actual > 0) {
 					convGap = Math.max(0, benchmarkRev - actual);
 					if (convGap > 0) {
 						convLabel.textContent = 'Conversion Gap';
 						convGapEl.textContent = '+' + fmt(convGap) + '/mo';
 						convGapEl.className = 'calc-item-value calc-value-red';
-						convSub.textContent = 'Gap between your revenue and 2% benchmark';
+						convSub.textContent = 'Gap between your revenue and ' + benchmarkPct + ' ' + industryName + ' benchmark';
 					} else {
 						convLabel.textContent = 'Conversion Gap';
 						convGapEl.textContent = '\u2713 Above benchmark';
 						convGapEl.className = 'calc-item-value calc-value-green';
-						convSub.textContent = 'You are already above the 2% benchmark';
+						convSub.textContent = 'You are already above the ' + benchmarkPct + ' ' + industryName + ' benchmark';
 					}
 				} else {
-					if (c >= 0.02) {
+					if (c >= industryBenchmark) {
 						convLabel.textContent = 'Conversion Gap';
 						convGapEl.textContent = '\u2713 Above benchmark';
 						convGapEl.className = 'calc-item-value calc-value-green';
-						convSub.textContent = 'Estimated at 2% benchmark';
+						convSub.textContent = 'Industry benchmark for ' + industryName;
 					} else {
 						convGap = Math.max(0, benchmarkRev - theoretical);
-						convLabel.textContent = 'If you hit 2% conversion';
+						convLabel.textContent = 'Industry benchmark for ' + industryName;
 						convGapEl.textContent = '+' + fmt(convGap) + '/mo';
 						convGapEl.className = 'calc-item-value calc-value-red';
-						convSub.textContent = 'Estimated at 2% benchmark';
+						convSub.textContent = 'At ' + benchmarkPct + ' conversion rate';
 					}
 				}
 
@@ -1322,6 +1360,7 @@ import { brand } from '../config/brand';
 			aov.addEventListener('input', calc);
 			emailList.addEventListener('input', calc);
 			actualInput.addEventListener('input', calc);
+			industrySelect.addEventListener('change', calc);
 			calc();
 		})();
 

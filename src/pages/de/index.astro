@@ -890,8 +890,22 @@ import { brand } from '../../config/brand';
 
 				<div class="calc-wrapper">
 					<div class="calc-field">
-						<label>Monatliche Besucher <span id="calc-traffic-val">10.000</span></label>
+						<label>Monatliche Leads <span id="calc-traffic-val">10.000</span></label>
 						<input type="range" id="calc-traffic" class="calc-slider" min="1000" max="1000000" step="5000" value="10000" />
+						<p style="font-size: 11px; color: var(--color-muted); margin-top: 4px;">Wie viele qualifizierte Leads erreichen deinen Funnel pro Monat</p>
+					</div>
+
+					<div class="calc-field">
+						<label>Branche <span id="calc-industry-label" style="font-weight: 400;"></span></label>
+						<select id="calc-industry" style="width:100%; padding:12px 16px; border-radius:8px; border:1px solid var(--color-border); background:var(--color-bg2); color:var(--color-text); font-size:15px; outline:none;">
+							<option value="saas">SaaS / Software</option>
+							<option value="ecom">E-Commerce</option>
+							<option value="consulting" selected>Consulting / Dienstleistung</option>
+							<option value="agency">Agentur</option>
+							<option value="coaching">Coaching / Kurse</option>
+							<option value="b2b">B2B / Enterprise</option>
+						</select>
+						<p style="font-size: 11px; color: var(--color-muted); margin-top: 4px;">Legt den Branchen-Conversion-Benchmark fest</p>
 					</div>
 
 					<div class="calc-field">
@@ -927,8 +941,8 @@ import { brand } from '../../config/brand';
 						</div>
 						<div class="calc-item">
 							<div>
-								<div class="calc-item-label">Branchen-Benchmark</div>
-								<div class="calc-item-sublabel">2% CR Standard</div>
+								<div class="calc-item-label" id="calc-benchmark-label">Branchen-Benchmark</div>
+								<div class="calc-item-sublabel" id="calc-benchmark-sub">8% CR Benchmark</div>
 							</div>
 							<div class="calc-item-value" id="calc-benchmark">&euro;0/Mo</div>
 						</div>
@@ -1211,7 +1225,25 @@ import { brand } from '../../config/brand';
 				var aov = document.getElementById('calc-aov');
 				var emailList = document.getElementById('calc-email');
 				var actualInput = document.getElementById('calc-actual');
+				var industrySelect = document.getElementById('calc-industry');
 				if (!traffic || !cr || !aov || !emailList) return;
+
+				var benchmarks = {
+					saas: 0.03,
+					ecom: 0.025,
+					consulting: 0.08,
+					agency: 0.10,
+					coaching: 0.05,
+					b2b: 0.12
+				};
+				var industryNames = {
+					saas: 'SaaS / Software',
+					ecom: 'E-Commerce',
+					consulting: 'Consulting / Dienstleistung',
+					agency: 'Agentur',
+					coaching: 'Coaching / Kurse',
+					b2b: 'B2B / Enterprise'
+				};
 
 				function fmt(n) {
 					return '€' + Math.round(n).toLocaleString('de-DE');
@@ -1223,6 +1255,9 @@ import { brand } from '../../config/brand';
 					var a = parseInt(aov.value) || 0;
 					var el = parseInt(emailList.value) || 0;
 					var actual = parseInt(actualInput.value) || 0;
+					var selectedIndustry = industrySelect.value;
+					var industryBenchmark = benchmarks[selectedIndustry] || 0.02;
+					var industryName = industryNames[selectedIndustry] || selectedIndustry;
 
 					document.getElementById('calc-traffic-val').textContent = t.toLocaleString('de-DE');
 					document.getElementById('calc-cr-val').textContent = (c * 100).toFixed(1).replace('.', ',') + '%';
@@ -1231,7 +1266,9 @@ import { brand } from '../../config/brand';
 					document.getElementById('calc-actual-val').textContent = actual > 0 ? fmt(actual) : '€ eingeben';
 
 					var theoretical = t * c * a;
-					var benchmarkRev = t * 0.02 * a;
+					var benchmarkRev = t * industryBenchmark * a;
+
+					document.getElementById('calc-benchmark-sub').textContent = (industryBenchmark * 100) + '% CR Benchmark für ' + industryName;
 
 					// Block 1: Aktueller Stand
 					var currentEl = document.getElementById('calc-current');
@@ -1264,31 +1301,32 @@ import { brand } from '../../config/brand';
 					var convGapEl = document.getElementById('calc-conv-gap');
 					var convSub = document.getElementById('calc-conv-sub');
 
+					var benchmarkPct = (industryBenchmark * 100) + '%';
 					if (actual > 0) {
 						convGap = Math.max(0, benchmarkRev - actual);
 						if (convGap > 0) {
 							convLabel.textContent = 'Conversion-L\u00fccke';
 							convGapEl.textContent = '+' + fmt(convGap) + '/Mo';
 							convGapEl.className = 'calc-item-value calc-value-red';
-							convSub.textContent = 'Differenz zwischen deinem Umsatz und 2% Benchmark';
+							convSub.textContent = 'Differenz zwischen deinem Umsatz und ' + benchmarkPct + ' ' + industryName + ' Benchmark';
 						} else {
 							convLabel.textContent = 'Conversion-L\u00fccke';
 							convGapEl.textContent = '\u2713 \u00dcber Benchmark';
 							convGapEl.className = 'calc-item-value calc-value-green';
-							convSub.textContent = 'Du liegst bereits \u00fcber dem 2% Benchmark';
+							convSub.textContent = 'Du liegst bereits \u00fcber dem ' + benchmarkPct + ' ' + industryName + ' Benchmark';
 						}
 					} else {
-						if (c >= 0.02) {
+						if (c >= industryBenchmark) {
 							convLabel.textContent = 'Conversion-L\u00fccke';
 							convGapEl.textContent = '\u2713 \u00dcber Benchmark';
 							convGapEl.className = 'calc-item-value calc-value-green';
-							convSub.textContent = 'Gesch\u00e4tzt bei 2% Benchmark';
+							convSub.textContent = 'Branchen-Benchmark f\u00fcr ' + industryName;
 						} else {
 							convGap = Math.max(0, benchmarkRev - theoretical);
-							convLabel.textContent = 'Bei 2% Conversion';
+							convLabel.textContent = 'Branchen-Benchmark f\u00fcr ' + industryName;
 							convGapEl.textContent = '+' + fmt(convGap) + '/Mo';
 							convGapEl.className = 'calc-item-value calc-value-red';
-							convSub.textContent = 'Gesch\u00e4tzt bei 2% Benchmark';
+							convSub.textContent = 'Bei ' + benchmarkPct + ' Conversion Rate';
 						}
 					}
 
@@ -1321,6 +1359,7 @@ import { brand } from '../../config/brand';
 				aov.addEventListener('input', calc);
 				emailList.addEventListener('input', calc);
 				actualInput.addEventListener('input', calc);
+				industrySelect.addEventListener('change', calc);
 				calc();
 			})();
 
