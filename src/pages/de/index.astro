@@ -909,6 +909,16 @@ import { brand } from '../../config/brand';
 						<input type="range" id="calc-aov" class="calc-slider" min="50" max="5000" step="50" value="250" />
 					</div>
 
+					<div class="calc-field">
+						<label>Gr&ouml;&szlig;e der E-Mail-Liste <span id="calc-email-val">2.000</span></label>
+						<input type="range" id="calc-email" class="calc-slider" min="0" max="50000" step="500" value="2000" />
+					</div>
+
+					<div class="calc-field">
+						<label>Verkaufszyklus (Tage) <span id="calc-cycle-val">14</span></label>
+						<input type="range" id="calc-cycle" class="calc-slider" min="1" max="90" step="1" value="14" />
+					</div>
+
 					<div class="calc-results" id="calc-results">
 						<div class="calc-result-row">
 							<span class="calc-result-label">Aktueller Monatsumsatz</span>
@@ -925,6 +935,14 @@ import { brand } from '../../config/brand';
 						<div class="calc-result-row">
 							<span class="calc-result-label">J&auml;hrlicher Revenue Leak</span>
 							<span class="calc-result-value calc-leak" id="calc-leak-annual">&euro;0/Jahr</span>
+						<div class="calc-result-row">
+							<span class="calc-result-label">E-Mail Revenue Opportunity</span>
+							<span class="calc-result-value calc-potential" id="calc-email-opp">&euro;0/Mo</span>
+						</div>
+						<div class="calc-result-row">
+							<span class="calc-result-label">Sales Cycle Verlust</span>
+							<span class="calc-result-value calc-leak" id="calc-cycle-loss">&euro;0/Mo</span>
+						</div>
 						</div>
 					</div>
 
@@ -1162,7 +1180,9 @@ import { brand } from '../../config/brand';
 				var traffic = document.getElementById('calc-traffic');
 				var cr = document.getElementById('calc-cr');
 				var aov = document.getElementById('calc-aov');
-				if (!traffic || !cr || !aov) return;
+				var emailList = document.getElementById('calc-email');
+				var salesCycle = document.getElementById('calc-cycle');
+				if (!traffic || !cr || !aov || !emailList || !salesCycle) return;
 
 				function fmt(n) {
 					return '€' + Math.round(n).toLocaleString('de-DE');
@@ -1172,24 +1192,40 @@ import { brand } from '../../config/brand';
 					var t = parseInt(traffic.value) || 0;
 					var c = (parseInt(cr.value) || 0) / 10000;
 					var a = parseInt(aov.value) || 0;
+					var el = parseInt(emailList.value) || 0;
+					var sc = parseInt(salesCycle.value) || 1;
 
 					document.getElementById('calc-traffic-val').textContent = t.toLocaleString('de-DE');
 					document.getElementById('calc-cr-val').textContent = (c * 100).toFixed(1).replace('.', ',') + '%';
 					document.getElementById('calc-aov-val').textContent = '€' + a.toLocaleString('de-DE');
+					document.getElementById('calc-email-val').textContent = el.toLocaleString('de-DE');
+					document.getElementById('calc-cycle-val').textContent = sc;
 
 					var current = t * c * a;
 					var improved = t * (c + 0.005) * a;
 					var leak = improved - current;
 
+					var emailBenchmark = el * 0.01 * a;
+					var emailActual = el * c * a;
+					var emailOpp = emailBenchmark - emailActual;
+					if (emailOpp < 0) emailOpp = 0;
+
+					var deals = t * c;
+					var cycleLoss = deals * (1 - 1 / sc) * a;
+
 					document.getElementById('calc-current').textContent = fmt(current);
 					document.getElementById('calc-potential').textContent = fmt(improved);
 					document.getElementById('calc-leak').textContent = fmt(leak) + '/Mo';
 					document.getElementById('calc-leak-annual').textContent = fmt(leak * 12) + '/Jahr';
+					document.getElementById('calc-email-opp').textContent = fmt(emailOpp) + '/Mo';
+					document.getElementById('calc-cycle-loss').textContent = fmt(cycleLoss) + '/Mo';
 				}
 
 				traffic.addEventListener('input', calc);
 				cr.addEventListener('input', calc);
 				aov.addEventListener('input', calc);
+				emailList.addEventListener('input', calc);
+				salesCycle.addEventListener('input', calc);
 				calc();
 			})();
 
@@ -1199,8 +1235,32 @@ import { brand } from '../../config/brand';
 				if (!form) return;
 				form.addEventListener('submit', function(e) {
 					e.preventDefault();
-					form.style.display = 'none';
-					document.getElementById('newsletter-thanks').classList.remove('hidden');
+					var emailInput = form.querySelector('input[type="email"]');
+					var btn = form.querySelector('button[type="submit"]');
+					if (!emailInput || !btn) return;
+					btn.disabled = true;
+					btn.textContent = '...';
+					fetch('/api/subscribe', {
+						method: 'POST',
+						body: JSON.stringify({ email: emailInput.value }),
+						headers: { 'Content-Type': 'application/json' }
+					})
+					.then(function(res) { return res.json(); })
+					.then(function(data) {
+						if (data.success) {
+							form.style.display = 'none';
+							document.getElementById('newsletter-thanks').classList.remove('hidden');
+						} else {
+							btn.disabled = false;
+							btn.textContent = 'Anmelden \u2192';
+							alert('Etwas ist schiefgelaufen. Bitte versuche es nochmal.');
+						}
+					})
+					.catch(function() {
+						btn.disabled = false;
+						btn.textContent = 'Anmelden \u2192';
+						alert('Etwas ist schiefgelaufen. Bitte versuche es nochmal.');
+					});
 				});
 			})();
 		</script>
