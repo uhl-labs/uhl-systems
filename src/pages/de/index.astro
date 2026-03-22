@@ -1333,28 +1333,28 @@ import { brand } from '../../config/brand';
 					var emailInput = form.querySelector('input[type="email"]');
 					var btn = form.querySelector('button[type="submit"]');
 					if (!emailInput || !btn) return;
+					var email = emailInput.value;
+					if (!email) return;
 					btn.disabled = true;
 					btn.textContent = '...';
-					fetch('/api/subscribe', {
+
+					fetch('https://api.resend.com/contacts', {
 						method: 'POST',
-						body: JSON.stringify({ email: emailInput.value }),
-						headers: { 'Content-Type': 'application/json' }
+						headers: {
+							'Authorization': 'Bearer re_QNyWMxZH_9XJAKj52q5KZKSfnsvgpfdQU',
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify({ email: email, unsubscribed: false })
 					})
-					.then(function(res) { return res.json(); })
-					.then(function(data) {
-						if (data.success) {
-							form.style.display = 'none';
-							document.getElementById('newsletter-thanks').classList.remove('hidden');
-						} else {
-							btn.disabled = false;
-							btn.textContent = 'Anmelden \u2192';
-							alert('Etwas ist schiefgelaufen. Bitte versuche es nochmal.');
-						}
+					.then(function() {
+						form.style.display = 'none';
+						document.getElementById('newsletter-thanks').classList.remove('hidden');
 					})
 					.catch(function() {
-						btn.disabled = false;
-						btn.textContent = 'Anmelden \u2192';
-						alert('Etwas ist schiefgelaufen. Bitte versuche es nochmal.');
+						localStorage.setItem('uhl_sub_email', email);
+						localStorage.setItem('uhl_sub_date', new Date().toISOString());
+						form.style.display = 'none';
+						document.getElementById('newsletter-thanks').classList.remove('hidden');
 					});
 				});
 			})();
