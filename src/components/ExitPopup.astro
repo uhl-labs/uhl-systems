@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<script>
+<script is:inline>
 (function() {
   var shown = false;
   var STORAGE_KEY = "uhl_popup_shown";
@@ -61,7 +61,7 @@
   });
 
   // Time trigger: 2 minutes
-  setTimeout(showPopup, 120000);
+  setTimeout(showPopup, 15000);
 
   // Exit-intent: desktop only
   if (window.innerWidth > 768) {
