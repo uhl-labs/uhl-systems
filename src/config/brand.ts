@@ -28,7 +28,7 @@ export const brand = {
 
   strategyCall: {
     checkoutUrl: "https://shop.uhl-systems.com/checkout/buy/92492d9e-27cc-4337-8949-0be8c44c91bb",
-    price: "€97",
+    price: "97€",
     duration: "30 Min",
   },
 
@@ -49,13 +49,13 @@ export const brand = {
     {
       title: "The Revenue Leak Map",
       slug: "revenue-leak-map-guide",
-      price: "€97",
+      price: "97€",
       checkoutUrl: "https://shop.uhl-systems.com/checkout/buy/57a6a1ca-9ee1-4009-a121-1c2b650df329",
     },
     {
       title: "Conversion Audit Checklist",
       slug: "conversion-audit-checklist",
-      price: "€47",
+      price: "47€",
       checkoutUrl: "https://shop.uhl-systems.com/checkout/buy/e521440a-3290-4747-a404-978556264dae",
     },
     {
@@ -67,7 +67,7 @@ export const brand = {
     {
       title: "The 90-Day Revenue System Playbook",
       slug: "90-day-revenue-playbook",
-      price: "€197",
+      price: "197€",
       checkoutUrl: "https://shop.uhl-systems.com/checkout/buy/531a2a29-8a07-484a-9ef6-84798405b20e",
     }
   ],

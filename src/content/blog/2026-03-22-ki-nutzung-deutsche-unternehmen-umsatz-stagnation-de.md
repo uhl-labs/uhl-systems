@@ -119,6 +119,6 @@ Wenn dein Umsatz trotz KI-Investment stagniert, hast du kein Technologie-Problem
 
 Wie das CRO-vs-Architecture Problem zeigt, das wir in [unserem letzten Artikel ueber Revenue Architecture](/de/blog/2026-03-21-conversion-rate-optimierung-tot-revenue-architecture-de/) beschrieben haben: Einzelne Optimierungen aendern nichts, wenn das System als Ganzes nicht stimmt.
 
-**[Buch einen Strategy Call fuer €97](https://shop.uhl-systems.com/checkout/buy/92492d9e-27cc-4337-8949-0be8c44c91bb)** und wir analysieren dein Revenue System - wo KI tatsaechlich Umsatz treiben kann und wo du gerade nur Lizenzen bezahlst.
+**[Buch einen Strategy Call fuer 97€](https://shop.uhl-systems.com/checkout/buy/92492d9e-27cc-4337-8949-0be8c44c91bb)** und wir analysieren dein Revenue System - wo KI tatsaechlich Umsatz treiben kann und wo du gerade nur Lizenzen bezahlst.
 
 Dein Problem ist nicht, dass du zu wenig KI nutzt. Dein Problem ist, dass du kein System hast, in dem KI Umsatz produziert.
