@@ -24,10 +24,16 @@
       <!-- Subtext -->
       <p id="exit-popup-subtext" style="font-family:Helvetica,Arial,sans-serif;font-size:12pt;color:#888;margin:0 0 28px;line-height:1.65;"></p>
 
-      <!-- CTA -->
-      <a id="exit-popup-cta" href="https://shop.uhl-systems.com/checkout/buy/92492d9e-27cc-4337-8949-0be8c44c91bb" style="display:flex;align-items:center;justify-content:space-between;background:#e8ff00;color:#0a0a0a;font-weight:800;font-family:Helvetica,Arial,sans-serif;padding:16px 20px;border-radius:10px;text-decoration:none;font-size:12pt;margin-bottom:14px;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 0 24px rgba(232,255,0,0.2);">
+      <!-- Primary CTA: Strategy Call -->
+      <a id="exit-popup-cta" href="https://shop.uhl-systems.com/checkout/buy/92492d9e-27cc-4337-8949-0be8c44c91bb" style="display:flex;align-items:center;justify-content:space-between;background:#e8ff00;color:#0a0a0a;font-weight:800;font-family:Helvetica,Arial,sans-serif;padding:16px 20px;border-radius:10px;text-decoration:none;font-size:12pt;margin-bottom:10px;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 0 24px rgba(232,255,0,0.2);">
         <span id="exit-popup-cta-text"></span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+
+      <!-- Secondary CTA: Shop -->
+      <a id="exit-popup-shop" href="" style="display:flex;align-items:center;justify-content:space-between;background:transparent;border:1px solid #2a2a2a;color:#ccc;font-weight:600;font-family:Helvetica,Arial,sans-serif;padding:13px 20px;border-radius:10px;text-decoration:none;font-size:11pt;margin-bottom:14px;transition:border-color 0.2s,color 0.2s;">
+        <span id="exit-popup-shop-text"></span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
 
       <!-- Dismiss -->
@@ -60,12 +66,16 @@
       ? "Weisst du wie wertvoll 2 Minuten Aufmerksamkeit in 2026 sind? Und die hast du mir geschenkt. Lass sie nicht umsonst sein."
       : "Do you know how valuable 2 minutes of attention is in 2026? And you just gave them to me. Let's make them count.",
     cta: isDE ? "Strategy Call buchen - 97€" : "Book Strategy Call - 97€",
+    shop: isDE ? "Produkte ansehen - ab 47€" : "Browse products - from 47€",
+    shopUrl: isDE ? "/de/shop/" : "/shop/",
     dismiss: isDE ? "Ich versuche es erstmal alleine" : "I'll figure it out on my own"
   };
 
   document.getElementById("exit-popup-headline").textContent = copy.headline;
   document.getElementById("exit-popup-subtext").textContent = copy.subtext;
   document.getElementById("exit-popup-cta-text").textContent = copy.cta;
+  document.getElementById("exit-popup-shop-text").textContent = copy.shop;
+  document.getElementById("exit-popup-shop").setAttribute("href", copy.shopUrl);
   document.getElementById("exit-popup-dismiss").textContent = copy.dismiss;
 
   function showPopup() {
