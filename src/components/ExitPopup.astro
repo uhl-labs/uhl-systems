@@ -1,20 +1,55 @@
 ---
 ---
-<div id="exit-popup-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(4px);z-index:9999;align-items:center;justify-content:center;padding:20px;">
-  <div id="exit-popup-card" style="background:#111;border:1px solid rgba(232,255,0,0.3);border-top:3px solid #e8ff00;border-radius:12px;max-width:480px;width:100%;padding:40px;position:relative;transform:translateY(20px);opacity:0;transition:all 0.3s ease;">
-    <button id="exit-popup-close" style="position:absolute;top:16px;right:16px;background:none;border:none;color:#666;font-size:20px;cursor:pointer;line-height:1;">x</button>
-    <p id="exit-popup-headline" style="font-family:Helvetica,Arial,sans-serif;font-size:26pt;font-weight:800;color:#fff;margin:0 0 16px;line-height:1.1;"></p>
-    <p id="exit-popup-subtext" style="font-family:Helvetica,Arial,sans-serif;font-size:13pt;color:#aaa;margin:0 0 32px;line-height:1.6;"></p>
-    <a id="exit-popup-cta" href="https://shop.uhl-systems.com/checkout/buy/92492d9e-27cc-4337-8949-0be8c44c91bb" style="display:block;background:#e8ff00;color:#0a0a0a;font-weight:800;font-family:Helvetica,Arial,sans-serif;text-align:center;padding:16px 24px;border-radius:8px;text-decoration:none;font-size:13pt;margin-bottom:16px;"></a>
-    <button id="exit-popup-dismiss" style="display:block;width:100%;background:none;border:none;color:#555;font-size:11pt;cursor:pointer;font-family:Helvetica,Arial,sans-serif;"></button>
+<div id="exit-popup-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);z-index:9999;align-items:center;justify-content:center;padding:20px;">
+  <div id="exit-popup-card" style="background:#0d0d0d;border:1px solid #2a2a2a;border-radius:16px;max-width:440px;width:100%;position:relative;transform:translateY(24px);opacity:0;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);overflow:hidden;">
+
+    <!-- Top accent bar with neon glow -->
+    <div style="height:3px;background:linear-gradient(90deg,#00ff88,#e8ff00);box-shadow:0 0 20px rgba(232,255,0,0.4);"></div>
+
+    <!-- Close button -->
+    <button id="exit-popup-close" style="position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.06);border:none;color:#666;width:28px;height:28px;border-radius:6px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;line-height:1;transition:background 0.2s;">×</button>
+
+    <!-- Content -->
+    <div style="padding:36px 36px 28px;">
+
+      <!-- Label -->
+      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(232,255,0,0.1);border:1px solid rgba(232,255,0,0.2);border-radius:100px;padding:4px 12px;margin-bottom:20px;">
+        <div style="width:6px;height:6px;border-radius:50%;background:#e8ff00;box-shadow:0 0 8px #e8ff00;animation:pulse-dot 2s infinite;"></div>
+        <span style="font-family:monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#e8ff00;">Revenue Systems</span>
+      </div>
+
+      <!-- Headline -->
+      <p id="exit-popup-headline" style="font-family:Helvetica,Arial,sans-serif;font-size:28pt;font-weight:800;color:#ffffff;margin:0 0 14px;line-height:1.05;letter-spacing:-0.5px;"></p>
+
+      <!-- Subtext -->
+      <p id="exit-popup-subtext" style="font-family:Helvetica,Arial,sans-serif;font-size:12pt;color:#888;margin:0 0 28px;line-height:1.65;"></p>
+
+      <!-- CTA -->
+      <a id="exit-popup-cta" href="https://shop.uhl-systems.com/checkout/buy/92492d9e-27cc-4337-8949-0be8c44c91bb" style="display:flex;align-items:center;justify-content:space-between;background:#e8ff00;color:#0a0a0a;font-weight:800;font-family:Helvetica,Arial,sans-serif;padding:16px 20px;border-radius:10px;text-decoration:none;font-size:12pt;margin-bottom:14px;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 0 24px rgba(232,255,0,0.2);">
+        <span id="exit-popup-cta-text"></span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+
+      <!-- Dismiss -->
+      <button id="exit-popup-dismiss" style="display:block;width:100%;background:none;border:none;color:#444;font-size:10pt;cursor:pointer;font-family:Helvetica,Arial,sans-serif;padding:6px;transition:color 0.2s;"></button>
+    </div>
   </div>
 </div>
+
+<style>
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  #exit-popup-close:hover { background: rgba(255,255,255,0.1); color: #fff; }
+  #exit-popup-cta:hover { transform: translateY(-1px); box-shadow: 0 0 32px rgba(232,255,0,0.35); }
+  #exit-popup-dismiss:hover { color: #777; }
+</style>
 
 <script is:inline>
 (function() {
   var shown = false;
   var STORAGE_KEY = "uhl_popup_shown";
-
   if (localStorage.getItem(STORAGE_KEY)) return;
 
   var isDE = window.location.pathname.startsWith("/de");
@@ -24,13 +59,13 @@
     subtext: isDE
       ? "Du bist schon eine Weile hier. Das bedeutet meistens, dass was haengengeblieben ist. Lass uns herausfinden ob wir zusammenarbeiten koennen."
       : "You have been reading for a while. That usually means something clicked. Let us find out if we can work together.",
-    cta: isDE ? "Strategy Call buchen - 97 Euros" : "Book Strategy Call - 97 Euros",
+    cta: isDE ? "Strategy Call buchen - 97€" : "Book Strategy Call - 97€",
     dismiss: isDE ? "Ich versuche es erstmal alleine" : "I'll figure it out on my own"
   };
 
   document.getElementById("exit-popup-headline").textContent = copy.headline;
   document.getElementById("exit-popup-subtext").textContent = copy.subtext;
-  document.getElementById("exit-popup-cta").textContent = copy.cta;
+  document.getElementById("exit-popup-cta-text").textContent = copy.cta;
   document.getElementById("exit-popup-dismiss").textContent = copy.dismiss;
 
   function showPopup() {
@@ -47,11 +82,11 @@
   }
 
   function hidePopup() {
-    var overlay = document.getElementById("exit-popup-overlay");
     var card = document.getElementById("exit-popup-card");
-    card.style.transform = "translateY(20px)";
+    var overlay = document.getElementById("exit-popup-overlay");
+    card.style.transform = "translateY(24px)";
     card.style.opacity = "0";
-    setTimeout(function() { overlay.style.display = "none"; }, 300);
+    setTimeout(function() { overlay.style.display = "none"; }, 350);
   }
 
   document.getElementById("exit-popup-close").addEventListener("click", hidePopup);
@@ -60,10 +95,10 @@
     if (e.target === this) hidePopup();
   });
 
-  // Time trigger: 2 minutes
-  setTimeout(showPopup, 15000);
+  // 2 minutes timer (120s) - test: 15s
+  setTimeout(showPopup, 120000);
 
-  // Exit-intent: desktop only
+  // Exit-intent desktop only
   if (window.innerWidth > 768) {
     document.addEventListener("mouseleave", function(e) {
       if (e.clientY < 10) showPopup();
