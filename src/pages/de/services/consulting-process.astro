@@ -1,0 +1,255 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+import { brand } from '../../../config/brand';
+---
+
+<!doctype html>
+<html lang="de">
+	<head>
+		<BaseHead title="So laeuft die Zusammenarbeit | UHL Systems" description="Kein Raten. Keine schwammigen Deliverables. Das ist der exakte 3-Phasen-Prozess hinter unserem Revenue Systems Consulting." />
+		<style>
+			.hero-headline {
+				font-size: clamp(36px, 6vw, 64px);
+				line-height: 1.1;
+				letter-spacing: -0.03em;
+			}
+			.content-width {
+				max-width: 900px;
+				margin: 0 auto;
+			}
+			.cta-primary {
+				background-color: var(--color-accent);
+				color: var(--color-bg);
+				border-radius: 999px;
+				padding: 14px 36px;
+				font-weight: 600;
+				transition: all 0.2s;
+			}
+			.cta-primary:hover {
+				box-shadow: 0 0 32px rgba(0, 255, 136, 0.35);
+				color: var(--color-bg);
+			}
+
+			/* Timeline */
+			.timeline {
+				position: relative;
+				padding-left: 0;
+			}
+			@media (min-width: 768px) {
+				.timeline {
+					padding-left: 80px;
+				}
+			}
+			.timeline::before {
+				content: '';
+				position: absolute;
+				left: 31px;
+				top: 0;
+				bottom: 0;
+				width: 2px;
+				background: linear-gradient(to bottom, var(--color-accent), rgba(0, 255, 136, 0.1));
+				display: none;
+			}
+			@media (min-width: 768px) {
+				.timeline::before {
+					display: block;
+				}
+			}
+			.phase-card {
+				position: relative;
+				border: 1px solid var(--color-border);
+				background: var(--color-bg2);
+				border-radius: 16px;
+				padding: 40px 32px;
+				transition: all 0.3s;
+			}
+			.phase-card:hover {
+				border-color: rgba(0, 255, 136, 0.25);
+				background: var(--color-bg3);
+			}
+			.phase-number {
+				width: 48px;
+				height: 48px;
+				border-radius: 50%;
+				border: 2px solid var(--color-accent);
+				background: var(--color-bg);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-family: var(--font-display);
+				font-weight: 800;
+				font-size: 20px;
+				color: var(--color-accent);
+				flex-shrink: 0;
+			}
+			@media (min-width: 768px) {
+				.phase-number {
+					position: absolute;
+					left: -80px;
+					top: 40px;
+					width: 56px;
+					height: 56px;
+					font-size: 22px;
+				}
+			}
+			.phase-bullet {
+				position: relative;
+				padding-left: 20px;
+				color: var(--color-muted);
+				font-size: 15px;
+				line-height: 1.7;
+			}
+			.phase-bullet::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 10px;
+				width: 6px;
+				height: 6px;
+				border-radius: 50%;
+				background: var(--color-accent);
+			}
+			.deliverable {
+				border-top: 1px solid var(--color-border);
+				margin-top: 20px;
+				padding-top: 16px;
+				color: var(--color-text);
+				font-weight: 500;
+				font-size: 15px;
+			}
+			.deliverable span {
+				color: var(--color-accent);
+				font-weight: 700;
+				margin-right: 6px;
+			}
+			.guarantee-card {
+				border: 1px solid rgba(0, 255, 136, 0.2);
+				background: rgba(0, 255, 136, 0.03);
+				border-radius: 16px;
+				padding: 40px 32px;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+
+		<!-- Hero -->
+		<section class="relative overflow-hidden px-6 py-24 md:py-36">
+			<div class="content-width text-center">
+				<p class="fade-in mb-6 font-mono text-sm tracking-widest text-accent uppercase">Revenue Systems Consulting</p>
+				<h1 class="hero-headline fade-in fade-in-delay-1 font-display font-bold text-text">
+					So laeuft es, wenn du dabei bist.
+				</h1>
+				<p class="fade-in fade-in-delay-2 mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted">
+					Kein Raten. Keine schwammigen Deliverables. Das ist der exakte Prozess.
+				</p>
+			</div>
+			<div class="pointer-events-none absolute inset-0 -z-10" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px;"></div>
+			<div class="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full" style="background: radial-gradient(circle, rgba(0,255,136,0.05) 0%, transparent 70%);"></div>
+		</section>
+
+		<!-- Timeline -->
+		<section class="border-t border-border px-6 py-28">
+			<div class="content-width">
+				<div class="timeline space-y-10">
+
+					<!-- Phase 1 -->
+					<div class="phase-card fade-in">
+						<div class="mb-6 flex items-center gap-4">
+							<div class="phase-number">1</div>
+							<div>
+								<h2 class="text-2xl font-bold text-text font-display">Diagnose</h2>
+								<p class="font-mono text-xs tracking-wider text-accent uppercase">Woche 1-2</p>
+							</div>
+						</div>
+						<div class="space-y-3">
+							<p class="phase-bullet">90-Minuten Revenue Leak Audit (Deep Dive in dein System)</p>
+							<p class="phase-bullet">Komplette Revenue Leak Map (7 Dimensionen, quantifiziert)</p>
+							<p class="phase-bullet">Priority Stack: welche Lecks dich am meisten kosten, in welcher Reihenfolge sie zu fixen sind</p>
+						</div>
+						<div class="deliverable">
+							<span>Du bekommst:</span> ein Dokument, mit dem du handeln kannst - mit oder ohne uns
+						</div>
+					</div>
+
+					<!-- Phase 2 -->
+					<div class="phase-card fade-in">
+						<div class="mb-6 flex items-center gap-4">
+							<div class="phase-number">2</div>
+							<div>
+								<h2 class="text-2xl font-bold text-text font-display">Architektur</h2>
+								<p class="font-mono text-xs tracking-wider text-accent uppercase">Woche 3-4</p>
+							</div>
+						</div>
+						<div class="space-y-3">
+							<p class="phase-bullet">Revenue System Design: Conversion Flows, Angebotsstruktur, Monetarisierungs-Layer</p>
+							<p class="phase-bullet">Implementierungs-Roadmap: was gebaut wird, in welcher Reihenfolge, mit welchem erwarteten Impact</p>
+							<p class="phase-bullet">Tech Stack Entscheidungen: welche Tools, welche Automations, welche du nie brauchst</p>
+						</div>
+						<div class="deliverable">
+							<span>Du bekommst:</span> einen kompletten Blueprint, bereit zur Umsetzung
+						</div>
+					</div>
+
+					<!-- Phase 3 -->
+					<div class="phase-card fade-in">
+						<div class="mb-6 flex items-center gap-4">
+							<div class="phase-number">3</div>
+							<div>
+								<h2 class="text-2xl font-bold text-text font-display">Umsetzung</h2>
+								<p class="font-mono text-xs tracking-wider text-accent uppercase">Woche 5-12</p>
+							</div>
+						</div>
+						<div class="space-y-3">
+							<p class="phase-bullet">Wir bauen. Du gibst frei. Systeme gehen live.</p>
+							<p class="phase-bullet">Woechentliche Check-ins: was shipped wurde, was als naechstes kommt, was sich geaendert hat</p>
+							<p class="phase-bullet">Iteration basierend auf Daten, nicht Bauchgefuehl</p>
+						</div>
+						<div class="deliverable">
+							<span>Du bekommst:</span> ein laufendes Revenue System mit messbaren Ergebnissen
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- Guarantee -->
+		<section class="border-t border-border px-6 py-20">
+			<div class="content-width">
+				<div class="guarantee-card text-center">
+					<div class="mb-4 text-3xl">
+						<svg class="mx-auto text-accent" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+					</div>
+					<p class="mx-auto max-w-xl text-lg leading-relaxed text-muted">
+						Wenn du nach Phase 1 merkst, dass es nicht passt - zahlst du nur fuer das Audit. Keine Verpflichtung darueber hinaus.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA -->
+		<section class="border-t border-border px-6 py-28">
+			<div class="content-width text-center">
+				<p class="mb-4 font-mono text-sm tracking-widest text-accent uppercase">Bereit?</p>
+				<h2 class="mb-6 font-display text-3xl font-bold text-text md:text-4xl">
+					Starte mit einem Strategy Call
+				</h2>
+				<p class="mx-auto mb-14 max-w-xl text-muted">
+					30 Minuten. Wir schauen, wo du stehst, was die groessten Lecks sind, und ob das hier der richtige Fit ist.
+				</p>
+				<div class="flex flex-col items-center gap-4">
+					<a href={brand.strategyCall.checkoutUrl} class="cta-primary inline-flex items-center gap-2">
+						Strategy Call buchen - €97
+						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+					</a>
+					<p class="font-mono text-xs text-muted">30 Min | €97 | Wird auf das Projekt angerechnet</p>
+				</div>
+			</div>
+		</section>
+
+		<Footer />
+	</body>
+</html>
